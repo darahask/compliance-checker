@@ -1,0 +1,22 @@
+{
+  "name": "compliance-checker",
+  "version": "1.0.0",
+  "description": "Checks SSL, Cookies and website's ada compliance",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darahask/compliance-checker.git"
+  },
+  "author": "darahask",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darahask/compliance-checker/issues"
+  },
+  "homepage": "https://github.com/darahask/compliance-checker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
