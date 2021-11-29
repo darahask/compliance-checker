@@ -29,17 +29,29 @@ module.exports = instance = async (host) => {
   var consent = RegExp('Cookie','i').test(extractedText.trim());
   console.log("The browser has cookie consent",consent)
   
-  const urls = await page.evaluate(()=>{
-    var urlList = [];
-    data = document.getElementsByTagName('a')
-    for(const [key,val] of Object.entries(data)){
-      urlList.push(val.href)
-    }
-    return urlList
+  // const urls = await page.evaluate(()=>{
+  //   var urlList = [];
+  //   data = document.getElementsByTagName('a')
+  //   for(const [key,val] of Object.entries(data)){
+  //     urlList.push(val.href)
+  //   }
+  //   return urlList
+  // })
+  // console.log(urls)
+  
+  const alts = await page.evaluate(()=>{
+    var altList = [];
+    data = document.getElementsByTagName('img')
+    // for(const [key,val] of Object.entries(data)){
+    //   altList.push(val.alt)
+    // }
+    return data
   })
 
-  console.log(urls)
-  
+  console.log(alts)
+
+
+
   await browser.close();
 };
 

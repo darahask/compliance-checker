@@ -2,7 +2,7 @@ const instance = require('./browser')
 const checkSSL = require("./checkSSL")
 
 
-HOST = 'www.stackoverflow.com'
+HOST = 'www.textlocal.com/'
 
 var options = {
     method: "HEAD",
