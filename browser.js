@@ -3,6 +3,7 @@ const puppeteer =  require('puppeteer');
 module.exports = instance = async (host) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
+  await page.setDefaultNavigationTimeout(0);
   await page.goto('https://'+host);
   await page.addScriptTag({url: 'https://code.jquery.com/jquery-3.2.1.min.js'})
   // console.log(page);
@@ -13,22 +14,10 @@ module.exports = instance = async (host) => {
   });
   console.log(cookies);
 
-  // const result = await page.evaluate(()=>{
-  //   var  data = []
-  //   try {
-  //     return $('a')
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // })
-  // // console.log('Cookies:', cookies);
-  // // console.log('DOM', dom);
-  // console.log('anchor tags', result);
-
   const extractedText = await page.$eval('*', (el) => el.innerText);
   var consent = RegExp('Cookie','i').test(extractedText.trim());
   console.log("The browser has cookie consent",consent)
-  
+// Getting list of hyperlinks.
   // const urls = await page.evaluate(()=>{
   //   var urlList = [];
   //   data = document.getElementsByTagName('a')
@@ -39,32 +28,25 @@ module.exports = instance = async (host) => {
   // })
   // console.log(urls)
   
-  const alts = await page.evaluate(()=>{
-    var altList = [];
-    data = document.getElementsByTagName('img')
-    // for(const [key,val] of Object.entries(data)){
-    //   altList.push(val.alt)
-    // }
-    return data
-  })
+// Alternate text score calculation.
+  // const alts = await page.evaluate(()=>{
+  //   var score=0;
+  //   data = document.getElementsByTagName('img')
+  //   for(const [key,val] of Object.entries(data)){
+  //     if(val.alt.trim()!=='')
+  //     {
+  //       score+=1;
+  //     }
+  //   }
+  //  return {"totalimg":data.length,
+  //           "score":score}
+  // })
 
-  console.log(alts)
+  // console.log(alts)
 
+// Tab Index score calculation
+const extractedText = await page.$eval('*', (el) => el.innerText);
 
 
   await browser.close();
 };
-
-function getLinksFromHtml(htmlString) {
-  // Regular expression that matches syntax for a link (https://stackoverflow.com/a/3809435/117030):
-  LINK_REGEX = "/https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/gi";
-
-  // Use the regular expression from above to find all the links:
-  matches = htmlString.match(LINK_REGEX);
-
-  // Output to console:
-  console.log(matches);
-
-  // Alternatively, return the array of links for further processing:
-  return matches;
-}
