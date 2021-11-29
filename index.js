@@ -1,4 +1,4 @@
-const crawl = require('./browser')
+const instance = require('./browser')
 const checkSSL = require("./checkSSL")
 
 
@@ -11,5 +11,5 @@ var options = {
 };
 
 
-checkSSL(HOST,options);
-crawl(HOST);
+// checkSSL(HOST,options);
+instance(HOST);
