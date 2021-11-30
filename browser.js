@@ -4,7 +4,7 @@ module.exports = instance = async (host) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
-  await page.goto('https://'+host);
+  await page.goto('http://'+host);
   await page.addScriptTag({url: 'https://code.jquery.com/jquery-3.2.1.min.js'})
   let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
   // console.log(page);
@@ -94,19 +94,28 @@ module.exports = instance = async (host) => {
     var headings = $("h1, h2, h3, h4, h5, h6")
     var items = []
     var prevLevel
+    var dict = {}
+    // key : innerTag, val : H tag
     headings.each((i,el)=>{
       var $el = $(el)
       var level = +$el.prop('tagName').slice(1)
-      if (i === 0 && level !== 1) {
-        items.push({"FIRST_NOT_H1":level});
-      } else if (prevLevel && level - prevLevel > 1) {
-        items.push({"NONCONSECUTIVE_HEADER ":prevLevel, level});
+      var content = $el.prop('innerText')
+      if(dict[content]!=null){
+        items.push({"repeating header name at":dict[content], level})
       }
+      dict[content] = level
+      if (i === 0 && level !== 1) {
+        items.push({"H1 not present, instead starts from ":level});
+      } else if (prevLevel && level - prevLevel > 1) {
+        items.push({"Non consecutive headers present at ":prevLevel, level});
+      }
+      
 
       prevLevel = level;
+      
     })
 
-    return items
+    return items;
   })
   console.log(headers)
   // Labeling Control
