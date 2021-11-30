@@ -109,7 +109,31 @@ module.exports = instance = async (host) => {
     return items
   })
   console.log(headers)
-
+  // Labeling Control
+  const labels = await page.evaluate(()=>{
+    var allInput = document.getElementsByTagName("input, select");
+    var allLabel = document.getElementsByTagName("label");
+    var control_violation = []
+    var flag = -1
+    for (var i=0, max=allInput.length; i < max; i++) {
+      var name = allLabel[i].id;
+      flag = -1
+      for(var i=0, max=allLabel.length; i < max; i++)
+      {
+          if(name===allLabel[i].for)
+          {
+            flag = 0
+            break
+          }
+      }
+      
+      control_violation.push(allInput[i].tagName)
+      
+      // console.log(all[i].tabIndex);
+    }
+    return control_violation
+  })
+  console.log("Violated Lables", labels)
   await browser.close();
 
 };
