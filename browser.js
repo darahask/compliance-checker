@@ -62,7 +62,7 @@ module.exports = instance = async (host) => {
   //   console.log(x[i]);
   // }
   
-// Alternate text score calculation.
+  // Alternate text score calculation.
   const alts = await page.evaluate(()=>{
     var score=0;
     data = document.getElementsByTagName('img')
@@ -78,16 +78,38 @@ module.exports = instance = async (host) => {
 
   console.log("Alternate Image Violations: ",alts)
 
-// Getting list of hyperlinks.
-const urls = await page.evaluate(()=>{
-  var urlList = [];
-  data = document.getElementsByTagName('a')
-  for(const [key,val] of Object.entries(data)){
-    urlList.push(val.href)
-  }
-  return urlList
-})
-console.log(urls)
+  // Getting list of hyperlinks.
+  const urls = await page.evaluate(()=>{
+    var urlList = [];
+    data = document.getElementsByTagName('a')
+    for(const [key,val] of Object.entries(data)){
+      urlList.push(val.href)
+    }
+    return urlList
+  })
+  console.log(urls)
+
+  const headers = await page.evaluate(()=>{
+    // var headings = document.getElementsByTagName("h")
+    var headings = $("h1, h2, h3, h4, h5, h6")
+    var items = []
+    var prevLevel
+    headings.each((i,el)=>{
+      var $el = $(el)
+      var level = +$el.prop('tagName').slice(1)
+      if (i === 0 && level !== 1) {
+        items.push({"FIRST_NOT_H1":level});
+      } else if (prevLevel && level - prevLevel > 1) {
+        items.push({"NONCONSECUTIVE_HEADER ":prevLevel, level});
+      }
+
+      prevLevel = level;
+    })
+
+    return items
+  })
+  console.log(headers)
 
   await browser.close();
+
 };
