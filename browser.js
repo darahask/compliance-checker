@@ -120,25 +120,18 @@ module.exports = instance = async (host) => {
   console.log(headers)
   // Labeling Control
   const labels = await page.evaluate(()=>{
-    var allInput = document.getElementsByTagName("input, select");
+    var allInput = document.getElementsByTagName("input");
     var allLabel = document.getElementsByTagName("label");
     var control_violation = []
-    var flag = -1
-    for (var i=0, max=allInput.length; i < max; i++) {
-      var name = allLabel[i].id;
-      flag = -1
-      for(var i=0, max=allLabel.length; i < max; i++)
-      {
-          if(name===allLabel[i].for)
-          {
-            flag = 0
-            break
-          }
+    var flag
+    var dict = {}
+    for (var i=0, max=allLabel.length; i < max; i++) {
+      dict[allLabel[i].getAttribute("for")] = "exists";
+    }
+    for(var j=0, max2=allInput.length; j < max2; j++){
+      if(!(allInput[j].id in dict)){
+        control_violation.push(allInput[j].id)
       }
-      
-      control_violation.push(allInput[i].tagName)
-      
-      // console.log(all[i].tabIndex);
     }
     return control_violation
   })
