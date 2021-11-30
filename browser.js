@@ -6,6 +6,7 @@ module.exports = instance = async (host) => {
   await page.setDefaultNavigationTimeout(0);
   await page.goto('https://'+host);
   await page.addScriptTag({url: 'https://code.jquery.com/jquery-3.2.1.min.js'})
+  let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
   // console.log(page);
   const cookies = await page.evaluate(() => {
     return {
@@ -16,37 +17,77 @@ module.exports = instance = async (host) => {
 
   const extractedText = await page.$eval('*', (el) => el.innerText);
   var consent = RegExp('Cookie','i').test(extractedText.trim());
-  console.log("The browser has cookie consent",consent)
-// Getting list of hyperlinks.
-  // const urls = await page.evaluate(()=>{
-  //   var urlList = [];
-  //   data = document.getElementsByTagName('a')
-  //   for(const [key,val] of Object.entries(data)){
-  //     urlList.push(val.href)
-  //   }
-  //   return urlList
-  // })
-  // console.log(urls)
+  console.log("The browser has cookie consent? ",consent)
+
+  // Tab Index violation check
+  
+  const tabIndex_v = await page.evaluate(()=>{
+    var tabIndex = []
+    var tag = []
+    var all = document.getElementsByTagName("*");
+
+    for (var i=0, max=all.length; i < max; i++) {
+      tabIndex.push(all[i].tabIndex);
+      tag.push(all[i].tagName)
+      // console.log(all[i].tabIndex);
+    }
+    return {"tabIndex":tabIndex,
+            "tag":tag}
+  })
+  var x = tabIndex_v
+  var int_violation =0
+  var tabIndex_violation = 0
+  for(var i in x['tabIndex'])
+  {
+    if(interactive_content.includes(x['tag'][i].toLowerCase()))
+    {
+      if(Number(x['tabIndex'][i]) === -1)
+      {
+        int_violation+=1;
+       // console.log("Violations: ", x['tag'][i]);
+      }
+      
+    }
+    if(x['tabIndex'][i]!==0 && x['tabIndex'][i]!==-1)
+    {
+      tabIndex_violation+=1
+    }
+    //console.log(x['tabIndex'][i],"  ", x['tag'][i]);
+  }
+  
+  console.log("Number of Interactive Elements Violations: ",int_violation)
+  console.log("Number of tabIndex violations: ",tabIndex_violation)
+  // for(var i in x)
+  // {
+  //   console.log(x[i]);
+  // }
   
 // Alternate text score calculation.
-  // const alts = await page.evaluate(()=>{
-  //   var score=0;
-  //   data = document.getElementsByTagName('img')
-  //   for(const [key,val] of Object.entries(data)){
-  //     if(val.alt.trim()!=='')
-  //     {
-  //       score+=1;
-  //     }
-  //   }
-  //  return {"totalimg":data.length,
-  //           "score":score}
-  // })
+  const alts = await page.evaluate(()=>{
+    var score=0;
+    data = document.getElementsByTagName('img')
+    for(const [key,val] of Object.entries(data)){
+      if(val.alt.trim()!=='')
+      {
+        score+=1;
+      }
+    }
+   return {"totalimg":data.length,
+            "score":score}
+  })
 
-  // console.log(alts)
+  console.log("Alternate Image Violations: ",alts)
 
-// Tab Index score calculation
-const extractedText = await page.$eval('*', (el) => el.innerText);
-
+// Getting list of hyperlinks.
+const urls = await page.evaluate(()=>{
+  var urlList = [];
+  data = document.getElementsByTagName('a')
+  for(const [key,val] of Object.entries(data)){
+    urlList.push(val.href)
+  }
+  return urlList
+})
+console.log(urls)
 
   await browser.close();
 };
