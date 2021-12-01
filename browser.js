@@ -1,19 +1,17 @@
+const e = require('express');
 const puppeteer =  require('puppeteer');
 
 module.exports = instance = async (host) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
-  await page.goto('http://'+host);
+  await page.goto('https://'+host);
   await page.addScriptTag({url: 'https://code.jquery.com/jquery-3.2.1.min.js'})
   let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
   // console.log(page);
-  const cookies = await page.evaluate(() => {
-    return {
-      allCookies: document.cookie,
-    };
-  });
-  console.log(cookies);
+
+  // Cookie in details printed
+  // console.log(await page._client.send('Network.getAllCookies'));
 
   const extractedText = await page.$eval('*', (el) => el.innerText);
   var consent = RegExp('Cookie','i').test(extractedText.trim());
@@ -87,7 +85,7 @@ module.exports = instance = async (host) => {
     }
     return urlList
   })
-  console.log(urls)
+ // console.log(urls)
 
   const headers = await page.evaluate(()=>{
     // var headings = document.getElementsByTagName("h")
@@ -136,6 +134,66 @@ module.exports = instance = async (host) => {
     return control_violation
   })
   console.log("Violated Lables", labels)
+// Cookie Consent and Manage
+  const cookie_consent = await page.evaluate(()=>{
+    var div_id = []
+    var buttons
+    $("div[id*='consent' i], div[class*='consent' i], div[class*='cookie' i], div[class*='cookie' i]").each((i, el)=>{
+      // div_id.push(el.id)
+      // if(RegExp('Cookie','i').test(el.innerText.trim()))
+      // {
+       buttons = $(el).find('button')
+        for(const [key,val] of Object.entries(buttons))
+        {
+            div_id.push(val.innerText)
+        }
+      // }
+    })
+    return div_id
+  })
+  var buttons = cookie_consent
+  var consent_flag = -1
+  var manage_flag = -1
+  var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i]
+  var manage_word = [/manage/i, /custom/i, /setting/i]
+  for(var i=0;i<buttons.length;i++)
+  {
+    if(consent_word.some(r => r.test(buttons[i]))){
+      consent_flag = i
+      //console.log("Consent", buttons[i])
+    }
+
+    if(manage_word.some(r => r.test(buttons[i]))){
+      manage_flag = i
+     // console.log("Manage",buttons[i])
+    }
+
+  }
+  if(consent_flag !== -1)
+  {
+    console.log("Consent!!")
+  }else
+  {
+    console.log("No Consent Found")
+  }
+  if(manage_flag !== -1 && manage_flag!== consent_flag)
+  {
+    console.log("Manage Cookie!!")
+  }else{
+    console.log("No Manage Cookies.")
+  }
+  // console.log(cookie_consent)
+
+
+//Cookie Settings
+// const cookie_settings = await page.evaluate(()=>{
+//   var all = document.getElementsByTagName("*");
+//   $("footer").find('#cookie, .cookie')
+//   for (var i=0, max=all.length; i < max; i++) {
+//     all[i].find('#cookie','.cookie')
+//   }
+//   return 
+// })
   await browser.close();
 
 };
