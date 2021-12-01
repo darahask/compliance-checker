@@ -1,27 +1,58 @@
 {
   cookies: [
     {
-      name: 'AKA_A2',
-      value: 'A',
-      domain: '.goldmansachs.com',
+      name: 'CFID',
+      value: '5627191',
+      domain: 'color.a11y.com',
       path: '/',
-      expires: 1638368030.72555,
-      size: 7,
+      expires: 2584445481.792032,
+      size: 11,
+      httpOnly: true,
+      secure: false,
+      session: false,
+      priority: 'Medium',
+      sameParty: false,
+      sourceScheme: 'Secure',
+      sourcePort: 443
+    },
+    {
+      name: 'CFTOKEN',
+      value: '656fd3e3f8b30de3-9DFB682C-5056-8F7F-EF9476CDB20EE04D',
+      domain: 'color.a11y.com',
+      path: '/',
+      expires: 2584445481.792154,
+      size: 59,
+      httpOnly: true,
+      secure: false,
+      session: false,
+      priority: 'Medium',
+      sameParty: false,
+      sourceScheme: 'Secure',
+      sourcePort: 443
+    },
+    {
+      name: 'AVPUID',
+      value: 'f5f2d1d3ed3464fb99283bb3039cb03a',
+      domain: 'accessibility.advertserve.com',
+      path: '/',
+      expires: 1669901484.350091,
+      size: 38,
       httpOnly: true,
       secure: true,
       session: false,
+      sameSite: 'None',
       priority: 'Medium',
       sameParty: false,
       sourceScheme: 'Secure',
       sourcePort: 443
     },
     {
-      name: 's_daysSince',
-      value: '1638364431924',
-      domain: '.goldmansachs.com',
+      name: '_ga',
+      value: 'GA1.2.271002216.1638365485',
+      domain: '.a11y.com',
       path: '/',
-      expires: 1732972431,
-      size: 24,
+      expires: 1701437484,
+      size: 29,
       httpOnly: false,
       secure: false,
       session: false,
@@ -31,12 +62,12 @@
       sourcePort: 443
     },
     {
-      name: 's_daysSince_s',
-      value: 'First%20Visit',
-      domain: '.goldmansachs.com',
+      name: '_gid',
+      value: 'GA1.2.728964519.1638365485',
+      domain: '.a11y.com',
       path: '/',
-      expires: 1638366231,
-      size: 26,
+      expires: 1638451884,
+      size: 30,
       httpOnly: false,
       secure: false,
       session: false,
@@ -46,12 +77,12 @@
       sourcePort: 443
     },
     {
-      name: 's_getNewRepeat',
-      value: '1638364431940-New',
-      domain: '.goldmansachs.com',
+      name: '_gat_gtag_UA_88388_23',
+      value: '1',
+      domain: '.a11y.com',
       path: '/',
-      expires: 1640956431,
-      size: 31,
+      expires: 1638365544,
+      size: 22,
       httpOnly: false,
       secure: false,
       session: false,
@@ -61,293 +92,77 @@
       sourcePort: 443
     },
     {
-      name: 's_vnum',
-      value: '1640956431950%26vn%3D1',
-      domain: '.goldmansachs.com',
+      name: '__hstc',
+      value: '233958593.b7486cc6bc8589824087d12e2aef9f45.1638365484846.1638365484846.1638365484846.1',
+      domain: 'color.a11y.com',
       path: '/',
-      expires: 1640956431,
-      size: 28,
+      expires: 1672061484,
+      size: 92,
       httpOnly: false,
       secure: false,
       session: false,
+      sameSite: 'Lax',
       priority: 'Medium',
       sameParty: false,
       sourceScheme: 'Secure',
       sourcePort: 443
     },
     {
-      name: 's_invisit',
-      value: 'true',
-      domain: '.goldmansachs.com',
+      name: 'hubspotutk',
+      value: 'b7486cc6bc8589824087d12e2aef9f45',
+      domain: 'color.a11y.com',
       path: '/',
-      expires: 1638366231,
-      size: 13,
+      expires: 1672061484,
+      size: 42,
       httpOnly: false,
       secure: false,
       session: false,
+      sameSite: 'Lax',
       priority: 'Medium',
       sameParty: false,
       sourceScheme: 'Secure',
       sourcePort: 443
     },
     {
-      name: 's_pv',
-      value: 'Goldman%20Sachs%3AGoldman%20Sachs',
-      domain: '.goldmansachs.com',
-      path: '/',
-      expires: 1638366231,
-      size: 37,
-      httpOnly: false,
-      secure: false,
-      session: false,
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 's_cc',
-      value: 'true',
-      domain: '.goldmansachs.com',
+      name: '__hssrc',
+      value: '1',
+      domain: 'color.a11y.com',
       path: '/',
       expires: -1,
       size: 8,
       httpOnly: false,
       secure: false,
       session: true,
+      sameSite: 'Lax',
       priority: 'Medium',
       sameParty: false,
       sourceScheme: 'Secure',
       sourcePort: 443
     },
     {
-      name: 'gsView',
-      value: 'desktop',
-      domain: 'www.goldmansachs.com',
+      name: '__hssc',
+      value: '233958593.1.1638365484846',
+      domain: 'color.a11y.com',
       path: '/',
-      expires: -1,
-      size: 13,
-      httpOnly: false,
-      secure: false,
-      session: true,
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'RT',
-      value: '"z=1&dm=goldmansachs.com&si=zhweupte538&ss=kwnjvqci&sl=0&tt=0"',
-      domain: '.goldmansachs.com',
-      path: '/',
-      expires: 1638969232,
-      size: 64,
+      expires: 1638367284,
+      size: 31,
       httpOnly: false,
       secure: false,
       session: false,
+      sameSite: 'Lax',
       priority: 'Medium',
       sameParty: false,
       sourceScheme: 'Secure',
       sourcePort: 443
     },
     {
-      name: 'gsInet',
-      value: 'fail',
-      domain: 'www.goldmansachs.com',
+      name: '__cf_bm',
+      value: 'q9z106pUHu5rBZdC5UIvyaNHUcPKxsiscY4xLuAxzAo-1638365485-0-AXzktRX6hnMnTpxlE17RxWcgwi9N8zEdv2bQeA7VfE0fCCDDCMh6a6jDx/Z3ncKjB/PvE1nRW7GSJGZ4tVfZO/o=',
+      domain: '.hubspot.com',
       path: '/',
-      expires: 1669900432,
-      size: 10,
-      httpOnly: false,
-      secure: false,
-      session: false,
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: '_fbp',
-      value: 'fb.1.1638364432372.192449961',
-      domain: '.goldmansachs.com',
-      path: '/',
-      expires: 1646140432,
-      size: 32,
-      httpOnly: false,
-      secure: false,
-      session: false,
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'fr',
-      value: '0YPKuwjc2iuGc69jU..Bhp3UR...1.0.Bhp3UR.',
-      domain: '.facebook.com',
-      path: '/',
-      expires: 1646140432.574193,
-      size: 41,
+      expires: 1638367285.246306,
+      size: 152,
       httpOnly: true,
-      secure: true,
-      session: false,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'li_sugr',
-      value: '2c940051-8c2f-4bd2-8652-7acdf79011f5',
-      domain: '.linkedin.com',
-      path: '/',
-      expires: 1646140434.235228,
-      size: 43,
-      httpOnly: false,
-      secure: true,
-      session: false,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'lang',
-      value: 'v=2&lang=en-us',
-      domain: '.ads.linkedin.com',
-      path: '/',
-      expires: -1,
-      size: 18,
-      httpOnly: false,
-      secure: true,
-      session: true,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'bcookie',
-      value: '"v=2&f445bfc3-7a27-4538-8950-2707a0a22206"',
-      domain: '.linkedin.com',
-      path: '/',
-      expires: 1701478285.186786,
-      size: 49,
-      httpOnly: false,
-      secure: true,
-      session: false,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'lidc',
-      value: '"b=OGST09:s=O:r=O:a=O:p=O:g=2140:u=1:x=1:i=1638364433:t=1638450833:v=2:sig=AQGXkvKCg69S2hSDqAF1HWCMlTjwcNaQ"',
-      domain: '.linkedin.com',
-      path: '/',
-      expires: 1638450833.186878,
-      size: 112,
-      httpOnly: false,
-      secure: true,
-      session: false,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'UserMatchHistory',
-      value: 'AQLDa2pXthBGqQAAAX12IU4XOS_hTEccq1XgFbHppegnZHutaQ_crWJmO0D1zxRF140TcVKFzHBKIA',
-      domain: '.linkedin.com',
-      path: '/',
-      expires: 1640956433.488507,
-      size: 94,
-      httpOnly: false,
-      secure: true,
-      session: false,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'AnalyticsSyncHistory',
-      value: 'AQL9HCMULKFuiQAAAX12IU4XF6n3t1Iqym4AdTztv6wmhNglf6lqTIVtmku23gHj56SKqfji4D_ZsTAY6SVgZA',
-      domain: '.linkedin.com',
-      path: '/',
-      expires: 1640956433.488575,
-      size: 106,
-      httpOnly: false,
-      secure: true,
-      session: false,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'lang',
-      value: 'v=2&lang=en-us',
-      domain: '.linkedin.com',
-      path: '/',
-      expires: -1,
-      size: 18,
-      httpOnly: false,
-      secure: true,
-      session: true,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'bscookie',
-      value: '"v=1&20211201131354fc45c7e5-e5d4-44a8-8134-fc453ccda265AQEgjXiDOxS_y5pSrj-WA0yGYJLYys0U"',
-      domain: '.www.linkedin.com',
-      path: '/',
-      expires: 1701478286.932319,
-      size: 96,
-      httpOnly: true,
-      secure: true,
-      session: false,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'U',
-      value: 'c7debda932073bf6af4a5d86bd7ec5e1',
-      domain: '.adsymptotic.com',
-      path: '/',
-      expires: 1646140434.538105,
-      size: 33,
-      httpOnly: false,
-      secure: true,
-      session: false,
-      sameSite: 'None',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'u2',
-      value: 'a6ae8458-a2f5-41f8-9c30-4d4ae3fe48204Ei04g',
-      domain: '.serving-sys.com',
-      path: '/',
-      expires: 1646122379.584909,
-      size: 44,
-      httpOnly: false,
       secure: true,
       session: false,
       sameSite: 'None',
@@ -358,41 +173,17 @@
     }
   ]
 }
-The browser has cookie consent?  true
-Number of Interactive Elements Violations:  280
+The browser has cookie consent?  false
+Number of Interactive Elements Violations:  5
 Number of tabIndex violations:  0
-Alternate Image Violations:  { totalimg: 79, score: 70 }
-[
-  { 'H1 not present, instead starts from ': 3 },
-  { 'repeating header name at': 3, level: 4 },
-  { 'Non consecutive headers present at ': 1, level: 4 },
-  { 'Non consecutive headers present at ': 1, level: 4 },
-  { 'repeating header name at': 4, level: 2 },
-  { 'repeating header name at': 4, level: 2 },
-  { 'Non consecutive headers present at ': 1, level: 4 },
-  { 'repeating header name at': 4, level: 2 },
-  { 'Non consecutive headers present at ': 1, level: 4 }
-]
+Alternate Image Violations:  { totalimg: 1, score: 1 }
+[]
 [
   {
-    innerHTML: 'Client Login',
-    outerHTML: '<span class="client-login-button-text text">Client Login</span>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 28, green: 43, blue: 54, alpha: 1 },
-    'Contrast Ratio': '14.50',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\t\t\t\tAbout Us\n\t\t\t\t<i class="icon-caret-right"></i>\n\t\t\t',
-    outerHTML: '<a class="ui-text-btn" href="/about-us/index.html" target="_self" aria-label="About Us" tabindex="0" role="menuitem" data-id="/about-us/indexhtmloverview">\n' +
-      '\t\t\t\tAbout Us\n' +
-      '\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
+    innerHTML: 'Skip To Content (Press Enter)',
+    outerHTML: '<a href="#mainFirstIndex" class="skiplink">Skip To Content (Press Enter)</a>',
+    'Background Color': { red: 0, green: 0, blue: 0, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
     'Contrast Ratio': '21.00',
     'AA Compliance': true,
     'AAA Compliance': true,
@@ -400,30 +191,226 @@ Alternate Image Violations:  { totalimg: 79, score: 70 }
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tOverview\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/about-us/index.html" target="_self" tabindex="-1" data-id="/about-us/indexhtmloverview" aria-label="Overview" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tOverview\n' +
-      '\t\t\t\t\t\t\t</a>',
+    innerHTML: 'Begin Main Content',
+    outerHTML: '<a id="skiplinklander" name="mainFirstIndex" tabindex="-1">Begin Main Content</a>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 0, green: 0, blue: 255, alpha: 1 },
+    'Contrast Ratio': '8.59',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tOur Purpose and Values\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/about-us/purpose-and-values/index.html" target="_self" tabindex="-1" data-id="/about-us/purpose-and-values/indexhtmlour-purpose-and-values" aria-label="Our Purpose and Values" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tOur Purpose and Values\n' +
-      '\t\t\t\t\t\t\t</a>',
+    innerHTML: 'Color Contrast Accessibility Validator',
+    outerHTML: '<h1>Color Contrast Accessibility Validator</h1>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'WCAG 2.1 AA SC 1.4.3 Test for Color Contrast',
+    outerHTML: '<h2>WCAG 2.1 AA SC 1.4.3 Test for Color Contrast</h2>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Test a webpage',
+    outerHTML: '<h3>Test a webpage</h3>',
+    'Background Color': { red: 68, green: 68, blue: 68, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '9.74',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Check Contrast',
+    outerHTML: '<span id="submitbuttontext">Check Contrast</span>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Test color-pairs',
+    outerHTML: '<h3>Test color-pairs</h3>',
+    'Background Color': { red: 68, green: 68, blue: 68, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '9.74',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Background Color',
+    outerHTML: '<legend>Background Color</legend>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 85, green: 85, blue: 85, alpha: 1 },
+    'Contrast Ratio': '7.46',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Enter a Hex Code <span id="bgcolorpickertext">or pick a color</span>',
+    outerHTML: '<div class="hexinfo" id="bgcolorvalerror">Enter a Hex Code <span id="bgcolorpickertext">or pick a color</span></div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'or pick a color',
+    outerHTML: '<span id="bgcolorpickertext">or pick a color</span>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Hex',
+    outerHTML: '<label for="bgcolorval" class="sr-only">Hex</label>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Color picker',
+    outerHTML: '<label for="bgcolorpicker" class="sr-only">Color picker</label>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Foreground Color',
+    outerHTML: '<legend>Foreground Color</legend>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 85, green: 85, blue: 85, alpha: 1 },
+    'Contrast Ratio': '7.46',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Enter a Hex Code <span id="fgcolorpickertext">or pick a color</span>',
+    outerHTML: '<div class="hexinfo" id="fgcolorvalerror">Enter a Hex Code <span id="fgcolorpickertext">or pick a color</span></div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'or pick a color',
+    outerHTML: '<span id="fgcolorpickertext">or pick a color</span>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Hex',
+    outerHTML: '<label for="fgcolorval" class="sr-only">Hex</label>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Color picker',
+    outerHTML: '<label for="fgcolorpicker" class="sr-only">Color picker</label>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'This website provides free color contrast analysis tools that will display the color contrast issues of a web page or chosen color-pair; per WCAG 2.1 Guidelines.\n' +
+      '                Color Contrast refers to how bright or dark colors appear against each other on screens; particularly with regard to the relative, gray-scale luminosity as perceived by the human eye.',
+    outerHTML: '<p>This website provides free color contrast analysis tools that will display the color contrast issues of a web page or chosen color-pair; per WCAG 2.1 Guidelines.\n' +
+      '                Color Contrast refers to how bright or dark colors appear against each other on screens; particularly with regard to the relative, gray-scale luminosity as perceived by the human eye.</p>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: '\n' +
+      '                When it comes to website accessibility, the contrast between the text and the text background is a concern for colorblind and other visually impaired users.\n' +
+      '                ',
+    outerHTML: '<p>\n' +
+      '                When it comes to website accessibility, the contrast between the text and the text background is a concern for colorblind and other visually impaired users.\n' +
+      '                </p>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'This color contrast tool enables users to comply with website accessibilities regulations.',
+    outerHTML: '<p>This color contrast tool enables users to comply with website accessibilities regulations.</p>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'More on contrast',
+    outerHTML: `<a href="#" id="opener_moreoncontrast" class="dialogOpener" targetid="moreContrastInfo" onclick="$('#moreContrastInfo').myToggle(); $('#moreContrastInfo').focus(); return false;">More on contrast</a>`,
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 0, green: 0, blue: 255, alpha: 1 },
+    'Contrast Ratio': '8.59',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
@@ -432,61 +419,47 @@ Alternate Image Violations:  { totalimg: 79, score: 70 }
   {
     innerHTML: '\n' +
       '\n' +
+      '        <div style="margin-bottom:0.25em;">\n' +
+      '            \n' +
+      '            <span class="inblock"><a href="/">Home</a></span>\n' +
+      '            \n' +
+      '            \n' +
+      '                · <span class="inblock"><a href="/ContrastPair/">Color-pair Contrast Test</a></span>\n' +
+      '            \n' +
+      '        </div>\n' +
+      '        \n' +
+      '        <span class="brand">a11y</span><sup>®</sup> <a href="https://www.boia.org/?a11y&amp;__hstc=233958593.b7486cc6bc8589824087d12e2aef9f45.1638365484846.1638365484846.1638365484846.1&amp;__hssc=233958593.1.1638365484846&amp;__hsfp=1077423790">Powered by the Bureau of Internet Accessibility</a>\n' +
+      '        \n' +
+      '            · <span class="inblock"><a href="/UserTool/termsOfService/">Terms of Service</a></span>\n' +
+      '            · <span class="inblock"><a href="/UserTool/privacyPolicy/">Privacy Policy</a></span>\n' +
+      '        \n' +
+      '        \n' +
+      '        \n' +
+      '        \n' +
+      '    ',
+    outerHTML: '<div>\n' +
       '\n' +
-      '\t\t\t\t\t\t\t\tPeople and Leadership\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/about-us/people-and-leadership/our-people/index.html" target="_self" tabindex="-1" data-id="/about-us/people-and-leadership/our-people/indexhtmlour-people" aria-label="People and Leadership" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tPeople and Leadership\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t</a>',
+      '        <div style="margin-bottom:0.25em;">\n' +
+      '            \n' +
+      '            <span class="inblock"><a href="/">Home</a></span>\n' +
+      '            \n' +
+      '            \n' +
+      '                · <span class="inblock"><a href="/ContrastPair/">Color-pair Contrast Test</a></span>\n' +
+      '            \n' +
+      '        </div>\n' +
+      '        \n' +
+      '        <span class="brand">a11y</span><sup>®</sup> <a href="https://www.boia.org/?a11y&amp;__hstc=233958593.b7486cc6bc8589824087d12e2aef9f45.1638365484846.1638365484846.1638365484846.1&amp;__hssc=233958593.1.1638365484846&amp;__hsfp=1077423790">Powered by the Bureau of Internet Accessibility</a>\n' +
+      '        \n' +
+      '            · <span class="inblock"><a href="/UserTool/termsOfService/">Terms of Service</a></span>\n' +
+      '            · <span class="inblock"><a href="/UserTool/privacyPolicy/">Privacy Policy</a></span>\n' +
+      '        \n' +
+      '        \n' +
+      '        \n' +
+      '        \n' +
+      '    </div>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tOur People\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/about-us/people-and-leadership/our-people/index.html" target="_self" tabindex="-1" data-id="/about-us/people-and-leadership/our-people/indexhtmlour-people" aria-label="Our People" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tOur People\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tLeadership\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/about-us/people-and-leadership/leadership/board-of-directors/index.html" target="_self" tabindex="-1" data-id="/about-us/people-and-leadership/leadership/board-of-directors/indexhtmlboard-of-directors" aria-label="Leadership" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tLeadership\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tAwards and Recognition\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/about-us/people-and-leadership/awards-and-rankings/business-and-innovation/index.html" target="_self" tabindex="-1" data-id="/about-us/people-and-leadership/awards-and-rankings/business-and-innovation/indexhtmlawards-and-recognition" aria-label="Awards and Recognition" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tAwards and Recognition\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
@@ -494,1235 +467,107 @@ Alternate Image Violations:  { totalimg: 79, score: 70 }
   },
   {
     innerHTML: '\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tCommitment to Client Service\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="" target="_self" tabindex="-1" data-id="commitment-to-client-service" aria-label="Commitment to Client Service" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tCommitment to Client Service\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t</a>',
+      '            \n' +
+      '            <span class="inblock"><a href="/">Home</a></span>\n' +
+      '            \n' +
+      '            \n' +
+      '                · <span class="inblock"><a href="/ContrastPair/">Color-pair Contrast Test</a></span>\n' +
+      '            \n' +
+      '        ',
+    outerHTML: '<div style="margin-bottom:0.25em;">\n' +
+      '            \n' +
+      '            <span class="inblock"><a href="/">Home</a></span>\n' +
+      '            \n' +
+      '            \n' +
+      '                · <span class="inblock"><a href="/ContrastPair/">Color-pair Contrast Test</a></span>\n' +
+      '            \n' +
+      '        </div>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tStories of Progress\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-firm/progress/index.html" target="_self" tabindex="-1" data-id="/our-firm/progress/indexhtmlstories-of-progress" aria-label="Stories of Progress" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tStories of Progress\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
+    innerHTML: 'Home',
+    outerHTML: '<a href="/">Home</a>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
+    'Contrast Ratio': '15.30',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: '\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tCulture of Innovation\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="" target="_self" tabindex="-1" data-id="culture-of-innovation" aria-label="Culture of Innovation" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tCulture of Innovation\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t</a>',
+    innerHTML: 'Color-pair Contrast Test',
+    outerHTML: '<a href="/ContrastPair/">Color-pair Contrast Test</a>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
+    'Contrast Ratio': '15.30',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tHistory\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-firm/history/index.html" target="_self" tabindex="-1" data-id="/our-firm/history/indexhtmlhistory" aria-label="History" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tHistory\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
+    innerHTML: 'a11y',
+    outerHTML: '<span class="brand">a11y</span>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tGS Accelerate\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/about-us/culture-of-innovation/gs-accelerate/index.html" target="_self" tabindex="-1" data-id="/about-us/culture-of-innovation/gs-accelerate/indexhtmlgs-accelerate" aria-label="GS Accelerate" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tGS Accelerate\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
+    innerHTML: '®',
+    outerHTML: '<sup>®</sup>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
+    'Contrast Ratio': '12.63',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tLocations\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-firm/locations.html" target="_self" tabindex="-1" data-id="/our-firm/locationshtmllocations" aria-label="Locations" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tLocations\n' +
-      '\t\t\t\t\t\t\t</a>',
+    innerHTML: 'Powered by the Bureau of Internet Accessibility',
+    outerHTML: '<a href="https://www.boia.org/?a11y&amp;__hstc=233958593.b7486cc6bc8589824087d12e2aef9f45.1638365484846.1638365484846.1638365484846.1&amp;__hssc=233958593.1.1638365484846&amp;__hsfp=1077423790">Powered by the Bureau of Internet Accessibility</a>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
+    'Contrast Ratio': '15.30',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'Overview',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Overview</h3>',
+    innerHTML: 'Terms of Service',
+    outerHTML: '<a href="/UserTool/termsOfService/">Terms of Service</a>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'The Goldman Sachs Group, Inc. is a leading global financial institution that delivers a broad range of financial services across investment banking, securities, investment management and consumer banking to a large and diversified client base that includes corporations, financial institutions, governments and individuals. Founded in 1869, the firm is headquartered in New York and maintains offices in all major financial centers around the world.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">The Goldman Sachs Group, Inc. is a leading global financial institution that delivers a broad range of financial services across investment banking, securities, investment management and consumer banking to a large and diversified client base that includes corporations, financial institutions, governments and individuals. Founded in 1869, the firm is headquartered in New York and maintains offices in all major financial centers around the world.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Our Purpose and Values',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Our Purpose and Values</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'We advance sustainable economic growth and financial opportunity. Our purpose comes to life through our four core values: Client Service, Excellence, Integrity, and Partnership.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">We advance sustainable economic growth and financial opportunity. Our purpose comes to life through our four core values: Client Service, Excellence, Integrity, and Partnership.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'People and Leadership',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">People and Leadership</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Our people are our greatest asset – we say it often and with good reason. It is only with the determination and dedication of our people that we can serve our clients, generate long-term value for our shareholders and contribute to the broader public. Learn more about Our People, Diversity and Inclusion, and our Business Principles and Standards.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Our people are our greatest asset – we say it often and with good reason. It is only with the determination and dedication of our people that we can serve our clients, generate long-term value for our shareholders and contribute to the broader public. Learn more about Our People, Diversity and Inclusion, and our Business Principles and Standards.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: '\n\t\t\t\tWhat We Do\n\t\t\t\t<i class="icon-caret-right"></i>\n\t\t\t',
-    outerHTML: '<a class="ui-text-btn" href="/what-we-do/index.html" target="_self" aria-label="What We Do" tabindex="0" role="menuitem" data-id="/what-we-do/indexhtmloverview">\n' +
-      '\t\t\t\tWhat We Do\n' +
-      '\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
+    'Contrast Ratio': '15.30',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tOverview\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/what-we-do/index.html" target="_self" tabindex="-1" data-id="/what-we-do/indexhtmloverview" aria-label="Overview" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tOverview\n' +
-      '\t\t\t\t\t\t\t</a>',
+    innerHTML: 'Privacy Policy',
+    outerHTML: '<a href="/UserTool/privacyPolicy/">Privacy Policy</a>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
+    'Contrast Ratio': '15.30',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tOur Products and Services\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/what-we-do/products-and-services/index.html" target="_self" tabindex="-1" data-id="/what-we-do/products-and-services/indexhtmlour-products-and-services" aria-label="Our Products and Services" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tOur Products and Services\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tInvestment Banking\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/what-we-do/investment-banking/index.html" target="_self" tabindex="-1" data-id="/what-we-do/investment-banking/indexhtmlinvestment-banking" aria-label="Investment Banking" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tInvestment Banking\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tConsumer &amp; Wealth Management\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/what-we-do/consumer-and-wealth-management/index.html" target="_self" tabindex="-1" data-id="/what-we-do/consumer-and-wealth-management/indexhtmlconsumer--wealth-management" aria-label="Consumer &amp; Wealth Management" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tConsumer &amp; Wealth Management\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tAsset Management\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/what-we-do/asset-management/index.html" target="_self" tabindex="-1" data-id="/what-we-do/asset-management/indexhtmlasset-management" aria-label="Asset Management" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tAsset Management\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tGlobal Markets\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/what-we-do/global-markets/index.html" target="_self" tabindex="-1" data-id="/what-we-do/global-markets/indexhtmlglobal-markets" aria-label="Global Markets" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tGlobal Markets\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tResearch\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/what-we-do/research/index.html" target="_self" tabindex="-1" data-id="/what-we-do/research/indexhtmlresearch" aria-label="Research" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tResearch\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Overview',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Overview</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'We deliver a broad range of financial services across investment banking, securities, investment management and consumer banking to a large and diversified client base that includes corporations, financial institutions, governments and individuals.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">We deliver a broad range of financial services across investment banking, securities, investment management and consumer banking to a large and diversified client base that includes corporations, financial institutions, governments and individuals.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Our Products and Services',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Our Products and Services</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Across our divisions, digital platforms, and services, our clients and customers have access to the resources and reach of a unified global firm to help them achieve their goals.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Across our divisions, digital platforms, and services, our clients and customers have access to the resources and reach of a unified global firm to help them achieve their goals.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Investment Banking',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Investment Banking</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Provides advice and services to help organizations with mergers and acquisitions, financing and other transactions.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Provides advice and services to help organizations with mergers and acquisitions, financing and other transactions.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Consumer &amp; Wealth Management',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Consumer &amp; Wealth Management</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'We work with clients to achieve investment goals and financial well-being and bring an innovative approach to traditional consumer banking activities.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">We work with clients to achieve investment goals and financial well-being and bring an innovative approach to traditional consumer banking activities.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Asset Management',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Asset Management</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'We provide investment management solutions across all major asset classes to a diverse set of institutional and individual clients.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">We provide investment management solutions across all major asset classes to a diverse set of institutional and individual clients.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Global Markets',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Global Markets</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Providing clients with insight, risk management and execution.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Providing clients with insight, risk management and execution.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Research',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Research</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Our Global Investment Research division provides original, fundamental insights and analysis for clients in the equity, fixed income, currency and commodities markets.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Our Global Investment Research division provides original, fundamental insights and analysis for clients in the equity, fixed income, currency and commodities markets.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: '\n\t\t\t\tOur Commitments\n\t\t\t\t<i class="icon-caret-right"></i>\n\t\t\t',
-    outerHTML: '<a class="ui-text-btn" href="" target="_self" aria-label="Our Commitments" tabindex="0" role="menuitem" data-id="undefinedour-commitments">\n' +
-      '\t\t\t\tOur Commitments\n' +
-      '\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tDiversity &amp; Inclusion\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/diversity-and-inclusion/index.html" target="_self" tabindex="-1" data-id="/our-commitments/diversity-and-inclusion/indexhtmloverview" aria-label="Diversity &amp; Inclusion" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tDiversity &amp; Inclusion\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tOverview\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/diversity-and-inclusion/index.html" target="_self" tabindex="-1" data-id="/our-commitments/diversity-and-inclusion/indexhtmloverview" aria-label="Overview" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tOverview\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tWhen Women Lead\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/diversity-and-inclusion/when-women-lead/index.html" target="_self" tabindex="-1" data-id="/our-commitments/diversity-and-inclusion/when-women-lead/indexhtmlwhen-women-lead" aria-label="When Women Lead" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tWhen Women Lead\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tMaking Progress Towards Racial Equity\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/diversity-and-inclusion/racial-equity/index.html" target="_self" tabindex="-1" data-id="/our-commitments/diversity-and-inclusion/racial-equity/indexhtmlmaking-progress-towards-racial-equity" aria-label="Making Progress Towards Racial Equity" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tMaking Progress Towards Racial Equity\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tVendor Diversity\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/sustainability/our-vendor-program/vendor-diversity/index.html" target="_self" tabindex="-1" data-id="/our-commitments/sustainability/our-vendor-program/vendor-diversity/indexhtmlvendor-diversity" aria-label="Vendor Diversity" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tVendor Diversity\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tLaunch With GS\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/diversity-and-inclusion/launch-with-gs/index.html" target="_self" tabindex="-1" data-id="/our-commitments/diversity-and-inclusion/launch-with-gs/indexhtmloverview" aria-label="Launch With GS" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tLaunch With GS\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tBoard Diversity\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/diversity-and-inclusion/board-diversity/index.html" target="_self" tabindex="-1" data-id="/our-commitments/diversity-and-inclusion/board-diversity/indexhtmlboard-diversity" aria-label="Board Diversity" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tBoard Diversity\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tCommunity Engagement\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/community-engagement/index.html" target="_self" tabindex="-1" data-id="/our-commitments/community-engagement/indexhtmloverview" aria-label="Community Engagement" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tCommunity Engagement\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tOverview\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/community-engagement/index.html" target="_self" tabindex="-1" data-id="/our-commitments/community-engagement/indexhtmloverview" aria-label="Overview" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tOverview\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t10,000 Small Businesses\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/citizenship/10000-small-businesses/US/index.html" target="_self" tabindex="-1" data-id="/citizenship/10000-small-businesses/us/indexhtmlunited-states" aria-label="10,000 Small Businesses" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\t10,000 Small Businesses\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t10,000 Women\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/citizenship/10000women/index.html" target="_self" tabindex="-1" data-id="/citizenship/10000women/indexhtmloverview" aria-label="10,000 Women" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\t10,000 Women\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tGoldman Sachs Gives\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/citizenship/goldman-sachs-gives/index.html" target="_self" tabindex="-1" data-id="/citizenship/goldman-sachs-gives/indexhtmlgoldman-sachs-gives" aria-label="Goldman Sachs Gives" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tGoldman Sachs Gives\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCommunity TeamWorks\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/citizenship/community-teamworks/index.html" target="_self" tabindex="-1" data-id="/citizenship/community-teamworks/indexhtmlcommunity-teamworks" aria-label="Community TeamWorks" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tCommunity TeamWorks\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tSustainability\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/sustainability/sustainable-finance/index.html" target="_self" tabindex="-1" data-id="/our-commitments/sustainability/sustainable-finance/indexhtmlsustainable-finance" aria-label="Sustainability" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tSustainability\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tSustainable Finance\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/sustainability/sustainable-finance/index.html" target="_self" tabindex="-1" data-id="/our-commitments/sustainability/sustainable-finance/indexhtmlsustainable-finance" aria-label="Sustainable Finance" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tSustainable Finance\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tSustainability Report\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="https://www.goldmansachs.com/s/sustainability-report/index.html" target="_self" tabindex="-1" data-id="https//wwwgoldmansachscom/s/sustainability-report/indexhtmlsustainability-report" aria-label="Sustainability Report" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tSustainability Report\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tOne Million Black Women\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/sustainability/one-million-black-women/index.html" target="_self" tabindex="-1" data-id="/our-commitments/sustainability/one-million-black-women/indexhtmlone-million-black-women" aria-label="One Million Black Women" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tOne Million Black Women\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tOur Operational Impact\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/our-commitments/sustainability/sustainable-finance/our-operational-impact/index.html" target="_self" tabindex="-1" data-id="/our-commitments/sustainability/sustainable-finance/our-operational-impact/indexhtmlour-operational-impact" aria-label="Our Operational Impact" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tOur Operational Impact\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Diversity &amp; Inclusion',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Diversity &amp; Inclusion</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Our people are our greatest asset – we say it often and with good reason. It is only with the determination and dedication of our people that we can serve our clients, generate long-term value for our shareholders and contribute to the broader public.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Our people are our greatest asset – we say it often and with good reason. It is only with the determination and dedication of our people that we can serve our clients, generate long-term value for our shareholders and contribute to the broader public.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Community Engagement',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Community Engagement</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Learn how we put our people and capital to work helping women build businesses, entrepreneurs create jobs, volunteers improve their communities and help solve environmental issues.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Learn how we put our people and capital to work helping women build businesses, entrepreneurs create jobs, volunteers improve their communities and help solve environmental issues.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: '\n\t\t\t\tInsights\n\t\t\t\t<i class="icon-caret-right"></i>\n\t\t\t',
-    outerHTML: '<a class="ui-text-btn" href="/insights/index.html" target="_self" aria-label="Insights" tabindex="0" role="menuitem" data-id="/insights/indexhtmloverview">\n' +
-      '\t\t\t\tInsights\n' +
-      '\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tOverview\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/insights/index.html" target="_self" tabindex="-1" data-id="/insights/indexhtmloverview" aria-label="Overview" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tOverview\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tTalks at GS\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/insights/series/talks-at-gs/index.html" target="_self" tabindex="-1" data-id="/insights/series/talks-at-gs/indexhtmltalks-at-gs" aria-label="Talks at GS" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tTalks at GS\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tExchanges at Goldman Sachs\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/insights/series/exchanges-at-goldman-sachs/index.html" target="_self" tabindex="-1" data-id="/insights/series/exchanges-at-goldman-sachs/indexhtmlexchanges-at-goldman-sachs" aria-label="Exchanges at Goldman Sachs" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tExchanges at Goldman Sachs\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tTop of Mind\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/insights/series/top-of-mind/index.html" target="_self" tabindex="-1" data-id="/insights/series/top-of-mind/indexhtmltop-of-mind" aria-label="Top of Mind" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tTop of Mind\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tBriefly...\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/insights/series/briefly/index.html" target="_self" tabindex="-1" data-id="/insights/series/briefly/indexhtmlbriefly" aria-label="Briefly..." aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tBriefly...\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tGoldman Sachs Research\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/insights/series/goldman-sachs-research/index.html" target="_self" tabindex="-1" data-id="/insights/series/goldman-sachs-research/indexhtmlgoldman-sachs-research" aria-label="Goldman Sachs Research" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tGoldman Sachs Research\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tExplore by Topic\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/insights/topics/index.html" target="_self" tabindex="-1" data-id="/insights/topics/indexhtmlexplore-by-topic" aria-label="Explore by Topic" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tExplore by Topic\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Overview',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Overview</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Goldman Sachs economists and experts share insights on macro trends shaping the global economy.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Goldman Sachs economists and experts share insights on macro trends shaping the global economy.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Talks at GS',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Talks at GS</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Goldman Sachs convenes leading thinkers to share insights and ideas shaping the world.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Goldman Sachs convenes leading thinkers to share insights and ideas shaping the world.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Exchanges at Goldman Sachs',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Exchanges at Goldman Sachs</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Exchanges at Goldman Sachs is a podcast where experts from around the firm discuss developments shaping industries, markets and the global economy.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Exchanges at Goldman Sachs is a podcast where experts from around the firm discuss developments shaping industries, markets and the global economy.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Top of Mind',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Top of Mind</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Allison Nathan of Goldman Sachs Research dives into macro developments that are top of mind for investors, executives and policymakers.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Allison Nathan of Goldman Sachs Research dives into macro developments that are top of mind for investors, executives and policymakers.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Briefly...',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Briefly...</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Briefly… provides an in-depth look at trends and events shaping markets and the economy, with experts inside and outside of Goldman Sachs.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Briefly… provides an in-depth look at trends and events shaping markets and the economy, with experts inside and outside of Goldman Sachs.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Goldman Sachs Research',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Goldman Sachs Research</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'Goldman Sachs Research features original insights on the economy, markets and industries, drawn from research teams around the world.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">Goldman Sachs Research features original insights on the economy, markets and industries, drawn from research teams around the world.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: 'Explore by Topic',
-    outerHTML: '<h3 class="gs-header-text-teaser__title">Explore by Topic</h3>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#949494', bg: '#ffffff', contrast: '3.03' },
-    'AAA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' }
-  },
-  {
-    innerHTML: 'See all our topics that may interest you.',
-    outerHTML: '<p class="gs-header-text-teaser__copy">See all our topics that may interest you.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '1.00',
-    'AA Compliance': false,
-    'AAA Compliance': false,
-    'AA Suggestions': { fg: '#767676', bg: '#ffffff', contrast: '4.54' },
-    'AAA Suggestions': { fg: '#595959', bg: '#ffffff', contrast: '7.00' }
-  },
-  {
-    innerHTML: '\n\t\t\t\tCareers\n\t\t\t\t<i class="icon-caret-right"></i>\n\t\t\t',
-    outerHTML: '<a class="ui-text-btn" href="/careers/index.html" target="_self" aria-label="Careers" tabindex="0" role="menuitem" data-id="/careers/indexhtmloverview">\n' +
-      '\t\t\t\tCareers\n' +
-      '\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tOverview\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/index.html" target="_self" tabindex="-1" data-id="/careers/indexhtmloverview" aria-label="Overview" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tOverview\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tPossibilities Stories\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/possibilities/index.html" target="_self" tabindex="-1" data-id="/careers/possibilities/indexhtmlpossibilities-stories" aria-label="Possibilities Stories" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tPossibilities Stories\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tOur People\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/our-people/index.html" target="_self" tabindex="-1" data-id="/careers/our-people/indexhtmlour-people" aria-label="Our People" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tOur People\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\n\t\t\t\t\t\t\t\tDivisions\n\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/divisions/index.html" target="_self" tabindex="-1" data-id="/careers/divisions/indexhtmloverview" aria-label="Divisions" aria-disabled="true">\n' +
-      '\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\tDivisions\n' +
-      '\t\t\t\t\t\t\t\t<i class="icon-caret-right"></i>\n' +
-      '\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tOverview\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/divisions/index.html" target="_self" tabindex="-1" data-id="/careers/divisions/indexhtmloverview" aria-label="Overview" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tOverview\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tAsset Management\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/divisions/asset-management/index.html" target="_self" tabindex="-1" data-id="/careers/divisions/asset-management/indexhtmlasset-management" aria-label="Asset Management" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tAsset Management\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tConflicts Resolution Group\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/divisions/conflicts-resolution-group/index.html" target="_self" tabindex="-1" data-id="/careers/divisions/conflicts-resolution-group/indexhtmlconflicts-resolution-group" aria-label="Conflicts Resolution Group" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tConflicts Resolution Group\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tConsumer and Wealth Management\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/divisions/consumer-and-wealth-management/index.html" target="_self" tabindex="-1" data-id="/careers/divisions/consumer-and-wealth-management/indexhtmlconsumer-and-wealth-management" aria-label="Consumer and Wealth Management" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tConsumer and Wealth Management\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tControllers\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/divisions/controllers/index.html" target="_self" tabindex="-1" data-id="/careers/divisions/controllers/indexhtmlcontrollers" aria-label="Controllers" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tControllers\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCorporate and Workplace Solutions\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/divisions/corporate-and-workplace-solutions/index.html" target="_self" tabindex="-1" data-id="/careers/divisions/corporate-and-workplace-solutions/indexhtmlcorporate-and-workplace-solutions" aria-label="Corporate and Workplace Solutions" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tCorporate and Workplace Solutions\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tCorporate Treasury\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/divisions/corporate-treasury/index.html" target="_self" tabindex="-1" data-id="/careers/divisions/corporate-treasury/indexhtmlcorporate-treasury" aria-label="Corporate Treasury" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tCorporate Treasury\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tEngineering\n\t\t\t\t\t\t\t\t\t\t\t\t',
-    outerHTML: '<a class="ui-text-btn icon-before " href="/careers/divisions/engineering/index.html" target="_self" tabindex="-1" data-id="/careers/divisions/engineering/indexhtmlengineering" aria-label="Engineering" aria-disabled="true">\n' +
-      '\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t\tEngineering\n' +
-      '\t\t\t\t\t\t\t\t\t\t\t\t</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 0, alpha: 1 },
-    'Contrast Ratio': '21.00',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  ... 167 more items
+  }
 ]
-Violated Lables [ '' ]
+Violated Lables [ 'urltotest', '', '' ]
 No Consent Found
-Cookie Information
+No Cookie Information

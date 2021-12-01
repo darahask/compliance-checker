@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const j = require('jquery')
 
 module.exports = instance = async (host) => {
   const browser = await puppeteer.launch();
@@ -275,7 +276,7 @@ module.exports = instance = async (host) => {
     console.log("Manage Cookie!!")
   }
   else{
-    (cookie_settings===false)? console.log("Cookie Information") : console.log("Cookie Information")
+    (cookie_settings===false)? console.log("No Cookie Information") : console.log("Cookie Information")
   }
  // console.log(cookie_consent)
   await browser.close();
