@@ -11,7 +11,7 @@ module.exports = instance = async (host) => {
   // console.log(page);
 
   // Cookie in details printed
-  // console.log(await page._client.send('Network.getAllCookies'));
+  console.log(await page._client.send('Network.getAllCookies'));
 
   const extractedText = await page.$eval('*', (el) => el.innerText);
   var consent = RegExp('Cookie','i').test(extractedText.trim());
