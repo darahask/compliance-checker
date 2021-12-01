@@ -98,23 +98,23 @@ module.exports = instance = async (host) => {
     var prevLevel
     var dict = {}
     // key : innerTag, val : H tag
-    headings.each((i,el)=>{
+    headings.each((i, el) => {
       var $el = $(el)
       var level = +$el.prop('tagName').slice(1)
       var content = $el.prop('innerText')
-      if(dict[content]!=null){
-        items.push({"repeating header name at":dict[content], level})
+      if (dict[content] != null) {
+        items.push({ "repeating header name at": dict[content], level })
       }
       dict[content] = level
       if (i === 0 && level !== 1) {
-        items.push({"H1 not present, instead starts from ":level});
+        items.push({ "H1 not present, instead starts from ": level });
       } else if (prevLevel && level - prevLevel > 1) {
-        items.push({"Non consecutive headers present at ":prevLevel, level});
+        items.push({ "Non consecutive headers present at ": prevLevel, level });
       }
-      
+
 
       prevLevel = level;
-      
+
     })
 
     return items;
@@ -125,9 +125,8 @@ module.exports = instance = async (host) => {
   // Ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
   let contrast = await page.evaluate(() => {
     let results = [];
-    let elements = document.getElementsByTagName("*");
-    elements.forEach((element, i) => {
 
+    $("*").each((i, element) => {
       // Only check elements with a direct text descendant
       if (!axs.properties.hasDirectTextDescendant(element)) {
         return;
@@ -178,8 +177,8 @@ module.exports = instance = async (host) => {
         "AA Suggestions": suggestionsAA,
         "AAA Suggestions": suggestionsAAA
       })
-
     })
+
     return results;
   })
   console.log(contrast);
