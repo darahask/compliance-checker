@@ -245,8 +245,8 @@ module.exports = instance = async (host) => {
     var cookie_href = []
     var flag = false
     var alls
-    $("*").each((i, el)=>{
-       alls = $(el).find('*')
+    $("[class*='cookie' i], [id*='cookie' i]").each((i, el)=>{
+       alls = $(el).find("*")
         for(const [key,val] of Object.entries(alls))
         {
           if(val.innerText != "null" && val.innerText!=='' && RegExp('Cookie','i').test(val.innerText))
