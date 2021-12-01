@@ -1,46 +1,15 @@
 {
   cookies: [
     {
-      name: 'CFID',
-      value: '5627191',
-      domain: 'color.a11y.com',
+      name: 'prov',
+      value: '958ebd56-8659-a1e2-6200-11ca7db79046',
+      domain: '.stackoverflow.com',
       path: '/',
-      expires: 2584445481.792032,
-      size: 11,
+      expires: 2682374409.27588,
+      size: 40,
       httpOnly: true,
       secure: false,
       session: false,
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'CFTOKEN',
-      value: '656fd3e3f8b30de3-9DFB682C-5056-8F7F-EF9476CDB20EE04D',
-      domain: 'color.a11y.com',
-      path: '/',
-      expires: 2584445481.792154,
-      size: 59,
-      httpOnly: true,
-      secure: false,
-      session: false,
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'AVPUID',
-      value: 'f5f2d1d3ed3464fb99283bb3039cb03a',
-      domain: 'accessibility.advertserve.com',
-      path: '/',
-      expires: 1669901484.350091,
-      size: 38,
-      httpOnly: true,
-      secure: true,
-      session: false,
-      sameSite: 'None',
       priority: 'Medium',
       sameParty: false,
       sourceScheme: 'Secure',
@@ -48,10 +17,10 @@
     },
     {
       name: '_ga',
-      value: 'GA1.2.271002216.1638365485',
-      domain: '.a11y.com',
+      value: 'GA1.2.291094720.1638388751',
+      domain: '.stackoverflow.com',
       path: '/',
-      expires: 1701437484,
+      expires: 1701460750,
       size: 29,
       httpOnly: false,
       secure: false,
@@ -63,109 +32,29 @@
     },
     {
       name: '_gid',
-      value: 'GA1.2.728964519.1638365485',
-      domain: '.a11y.com',
+      value: 'GA1.2.1956663951.1638388751',
+      domain: '.stackoverflow.com',
       path: '/',
-      expires: 1638451884,
-      size: 30,
-      httpOnly: false,
-      secure: false,
-      session: false,
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: '_gat_gtag_UA_88388_23',
-      value: '1',
-      domain: '.a11y.com',
-      path: '/',
-      expires: 1638365544,
-      size: 22,
-      httpOnly: false,
-      secure: false,
-      session: false,
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: '__hstc',
-      value: '233958593.b7486cc6bc8589824087d12e2aef9f45.1638365484846.1638365484846.1638365484846.1',
-      domain: 'color.a11y.com',
-      path: '/',
-      expires: 1672061484,
-      size: 92,
-      httpOnly: false,
-      secure: false,
-      session: false,
-      sameSite: 'Lax',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: 'hubspotutk',
-      value: 'b7486cc6bc8589824087d12e2aef9f45',
-      domain: 'color.a11y.com',
-      path: '/',
-      expires: 1672061484,
-      size: 42,
-      httpOnly: false,
-      secure: false,
-      session: false,
-      sameSite: 'Lax',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: '__hssrc',
-      value: '1',
-      domain: 'color.a11y.com',
-      path: '/',
-      expires: -1,
-      size: 8,
-      httpOnly: false,
-      secure: false,
-      session: true,
-      sameSite: 'Lax',
-      priority: 'Medium',
-      sameParty: false,
-      sourceScheme: 'Secure',
-      sourcePort: 443
-    },
-    {
-      name: '__hssc',
-      value: '233958593.1.1638365484846',
-      domain: 'color.a11y.com',
-      path: '/',
-      expires: 1638367284,
+      expires: 1638475150,
       size: 31,
       httpOnly: false,
       secure: false,
       session: false,
-      sameSite: 'Lax',
       priority: 'Medium',
       sameParty: false,
       sourceScheme: 'Secure',
       sourcePort: 443
     },
     {
-      name: '__cf_bm',
-      value: 'q9z106pUHu5rBZdC5UIvyaNHUcPKxsiscY4xLuAxzAo-1638365485-0-AXzktRX6hnMnTpxlE17RxWcgwi9N8zEdv2bQeA7VfE0fCCDDCMh6a6jDx/Z3ncKjB/PvE1nRW7GSJGZ4tVfZO/o=',
-      domain: '.hubspot.com',
+      name: '_gat',
+      value: '1',
+      domain: '.stackoverflow.com',
       path: '/',
-      expires: 1638367285.246306,
-      size: 152,
-      httpOnly: true,
-      secure: true,
+      expires: 1638388810,
+      size: 5,
+      httpOnly: false,
+      secure: false,
       session: false,
-      sameSite: 'None',
       priority: 'Medium',
       sameParty: false,
       sourceScheme: 'Secure',
@@ -173,401 +62,1164 @@
     }
   ]
 }
-The browser has cookie consent?  false
-Number of Interactive Elements Violations:  5
+The browser has cookie consent?  true
+Number of Interactive Elements Violations:  1
 Number of tabIndex violations:  0
-Alternate Image Violations:  { totalimg: 1, score: 1 }
-[]
+Alternate Image Violations:  { totalimg: 40, score: 29 }
+[
+  { 'H1 not present, instead starts from ': 3 },
+  { 'repeating header name at': 2, level: 2 },
+  { 'Non consecutive headers present at ': 2, level: 5 },
+  { 'repeating header name at': 5, level: 5 }
+]
 [
   {
-    innerHTML: 'Skip To Content (Press Enter)',
-    outerHTML: '<a href="#mainFirstIndex" class="skiplink">Skip To Content (Press Enter)</a>',
-    'Background Color': { red: 0, green: 0, blue: 0, alpha: 1 },
+    innerHTML: 'Stack Overflow',
+    outerHTML: '<span class="-img _glyph">Stack Overflow</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 0, green: 116, blue: 204, alpha: 1 },
+    'Contrast Ratio': '4.56',
+    'AA Compliance': true,
+    'AAA Compliance': false,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': { fg: '#00579b', bg: '#f8f9f9', contrast: '7.02' }
+  },
+  {
+    innerHTML: '\n                        Products\n                    ',
+    outerHTML: '<a href="#" class="-marketing-link js-gps-track js-products-menu" aria-controls="products-popover" data-controller="s-popover" data-action="s-popover#toggle" data-s-popover-placement="bottom" data-s-popover-toggle-class="is-selected" data-gps-track="top_nav.products.click({location:1, destination:1})" data-ga="[&quot;top navigation&quot;,&quot;products menu click&quot;,null,null,null]">\n' +
+      '                        Products\n' +
+      '                    </a>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 82, green: 89, blue: 96, alpha: 1 },
+    'Contrast Ratio': '6.73',
+    'AA Compliance': true,
+    'AAA Compliance': false,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': { fg: '#4f565e', bg: '#f8f9f9', contrast: '7.05' }
+  },
+  {
+    innerHTML: 'Log in',
+    outerHTML: '<a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2f" class="login-link s-btn s-btn__filled py8 js-gps-track" rel="nofollow" data-gps-track="login.click" data-ga="[&quot;top navigation&quot;,&quot;login button click&quot;,null,null,null]">Log in</a>',
+    'Background Color': { red: 225, green: 236, blue: 244, alpha: 1 },
+    'Text Color': { red: 57, green: 115, blue: 157, alpha: 1 },
+    'Contrast Ratio': '4.26',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#2f6f9a', bg: '#e1ecf4', contrast: '4.53' },
+    'AAA Suggestions': { fg: '#005279', bg: '#e1ecf4', contrast: '7.05' }
+  },
+  {
+    innerHTML: 'Sign up',
+    outerHTML: '<a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent" class="login-link s-btn s-btn__primary py8" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Sign up</a>',
+    'Background Color': { red: 10, green: 149, blue: 255, alpha: 1 },
     'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '21.00',
+    'Contrast Ratio': '3.11',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#0079d1', fg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { bg: '#005b9f', fg: '#ffffff', contrast: '7.01' }
+  },
+  {
+    innerHTML: 'Find the best answer to your technical question, help others answer theirs',
+    outerHTML: '<h2 class="fs-subheading wmx3 mx-auto">Find the best answer to your technical question, help others answer theirs</h2>',
+    'Background Color': { red: 254, green: 227, blue: 205, alpha: 1 },
+    'Text Color': { red: 35, green: 38, blue: 41, alpha: 1 },
+    'Contrast Ratio': '12.37',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'Begin Main Content',
-    outerHTML: '<a id="skiplinklander" name="mainFirstIndex" tabindex="-1">Begin Main Content</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 255, alpha: 1 },
-    'Contrast Ratio': '8.59',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Color Contrast Accessibility Validator',
-    outerHTML: '<h1>Color Contrast Accessibility Validator</h1>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'WCAG 2.1 AA SC 1.4.3 Test for Color Contrast',
-    outerHTML: '<h2>WCAG 2.1 AA SC 1.4.3 Test for Color Contrast</h2>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Test a webpage',
-    outerHTML: '<h3>Test a webpage</h3>',
-    'Background Color': { red: 68, green: 68, blue: 68, alpha: 1 },
+    innerHTML: 'Join the community',
+    outerHTML: '<a href="/users/signup" class="s-btn w100 wmx2 fs-body2 px32 bar-md bg-orange-500 h:bg-orange-600 fc-white d:fc-black-900 p-ff-source-bold mt-auto" data-ga="[&quot;home page&quot;,&quot;header cta&quot;,&quot;join community&quot;,null,null]">Join the community</a>',
+    'Background Color': { red: 242, green: 116, blue: 13, alpha: 1 },
     'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '9.74',
+    'Contrast Ratio': '2.88',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#bf5900', fg: '#ffffff', contrast: '4.52' },
+    'AAA Suggestions': { bg: '#914200', fg: '#ffffff', contrast: '7.04' }
+  },
+  {
+    innerHTML: 'or <a class="s-link s-link__underlined fc-black-700 h:fc-orange-600" href="/questions">search content</a>',
+    outerHTML: '<p class="mb0 mt12 fc-black-600">or <a class="s-link s-link__underlined fc-black-700 h:fc-orange-600" href="/questions">search content</a></p>',
+    'Background Color': { red: 254, green: 227, blue: 205, alpha: 1 },
+    'Text Color': { red: 82, green: 89, blue: 96, alpha: 1 },
+    'Contrast Ratio': '5.78',
+    'AA Compliance': true,
+    'AAA Compliance': false,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': { fg: '#444d55', bg: '#fee3cd', contrast: '7.01' }
+  },
+  {
+    innerHTML: 'search content',
+    outerHTML: '<a class="s-link s-link__underlined fc-black-700 h:fc-orange-600" href="/questions">search content</a>',
+    'Background Color': { red: 254, green: 227, blue: 205, alpha: 1 },
+    'Text Color': { red: 59, green: 64, blue: 69, alpha: 1 },
+    'Contrast Ratio': '8.52',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'Check Contrast',
-    outerHTML: '<span id="submitbuttontext">Check Contrast</span>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
+    innerHTML: 'Want a secure, private space for your technical knowledge?',
+    outerHTML: '<h2 class="fs-subheading wmx3 mx-auto">Want a secure, private space for your technical knowledge?</h2>',
+    'Background Color': { red: 205, green: 233, blue: 254, alpha: 1 },
+    'Text Color': { red: 35, green: 38, blue: 41, alpha: 1 },
+    'Contrast Ratio': '12.08',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'Test color-pairs',
-    outerHTML: '<h3>Test color-pairs</h3>',
-    'Background Color': { red: 68, green: 68, blue: 68, alpha: 1 },
+    innerHTML: '\n                            Get started\n                        ',
+    outerHTML: '<span class="flex--item fl-shrink0 fs-body1 z-active px12">\n' +
+      '                            Get started\n' +
+      '                        </span>',
+    'Background Color': { red: 205, green: 233, blue: 254, alpha: 1 },
+    'Text Color': { red: 35, green: 38, blue: 41, alpha: 1 },
+    'Contrast Ratio': '12.08',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'For large organizations <svg aria-hidden="true" class="svg-icon iconIndustry" width="18" height="18" viewBox="0 0 18 18"><path d="M10 16v-4H8v4H2V4c0-1.1.9-2 2-2h6c1.09 0 2 .91 2 2v2h2c1.09 0 2 .91 2 2v8h-6ZM4 4v2h2V4H4Zm0 4v2h2V8H4Zm4-4v2h2V4H8Zm0 4v2h2V8H8Zm-4 4v2h2v-2H4Zm8 0v2h2v-2h-2Zm0-4v2h2V8h-2Z"></path></svg>',
+    outerHTML: '<a href="https://stackoverflowsolutions.com/explore-teams" class="s-btn fs-body2 bar-md bg-blue-500 h:bg-blue-600 fc-white d:fc-black-900 p-ff-source-bold" data-ga="[&quot;home page&quot;,&quot;header cta&quot;,&quot;Request a demo&quot;,null,null]">For large organizations <svg aria-hidden="true" class="svg-icon iconIndustry" width="18" height="18" viewBox="0 0 18 18"><path d="M10 16v-4H8v4H2V4c0-1.1.9-2 2-2h6c1.09 0 2 .91 2 2v2h2c1.09 0 2 .91 2 2v8h-6ZM4 4v2h2V4H4Zm0 4v2h2V8H4Zm4-4v2h2V4H8Zm0 4v2h2V8H8Zm-4 4v2h2v-2H4Zm8 0v2h2v-2h-2Zm0-4v2h2V8h-2Z"></path></svg></a>',
+    'Background Color': { red: 10, green: 149, blue: 255, alpha: 1 },
     'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Contrast Ratio': '9.74',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
+    'Contrast Ratio': '3.11',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#0079d1', fg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { bg: '#005b9f', fg: '#ffffff', contrast: '7.01' }
   },
   {
-    innerHTML: 'Background Color',
-    outerHTML: '<legend>Background Color</legend>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 85, green: 85, blue: 85, alpha: 1 },
-    'Contrast Ratio': '7.46',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Enter a Hex Code <span id="bgcolorpickertext">or pick a color</span>',
-    outerHTML: '<div class="hexinfo" id="bgcolorvalerror">Enter a Hex Code <span id="bgcolorpickertext">or pick a color</span></div>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'or pick a color',
-    outerHTML: '<span id="bgcolorpickertext">or pick a color</span>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Hex',
-    outerHTML: '<label for="bgcolorval" class="sr-only">Hex</label>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Color picker',
-    outerHTML: '<label for="bgcolorpicker" class="sr-only">Color picker</label>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Foreground Color',
-    outerHTML: '<legend>Foreground Color</legend>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 85, green: 85, blue: 85, alpha: 1 },
-    'Contrast Ratio': '7.46',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Enter a Hex Code <span id="fgcolorpickertext">or pick a color</span>',
-    outerHTML: '<div class="hexinfo" id="fgcolorvalerror">Enter a Hex Code <span id="fgcolorpickertext">or pick a color</span></div>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'or pick a color',
-    outerHTML: '<span id="fgcolorpickertext">or pick a color</span>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Hex',
-    outerHTML: '<label for="fgcolorval" class="sr-only">Hex</label>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'Color picker',
-    outerHTML: '<label for="fgcolorpicker" class="sr-only">Color picker</label>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'This website provides free color contrast analysis tools that will display the color contrast issues of a web page or chosen color-pair; per WCAG 2.1 Guidelines.\n' +
-      '                Color Contrast refers to how bright or dark colors appear against each other on screens; particularly with regard to the relative, gray-scale luminosity as perceived by the human eye.',
-    outerHTML: '<p>This website provides free color contrast analysis tools that will display the color contrast issues of a web page or chosen color-pair; per WCAG 2.1 Guidelines.\n' +
-      '                Color Contrast refers to how bright or dark colors appear against each other on screens; particularly with regard to the relative, gray-scale luminosity as perceived by the human eye.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
+    innerHTML: 'For small teams <svg aria-hidden="true" class="svg-icon iconPeople" width="18" height="18" viewBox="0 0 18 18"><path d="M17 14c0 .44-.45 1-1 1H9a1 1 0 01-1-1H2c-.54 0-1-.56-1-1 0-2.63 3-4 3-4s.23-.4 0-1c-.84-.62-1.06-.59-1-3 .06-2.42 1.37-3 2.5-3s2.44.58 2.5 3c.06 2.41-.16 2.38-1 3-.23.59 0 1 0 1s1.55.71 2.42 2.09c.78-.72 1.58-1.1 1.58-1.1s.23-.4 0-1c-.84-.61-1.06-.58-1-3 .06-2.41 1.37-3 2.5-3s2.44.59 2.5 3c.05 2.42-.16 2.39-1 3-.23.6 0 1 0 1s3 1.38 3 4Z"></path></svg>',
+    outerHTML: '<a href="https://stackoverflow.com/teams" class="s-btn ml8 sm:ml0 sm:mt8 fs-body2 bar-md bg-blue-500 h:bg-blue-600 fc-white d:fc-black-900 p-ff-source-bold" data-ga="[&quot;home page&quot;,&quot;header cta&quot;,&quot;create a team&quot;,null,null]">For small teams <svg aria-hidden="true" class="svg-icon iconPeople" width="18" height="18" viewBox="0 0 18 18"><path d="M17 14c0 .44-.45 1-1 1H9a1 1 0 01-1-1H2c-.54 0-1-.56-1-1 0-2.63 3-4 3-4s.23-.4 0-1c-.84-.62-1.06-.59-1-3 .06-2.42 1.37-3 2.5-3s2.44.58 2.5 3c.06 2.41-.16 2.38-1 3-.23.59 0 1 0 1s1.55.71 2.42 2.09c.78-.72 1.58-1.1 1.58-1.1s.23-.4 0-1c-.84-.61-1.06-.58-1-3 .06-2.41 1.37-3 2.5-3s2.44.59 2.5 3c.05 2.42-.16 2.39-1 3-.23.6 0 1 0 1s3 1.38 3 4Z"></path></svg></a>',
+    'Background Color': { red: 10, green: 149, blue: 255, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '3.11',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#0079d1', fg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { bg: '#005b9f', fg: '#ffffff', contrast: '7.01' }
   },
   {
     innerHTML: '\n' +
-      '                When it comes to website accessibility, the contrast between the text and the text background is a concern for colorblind and other visually impaired users.\n' +
-      '                ',
-    outerHTML: '<p>\n' +
-      '                When it comes to website accessibility, the contrast between the text and the text background is a concern for colorblind and other visually impaired users.\n' +
-      '                </p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'This color contrast tool enables users to comply with website accessibilities regulations.',
-    outerHTML: '<p>This color contrast tool enables users to comply with website accessibilities regulations.</p>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: 'More on contrast',
-    outerHTML: `<a href="#" id="opener_moreoncontrast" class="dialogOpener" targetid="moreContrastInfo" onclick="$('#moreContrastInfo').myToggle(); $('#moreContrastInfo').focus(); return false;">More on contrast</a>`,
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 255, alpha: 1 },
-    'Contrast Ratio': '8.59',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n' +
-      '\n' +
-      '        <div style="margin-bottom:0.25em;">\n' +
-      '            \n' +
-      '            <span class="inblock"><a href="/">Home</a></span>\n' +
-      '            \n' +
-      '            \n' +
-      '                · <span class="inblock"><a href="/ContrastPair/">Color-pair Contrast Test</a></span>\n' +
-      '            \n' +
-      '        </div>\n' +
-      '        \n' +
-      '        <span class="brand">a11y</span><sup>®</sup> <a href="https://www.boia.org/?a11y&amp;__hstc=233958593.b7486cc6bc8589824087d12e2aef9f45.1638365484846.1638365484846.1638365484846.1&amp;__hssc=233958593.1.1638365484846&amp;__hsfp=1077423790">Powered by the Bureau of Internet Accessibility</a>\n' +
-      '        \n' +
-      '            · <span class="inblock"><a href="/UserTool/termsOfService/">Terms of Service</a></span>\n' +
-      '            · <span class="inblock"><a href="/UserTool/privacyPolicy/">Privacy Policy</a></span>\n' +
-      '        \n' +
-      '        \n' +
-      '        \n' +
-      '        \n' +
-      '    ',
-    outerHTML: '<div>\n' +
-      '\n' +
-      '        <div style="margin-bottom:0.25em;">\n' +
-      '            \n' +
-      '            <span class="inblock"><a href="/">Home</a></span>\n' +
-      '            \n' +
-      '            \n' +
-      '                · <span class="inblock"><a href="/ContrastPair/">Color-pair Contrast Test</a></span>\n' +
-      '            \n' +
-      '        </div>\n' +
-      '        \n' +
-      '        <span class="brand">a11y</span><sup>®</sup> <a href="https://www.boia.org/?a11y&amp;__hstc=233958593.b7486cc6bc8589824087d12e2aef9f45.1638365484846.1638365484846.1638365484846.1&amp;__hssc=233958593.1.1638365484846&amp;__hsfp=1077423790">Powered by the Bureau of Internet Accessibility</a>\n' +
-      '        \n' +
-      '            · <span class="inblock"><a href="/UserTool/termsOfService/">Terms of Service</a></span>\n' +
-      '            · <span class="inblock"><a href="/UserTool/privacyPolicy/">Privacy Policy</a></span>\n' +
-      '        \n' +
-      '        \n' +
-      '        \n' +
-      '        \n' +
-      '    </div>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
-    'AA Compliance': true,
-    'AAA Compliance': true,
-    'AA Suggestions': 'No AA contrast issues',
-    'AAA Suggestions': 'No AAA contrast issues'
-  },
-  {
-    innerHTML: '\n' +
-      '            \n' +
-      '            <span class="inblock"><a href="/">Home</a></span>\n' +
-      '            \n' +
-      '            \n' +
-      '                · <span class="inblock"><a href="/ContrastPair/">Color-pair Contrast Test</a></span>\n' +
-      '            \n' +
+      '            Every <span class="js-user-slider p-home-tagline va-bottom ps-relative ws-nowrap d-inline-flex fd-column ai-center fc-orange-500 lg:d-block mx-auto ta-center js-loaded" data-words="developer, data scientist, system admin, mobile developer, game developer" style="width: 255px; height: 71px;"><span class="js-user-slide-init">developer</span><span> data scientist</span><span> system admin</span><span> mobile developer</span><span> game developer</span></span> has a<br class="lg:d-none"> tab open to<br class="d-none lg:d-block"> Stack Overflow\n' +
       '        ',
-    outerHTML: '<div style="margin-bottom:0.25em;">\n' +
-      '            \n' +
-      '            <span class="inblock"><a href="/">Home</a></span>\n' +
-      '            \n' +
-      '            \n' +
-      '                · <span class="inblock"><a href="/ContrastPair/">Color-pair Contrast Test</a></span>\n' +
-      '            \n' +
-      '        </div>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
+    outerHTML: '<h1 class="p-ff-roboto-slab-bold fs-display2 mb0 pt64 pb64 ps-relative z-active overflow-hidden">\n' +
+      '            Every <span class="js-user-slider p-home-tagline va-bottom ps-relative ws-nowrap d-inline-flex fd-column ai-center fc-orange-500 lg:d-block mx-auto ta-center js-loaded" data-words="developer, data scientist, system admin, mobile developer, game developer" style="width: 255px; height: 71px;"><span class="js-user-slide-init">developer</span><span> data scientist</span><span> system admin</span><span> mobile developer</span><span> game developer</span></span> has a<br class="lg:d-none"> tab open to<br class="d-none lg:d-block"> Stack Overflow\n' +
+      '        </h1>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: 'developer',
+    outerHTML: '<span class="js-user-slide-init">developer</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 242, green: 116, blue: 13, alpha: 1 },
+    'Contrast Ratio': '2.74',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#e76d00', bg: '#f8f9f9', contrast: '3.02' },
+    'AAA Suggestions': { fg: '#b95600', bg: '#f8f9f9', contrast: '4.53' }
+  },
+  {
+    innerHTML: ' data scientist',
+    outerHTML: '<span> data scientist</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: ' system admin',
+    outerHTML: '<span> system admin</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: ' mobile developer',
+    outerHTML: '<span> mobile developer</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: ' game developer',
+    outerHTML: '<span> game developer</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: '100+ million',
+    outerHTML: '<div class="fs-title p-ff-roboto-slab-bold mb4">100+ million</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: 'monthly visitors to Stack Overflow &amp; Stack Exchange',
+    outerHTML: '<div class="fc-black-300 fs-body2 px24">monthly visitors to Stack Overflow &amp; Stack Exchange</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.33',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#69747f', bg: '#f8f9f9', contrast: '4.52' },
+    'AAA Suggestions': { fg: '#465866', bg: '#f8f9f9', contrast: '6.99' }
+  },
+  {
+    innerHTML: '45.1+ billion',
+    outerHTML: '<div class="fs-title p-ff-roboto-slab-bold mb4">45.1+ billion</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: 'Times a developer got help since 2008',
+    outerHTML: '<div class="fc-black-300 fs-body2 px24">Times a developer got help since 2008</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.33',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#69747f', bg: '#f8f9f9', contrast: '4.52' },
+    'AAA Suggestions': { fg: '#465866', bg: '#f8f9f9', contrast: '6.99' }
+  },
+  {
+    innerHTML: '179% ROI',
+    outerHTML: '<div class="fs-title p-ff-roboto-slab-bold mb4">179% ROI</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: 'from companies using Stack Overflow for Teams',
+    outerHTML: '<div class="fc-black-300 fs-body2 px24">from companies using Stack Overflow for Teams</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.33',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#69747f', bg: '#f8f9f9', contrast: '4.52' },
+    'AAA Suggestions': { fg: '#465866', bg: '#f8f9f9', contrast: '6.99' }
+  },
+  {
+    innerHTML: '5,000+',
+    outerHTML: '<div class="fs-title p-ff-roboto-slab-bold mb4">5,000+</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: 'Stack Overflow for Teams instances active every day',
+    outerHTML: '<div class="fc-black-300 fs-body2 px24">Stack Overflow for Teams instances active every day</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.33',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#69747f', bg: '#f8f9f9', contrast: '4.52' },
+    'AAA Suggestions': { fg: '#465866', bg: '#f8f9f9', contrast: '6.99' }
+  },
+  {
+    innerHTML: '\n' +
+      '                    A public platform building the definitive collection of coding questions &amp; answers\n' +
+      '                ',
+    outerHTML: '<h2 class="mx48 sm:ml32 sm:mr32 mb12 p-ff-roboto-slab-bold fs-headline1">\n' +
+      '                    A public platform building the definitive collection of coding questions &amp; answers\n' +
+      '                </h2>',
+    'Background Color': { red: 255, green: 247, blue: 240, alpha: 1 },
+    'Text Color': { red: 35, green: 38, blue: 41, alpha: 1 },
+    'Contrast Ratio': '14.35',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'Home',
-    outerHTML: '<a href="/">Home</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
-    'Contrast Ratio': '15.30',
+    innerHTML: 'A community-based space to find and contribute answers to technical challenges, and one of the most popular websites in the world.',
+    outerHTML: '<p class="mx48 sm:ml32 sm:mr32 mb32 fc-black-600 fs-subheading">A community-based space to find and contribute answers to technical challenges, and one of the most popular websites in the world.</p>',
+    'Background Color': { red: 255, green: 247, blue: 240, alpha: 1 },
+    'Text Color': { red: 82, green: 89, blue: 96, alpha: 1 },
+    'Contrast Ratio': '6.70',
+    'AA Compliance': true,
+    'AAA Compliance': false,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': { fg: '#4f565d', bg: '#fff7f0', contrast: '7.02' }
+  },
+  {
+    innerHTML: 'Join the community',
+    outerHTML: '<a href="/users/signup" class="s-btn w100 ws-nowrap wmx2 fs-body2 px32 bar-md bg-orange-500 h:bg-orange-600 fc-white d:fc-black-900 p-ff-source-bold mt-auto" data-ga="[&quot;home page&quot;,&quot;body cta&quot;,&quot;join community&quot;,null,null]">Join the community</a>',
+    'Background Color': { red: 242, green: 116, blue: 13, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '2.88',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#bf5900', fg: '#ffffff', contrast: '4.52' },
+    'AAA Suggestions': { bg: '#914200', fg: '#ffffff', contrast: '7.04' }
+  },
+  {
+    innerHTML: 'or <a class="s-link s-link__underlined fc-black-400 h:fc-orange-500" href="/questions">search content</a>',
+    outerHTML: '<p class="mb0 mt12 fc-black-400">or <a class="s-link s-link__underlined fc-black-400 h:fc-orange-500" href="/questions">search content</a></p>',
+    'Background Color': { red: 255, green: 247, blue: 240, alpha: 1 },
+    'Text Color': { red: 131, green: 140, blue: 149, alpha: 1 },
+    'Contrast Ratio': '3.22',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#68747f', bg: '#fff7f0', contrast: '4.51' },
+    'AAA Suggestions': { fg: '#465766', bg: '#fff7f0', contrast: '7.04' }
+  },
+  {
+    innerHTML: 'search content',
+    outerHTML: '<a class="s-link s-link__underlined fc-black-400 h:fc-orange-500" href="/questions">search content</a>',
+    'Background Color': { red: 255, green: 247, blue: 240, alpha: 1 },
+    'Text Color': { red: 131, green: 140, blue: 149, alpha: 1 },
+    'Contrast Ratio': '3.22',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#68747f', bg: '#fff7f0', contrast: '4.51' },
+    'AAA Suggestions': { fg: '#465766', bg: '#fff7f0', contrast: '7.04' }
+  },
+  {
+    innerHTML: '\n' +
+      '                   A private collaboration &amp; knowledge sharing SaaS platform for companies\n' +
+      '                ',
+    outerHTML: '<h2 class="mx48 sm:ml32 sm:mr32 mb12 p-ff-roboto-slab-bold fs-headline1">\n' +
+      '                   A private collaboration &amp; knowledge sharing SaaS platform for companies\n' +
+      '                </h2>',
+    'Background Color': { red: 240, green: 248, blue: 255, alpha: 1 },
+    'Text Color': { red: 35, green: 38, blue: 41, alpha: 1 },
+    'Contrast Ratio': '14.18',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'Color-pair Contrast Test',
-    outerHTML: '<a href="/ContrastPair/">Color-pair Contrast Test</a>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
-    'Contrast Ratio': '15.30',
+    innerHTML: 'A web-based platform to increase productivity, decrease cycle times, accelerate time to market, and protect institutional knowledge.',
+    outerHTML: '<p class="mx48 sm:ml32 sm:mr32 mb32 fc-black-600 fs-subheading">A web-based platform to increase productivity, decrease cycle times, accelerate time to market, and protect institutional knowledge.</p>',
+    'Background Color': { red: 240, green: 248, blue: 255, alpha: 1 },
+    'Text Color': { red: 82, green: 89, blue: 96, alpha: 1 },
+    'Contrast Ratio': '6.62',
+    'AA Compliance': true,
+    'AAA Compliance': false,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': { fg: '#4e555d', bg: '#f0f8ff', contrast: '7.04' }
+  },
+  {
+    innerHTML: '\n                        Get started\n                    ',
+    outerHTML: '<span class="flex--item fc-black-600 fl-shrink0 fs-body1 z-active px12">\n' +
+      '                        Get started\n' +
+      '                    </span>',
+    'Background Color': { red: 240, green: 248, blue: 255, alpha: 1 },
+    'Text Color': { red: 82, green: 89, blue: 96, alpha: 1 },
+    'Contrast Ratio': '6.62',
+    'AA Compliance': true,
+    'AAA Compliance': false,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': { fg: '#4e555d', bg: '#f0f8ff', contrast: '7.04' }
+  },
+  {
+    innerHTML: 'For large organizations <svg aria-hidden="true" class="svg-icon iconIndustry" width="18" height="18" viewBox="0 0 18 18"><path d="M10 16v-4H8v4H2V4c0-1.1.9-2 2-2h6c1.09 0 2 .91 2 2v2h2c1.09 0 2 .91 2 2v8h-6ZM4 4v2h2V4H4Zm0 4v2h2V8H4Zm4-4v2h2V4H8Zm0 4v2h2V8H8Zm-4 4v2h2v-2H4Zm8 0v2h2v-2h-2Zm0-4v2h2V8h-2Z"></path></svg>',
+    outerHTML: '<a href="https://stackoverflowsolutions.com/explore-teams" class="s-btn fs-body2 bar-md bg-blue-500 h:bg-blue-600 fc-white d:fc-black-900 p-ff-source-bold" data-ga="[&quot;home page&quot;,&quot;body cta&quot;,&quot;Request a demo&quot;,null,null]">For large organizations <svg aria-hidden="true" class="svg-icon iconIndustry" width="18" height="18" viewBox="0 0 18 18"><path d="M10 16v-4H8v4H2V4c0-1.1.9-2 2-2h6c1.09 0 2 .91 2 2v2h2c1.09 0 2 .91 2 2v8h-6ZM4 4v2h2V4H4Zm0 4v2h2V8H4Zm4-4v2h2V4H8Zm0 4v2h2V8H8Zm-4 4v2h2v-2H4Zm8 0v2h2v-2h-2Zm0-4v2h2V8h-2Z"></path></svg></a>',
+    'Background Color': { red: 10, green: 149, blue: 255, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '3.11',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#0079d1', fg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { bg: '#005b9f', fg: '#ffffff', contrast: '7.01' }
+  },
+  {
+    innerHTML: 'For small teams <svg aria-hidden="true" class="svg-icon iconPeople" width="18" height="18" viewBox="0 0 18 18"><path d="M17 14c0 .44-.45 1-1 1H9a1 1 0 01-1-1H2c-.54 0-1-.56-1-1 0-2.63 3-4 3-4s.23-.4 0-1c-.84-.62-1.06-.59-1-3 .06-2.42 1.37-3 2.5-3s2.44.58 2.5 3c.06 2.41-.16 2.38-1 3-.23.59 0 1 0 1s1.55.71 2.42 2.09c.78-.72 1.58-1.1 1.58-1.1s.23-.4 0-1c-.84-.61-1.06-.58-1-3 .06-2.41 1.37-3 2.5-3s2.44.59 2.5 3c.05 2.42-.16 2.39-1 3-.23.6 0 1 0 1s3 1.38 3 4Z"></path></svg>',
+    outerHTML: '<a href="https://stackoverflow.com/teams" class="s-btn ml8 sm:ml0 sm:mt8 fs-body2 bar-md bg-blue-500 h:bg-blue-600 fc-white d:fc-black-900 p-ff-source-bold" data-ga="[&quot;home page&quot;,&quot;body cta&quot;,&quot;create a team&quot;,null,null]">For small teams <svg aria-hidden="true" class="svg-icon iconPeople" width="18" height="18" viewBox="0 0 18 18"><path d="M17 14c0 .44-.45 1-1 1H9a1 1 0 01-1-1H2c-.54 0-1-.56-1-1 0-2.63 3-4 3-4s.23-.4 0-1c-.84-.62-1.06-.59-1-3 .06-2.42 1.37-3 2.5-3s2.44.58 2.5 3c.06 2.41-.16 2.38-1 3-.23.59 0 1 0 1s1.55.71 2.42 2.09c.78-.72 1.58-1.1 1.58-1.1s.23-.4 0-1c-.84-.61-1.06-.58-1-3 .06-2.41 1.37-3 2.5-3s2.44.59 2.5 3c.05 2.42-.16 2.39-1 3-.23.6 0 1 0 1s3 1.38 3 4Z"></path></svg></a>',
+    'Background Color': { red: 10, green: 149, blue: 255, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '3.11',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#0079d1', fg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { bg: '#005b9f', fg: '#ffffff', contrast: '7.01' }
+  },
+  {
+    innerHTML: 'Thousands of organizations around the globe use Stack Overflow for Teams',
+    outerHTML: '<p class="fc-black-500 fs-subheading pb0 sm:pl24 sm:pr24">Thousands of organizations around the globe use Stack Overflow for Teams</p>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 106, green: 115, blue: 124, alpha: 1 },
+    'Contrast Ratio': '4.57',
+    'AA Compliance': true,
+    'AAA Compliance': false,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': { fg: '#4a5763', bg: '#f8f9f9', contrast: '7.02' }
+  },
+  {
+    innerHTML: 'Capture your company’s knowledge and context in a discoverable format to <span class="fc-orange-500">unblock your team</span>',
+    outerHTML: '<p class="p-ff-roboto-slab-bold fs-headline1 mb32 wmx7 mx-auto sm:pl24 sm:pr24">Capture your company’s knowledge and context in a discoverable format to <span class="fc-orange-500">unblock your team</span></p>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '1.05',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#939595', fg: '#ffffff', contrast: '3.01' },
+    'AAA Suggestions': { bg: '#747777', fg: '#ffffff', contrast: '4.52' }
+  },
+  {
+    innerHTML: 'unblock your team',
+    outerHTML: '<span class="fc-orange-500">unblock your team</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 242, green: 116, blue: 13, alpha: 1 },
+    'Contrast Ratio': '2.74',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#e76d00', bg: '#f8f9f9', contrast: '3.02' },
+    'AAA Suggestions': { fg: '#b95600', bg: '#f8f9f9', contrast: '4.53' }
+  },
+  {
+    innerHTML: 'Take a tour of Teams',
+    outerHTML: '<a href="/teams/tour" class="s-btn ws-nowrap fs-body2 px32 bar-md bg-blue-500 h:bg-blue-600 fc-white d:fc-black-900 p-ff-source-bold mt-auto" data-ga="[&quot;home page&quot;,&quot;body cta&quot;,&quot;teams tour&quot;,null,null]">Take a tour of Teams</a>',
+    'Background Color': { red: 10, green: 149, blue: 255, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '3.11',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#0079d1', fg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { bg: '#005b9f', fg: '#ffffff', contrast: '7.01' }
+  },
+  {
+    innerHTML: 'Increase productivity',
+    outerHTML: '<h3 class="p-ff-roboto-slab-bold fs-title mb12 fc-white d:fc-black">Increase productivity</h3>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '1.05',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#939595', fg: '#ffffff', contrast: '3.01' },
+    'AAA Suggestions': { bg: '#747777', fg: '#ffffff', contrast: '4.52' }
+  },
+  {
+    innerHTML: 'If somebody somewhere has the right answer, suddenly you have it too. Collaborate better in a remote-first world.',
+    outerHTML: '<p class="fs-body3 fc-black-300">If somebody somewhere has the right answer, suddenly you have it too. Collaborate better in a remote-first world.</p>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.33',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#69747f', bg: '#f8f9f9', contrast: '4.52' },
+    'AAA Suggestions': { fg: '#465866', bg: '#f8f9f9', contrast: '6.99' }
+  },
+  {
+    innerHTML: 'Accelerate time to market',
+    outerHTML: '<h3 class="p-ff-roboto-slab-bold fs-title mb12 fc-white d:fc-black">Accelerate time to market</h3>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '1.05',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#939595', fg: '#ffffff', contrast: '3.01' },
+    'AAA Suggestions': { bg: '#747777', fg: '#ffffff', contrast: '4.52' }
+  },
+  {
+    innerHTML: 'Shorten the time between initial idea and complete product. Take delays and misinformation out of the equation.',
+    outerHTML: '<p class="fs-body3 fc-black-300">Shorten the time between initial idea and complete product. Take delays and misinformation out of the equation.</p>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.33',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#69747f', bg: '#f8f9f9', contrast: '4.52' },
+    'AAA Suggestions': { fg: '#465866', bg: '#f8f9f9', contrast: '6.99' }
+  },
+  {
+    innerHTML: 'Protect institutional knowledge',
+    outerHTML: '<h3 class="p-ff-roboto-slab-bold fs-title mb12 fc-white d:fc-black">Protect institutional knowledge</h3>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '1.05',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#939595', fg: '#ffffff', contrast: '3.01' },
+    'AAA Suggestions': { bg: '#747777', fg: '#ffffff', contrast: '4.52' }
+  },
+  {
+    innerHTML: 'People come and people go, but if you capture their contributions in one central place, that expertise sticks around.',
+    outerHTML: '<p class="fs-body3 fc-black-300">People come and people go, but if you capture their contributions in one central place, that expertise sticks around.</p>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.33',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#69747f', bg: '#f8f9f9', contrast: '4.52' },
+    'AAA Suggestions': { fg: '#465866', bg: '#f8f9f9', contrast: '6.99' }
+  },
+  {
+    innerHTML: 'Ensure your company stays on course',
+    outerHTML: '<h2 class="p-ff-roboto-slab-bold fs-headline2 mb12 bt p-bc-black pt64">Ensure your company stays on course</h2>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '1.05',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#939595', fg: '#ffffff', contrast: '3.01' },
+    'AAA Suggestions': { bg: '#747777', fg: '#ffffff', contrast: '4.52' }
+  },
+  {
+    innerHTML: 'Here are just a few types of technologists that we help.',
+    outerHTML: '<p class="fs-subheading">Here are just a few types of technologists that we help.</p>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '1.05',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#747777', fg: '#ffffff', contrast: '4.52' },
+    'AAA Suggestions': { bg: '#565a5a', fg: '#ffffff', contrast: '6.99' }
+  },
+  {
+    innerHTML: 'DevOps engineers',
+    outerHTML: '<h3 class="ps-relative px32 d:fc-black pt24 p-ff-roboto-slab-bold fs-title mb12">DevOps engineers</h3>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: 'Data scientists',
+    outerHTML: '<h3 class="ps-relative px32 d:fc-black pt24 p-ff-roboto-slab-bold fs-title mb12">Data scientists</h3>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: 'Software engineers',
+    outerHTML: '<h3 class="ps-relative px32 d:fc-black pt24 p-ff-roboto-slab-bold fs-title mb12">Software engineers</h3>',
+    'Background Color': { red: 59, green: 64, blue: 69, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '10.47',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'a11y',
-    outerHTML: '<span class="brand">a11y</span>',
-    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
+    innerHTML: 'Help engineers be more efficient and streamline knowledge sharing using a tool they already love and trust.',
+    outerHTML: '<p class="fs-body3 px24 hmn1">Help engineers be more efficient and streamline knowledge sharing using a tool they already love and trust.</p>',
+    'Background Color': { red: 59, green: 64, blue: 69, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '10.47',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: '®',
-    outerHTML: '<sup>®</sup>',
+    innerHTML: 'Support teams',
+    outerHTML: '<h3 class="ps-relative px32 d:fc-black pt24 p-ff-roboto-slab-bold fs-title mb12">Support teams</h3>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: 'Engineering leaders',
+    outerHTML: '<h3 class="ps-relative px32 d:fc-black pt24 p-ff-roboto-slab-bold fs-title mb12">Engineering leaders</h3>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Contrast Ratio': '1.00',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#8f9191', bg: '#f8f9f9', contrast: '3.00' },
+    'AAA Suggestions': { fg: '#707373', bg: '#f8f9f9', contrast: '4.54' }
+  },
+  {
+    innerHTML: 'Annual billing discount',
+    outerHTML: '<label class="flex--item s-label fw-normal mr8 us-none" for="billing-period" style="color:inherit">Annual billing discount</label>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '1.05',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#747777', fg: '#ffffff', contrast: '4.52' },
+    'AAA Suggestions': { bg: '#565a5a', fg: '#ffffff', contrast: '6.99' }
+  },
+  {
+    innerHTML: '\n                    Free\n                ',
+    outerHTML: '<h2 class="px8 py4 as-start bar-sm bg-orange-500 fc-white fs-body3">\n' +
+      '                    Free\n' +
+      '                </h2>',
+    'Background Color': { red: 242, green: 116, blue: 13, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '2.88',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#bf5900', fg: '#ffffff', contrast: '4.52' },
+    'AAA Suggestions': { bg: '#914200', fg: '#ffffff', contrast: '7.04' }
+  },
+  {
+    innerHTML: '\n                        Free\n                    ',
+    outerHTML: '<div class="p-ff-roboto-slab-bold fw-bold fs-headline1 p-font-smooth lh-xs pt12 mb6">\n' +
+      '                        Free\n' +
+      '                    </div>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 51, green: 51, blue: 51, alpha: 1 },
-    'Contrast Ratio': '12.63',
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'Powered by the Bureau of Internet Accessibility',
-    outerHTML: '<a href="https://www.boia.org/?a11y&amp;__hstc=233958593.b7486cc6bc8589824087d12e2aef9f45.1638365484846.1638365484846.1638365484846.1&amp;__hssc=233958593.1.1638365484846&amp;__hsfp=1077423790">Powered by the Bureau of Internet Accessibility</a>',
+    innerHTML: 'No credit card required',
+    outerHTML: '<div class="fc-black-350 fs-body2">No credit card required</div>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
-    'Contrast Ratio': '15.30',
+    'Text Color': { red: 145, green: 153, blue: 161, alpha: 1 },
+    'Contrast Ratio': '2.89',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#6d7882', bg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { fg: '#4a5b69', bg: '#ffffff', contrast: '7.02' }
+  },
+  {
+    innerHTML: 'ChatOps integrations - Slack &amp; Microsoft Teams',
+    outerHTML: '<div>ChatOps integrations - Slack &amp; Microsoft Teams</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'Terms of Service',
-    outerHTML: '<a href="/UserTool/termsOfService/">Terms of Service</a>',
+    innerHTML: 'Your own private space hosted on stackoverflow.com',
+    outerHTML: '<div>Your own private space hosted on stackoverflow.com</div>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
-    'Contrast Ratio': '15.30',
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
   },
   {
-    innerHTML: 'Privacy Policy',
-    outerHTML: '<a href="/UserTool/privacyPolicy/">Privacy Policy</a>',
+    innerHTML: 'Structured and searchable knowledge base',
+    outerHTML: '<div>Structured and searchable knowledge base</div>',
     'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
-    'Text Color': { red: 0, green: 0, blue: 139, alpha: 1 },
-    'Contrast Ratio': '15.30',
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
     'AA Compliance': true,
     'AAA Compliance': true,
     'AA Suggestions': 'No AA contrast issues',
     'AAA Suggestions': 'No AAA contrast issues'
-  }
+  },
+  {
+    innerHTML: '\n                Create a free Team\n            ',
+    outerHTML: '<a href="https://stackoverflow.com/teams/create/free" class="s-btn mt24 d-block as-stretch fs-body2 px32 bar-md p-ff-source-bold bg-orange-500 h:bg-orange-600 fc-white" data-ga="[&quot;teams landing&quot;,&quot;plans menu click&quot;,&quot;stackoverflow.com/teams/create/free&quot;,null,null]" basic="">\n' +
+      '                Create a free Team\n' +
+      '            </a>',
+    'Background Color': { red: 242, green: 116, blue: 13, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '2.88',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#bf5900', fg: '#ffffff', contrast: '4.52' },
+    'AAA Suggestions': { bg: '#914200', fg: '#ffffff', contrast: '7.04' }
+  },
+  {
+    innerHTML: 'Always free up to 50 teammates',
+    outerHTML: '<p class="fc-black-300 mb0 ta-center pt12">Always free up to 50 teammates</p>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.46',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#6d7882', bg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { fg: '#4b5b69', bg: '#ffffff', contrast: '7.00' }
+  },
+  {
+    innerHTML: '\n                    Basic\n                ',
+    outerHTML: '<h2 class="px8 py4 as-start bar-sm bg-black-150 fc-black-750 fs-body3">\n' +
+      '                    Basic\n' +
+      '                </h2>',
+    'Background Color': { red: 200, green: 204, blue: 208, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '7.88',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: '$6 USD',
+    outerHTML: '<span class="js-billed-annually">$6 USD</span>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'per teammate / month',
+    outerHTML: '<div class="fc-black-350 fs-body2">per teammate / month</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 145, green: 153, blue: 161, alpha: 1 },
+    'Contrast Ratio': '2.89',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#6d7882', bg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { fg: '#4a5b69', bg: '#ffffff', contrast: '7.02' }
+  },
+  {
+    innerHTML: 'Single sign-on (SSO) with SAML + Okta integration',
+    outerHTML: '<div>Single sign-on (SSO) with SAML + Okta integration</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'ChatOps integrations - Slack &amp; Microsoft Teams',
+    outerHTML: '<div>ChatOps integrations - Slack &amp; Microsoft Teams</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Your own private space hosted on stackoverflow.com',
+    outerHTML: '<div>Your own private space hosted on stackoverflow.com</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Structured and searchable knowledge base',
+    outerHTML: '<div>Structured and searchable knowledge base</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: '\n                Get started\n            ',
+    outerHTML: '<a href="https://stackoverflow.com/teams/create/basic" class="s-btn mt24 d-block as-stretch fs-body2 px32 bar-md p-ff-source-bold bg-black-075 h:bg-black-150 fc-powder-900" data-ga="[&quot;teams landing&quot;,&quot;plans menu click&quot;,&quot;stackoverflow.com/teams/create/basic&quot;,null,null]" basic="">\n' +
+      '                Get started\n' +
+      '            </a>',
+    'Background Color': { red: 227, green: 230, blue: 232, alpha: 1 },
+    'Text Color': { red: 30, green: 60, blue: 82, alpha: 1 },
+    'Contrast Ratio': '9.19',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Up to 250 teammates',
+    outerHTML: '<p class="fc-black-300 mb0 ta-center pt12">Up to 250 teammates</p>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.46',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#6d7882', bg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { fg: '#4b5b69', bg: '#ffffff', contrast: '7.00' }
+  },
+  {
+    innerHTML: '\n' +
+      '                <svg aria-hidden="true" class="float-right svg-icon iconIndustry" width="18" height="18" viewBox="0 0 18 18"><path d="M10 16v-4H8v4H2V4c0-1.1.9-2 2-2h6c1.09 0 2 .91 2 2v2h2c1.09 0 2 .91 2 2v8h-6ZM4 4v2h2V4H4Zm0 4v2h2V8H4Zm4-4v2h2V4H8Zm0 4v2h2V8H8Zm-4 4v2h2v-2H4Zm8 0v2h2v-2h-2Zm0-4v2h2V8h-2Z"></path></svg>\n' +
+      '                Recommended\n' +
+      '            ',
+    outerHTML: '<div class="px16 py8 bg-black-050 d:bg-black-025 bl bt br bc-black-100 btr-lg fs-body2 p-ff-source-bold fs-body1 ps-absolute lg:ps-static b100 l0 r0 tt-uppercase">\n' +
+      '                <svg aria-hidden="true" class="float-right svg-icon iconIndustry" width="18" height="18" viewBox="0 0 18 18"><path d="M10 16v-4H8v4H2V4c0-1.1.9-2 2-2h6c1.09 0 2 .91 2 2v2h2c1.09 0 2 .91 2 2v8h-6ZM4 4v2h2V4H4Zm0 4v2h2V8H4Zm4-4v2h2V4H8Zm0 4v2h2V8H8Zm-4 4v2h2v-2H4Zm8 0v2h2v-2h-2Zm0-4v2h2V8h-2Z"></path></svg>\n' +
+      '                Recommended\n' +
+      '            </div>',
+    'Background Color': { red: 241, green: 242, blue: 243, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '11.36',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: '\n                    Business\n                ',
+    outerHTML: '<h2 class="px8 py4 as-start bar-sm bg-black-700 fc-white fs-body3">\n' +
+      '                    Business\n' +
+      '                </h2>',
+    'Background Color': { red: 59, green: 64, blue: 69, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '10.47',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: '$12 USD',
+    outerHTML: '<span class="js-billed-annually">$12 USD</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.07',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'per teammate / month',
+    outerHTML: '<div class="fc-black-350 fs-body2">per teammate / month</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 145, green: 153, blue: 161, alpha: 1 },
+    'Contrast Ratio': '2.74',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#68747f', bg: '#f8f9f9', contrast: '4.53' },
+    'AAA Suggestions': { fg: '#465867', bg: '#f8f9f9', contrast: '6.98' }
+  },
+  {
+    innerHTML: 'All the features of Basic plus…',
+    outerHTML: '<div>All the features of Basic plus…</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 131, green: 140, blue: 149, alpha: 1 },
+    'Contrast Ratio': '3.24',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#68747f', bg: '#f8f9f9', contrast: '4.53' },
+    'AAA Suggestions': { fg: '#465867', bg: '#f8f9f9', contrast: '6.98' }
+  },
+  {
+    innerHTML: 'Long-form knowledge with Articles',
+    outerHTML: '<div>Long-form knowledge with Articles</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.07',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Additional integrations — ChatOps, Jira, GitHub &amp; Okta',
+    outerHTML: '<div>Additional integrations — ChatOps, Jira, GitHub &amp; Okta</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.07',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Group content together into Collections',
+    outerHTML: '<div>Group content together into Collections</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.07',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Usage and adoption metrics',
+    outerHTML: '<div>Usage and adoption metrics</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.07',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Priority customer support',
+    outerHTML: '<div>Priority customer support</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.07',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Content Health tools',
+    outerHTML: '<div>Content Health tools</div>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.07',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: '\n                Get started\n            ',
+    outerHTML: '<a href="https://stackoverflow.com/teams/create/business" class="s-btn mt24 d-block as-stretch fs-body2 px32 bar-md p-ff-source-bold bg-black-700 h:bg-black-600 fc-white" data-ga="[&quot;teams landing&quot;,&quot;plans menu click&quot;,&quot;stackoverflow.com/teams/create/business&quot;,null,null]" basic="">\n' +
+      '                Get started\n' +
+      '            </a>',
+    'Background Color': { red: 59, green: 64, blue: 69, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '10.47',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Unlimited teammates',
+    outerHTML: '<p class="fc-black-300 mb0 ta-center pt12">Unlimited teammates</p>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.33',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#69747f', bg: '#f8f9f9', contrast: '4.52' },
+    'AAA Suggestions': { fg: '#465866', bg: '#f8f9f9', contrast: '6.99' }
+  },
+  {
+    innerHTML: '\n                    Enterprise\n                ',
+    outerHTML: '<h2 class="px8 py4 as-start bar-sm p-bg-purple d:p-bg-purple-alt fc-white d:fc-black fs-body3">\n' +
+      '                    Enterprise\n' +
+      '                </h2>',
+    'Background Color': { red: 43, green: 45, blue: 110, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '12.33',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: '\n                        Custom pricing\n                    ',
+    outerHTML: '<div class="p-ff-roboto-slab-bold fw-bold fs-headline1 p-font-smooth lh-xs pt12 mb6">\n' +
+      '                        Custom pricing\n' +
+      '                    </div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Let’s talk about what you need',
+    outerHTML: '<div class="fc-black-350 fs-body2">Let’s talk about what you need</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 145, green: 153, blue: 161, alpha: 1 },
+    'Contrast Ratio': '2.89',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#6d7882', bg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { fg: '#4a5b69', bg: '#ffffff', contrast: '7.02' }
+  },
+  {
+    innerHTML: 'Premium features of Business plus…',
+    outerHTML: '<div>Premium features of Business plus…</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 131, green: 140, blue: 149, alpha: 1 },
+    'Contrast Ratio': '3.41',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#6d7883', bg: '#ffffff', contrast: '4.50' },
+    'AAA Suggestions': { fg: '#4a5b69', bg: '#ffffff', contrast: '7.02' }
+  },
+  {
+    innerHTML: 'Unlimited Teams within your instance',
+    outerHTML: '<div>Unlimited Teams within your instance</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Flexible hosting options — cloud or on-premises',
+    outerHTML: '<div>Flexible hosting options — cloud or on-premises</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Robust read and write API',
+    outerHTML: '<div>Robust read and write API</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Your own customer success and community building representative',
+    outerHTML: '<div>Your own customer success and community building representative</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: '99.5% uptime SLA and priority support',
+    outerHTML: '<div>99.5% uptime SLA and priority support</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Content Health tools (Dec 2021)',
+    outerHTML: '<div>Content Health tools (Dec 2021)</div>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 47, green: 51, blue: 55, alpha: 1 },
+    'Contrast Ratio': '12.73',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: '\n                Request a demo\n            ',
+    outerHTML: '<a href="https://stackoverflowsolutions.com/explore-teams" class="s-btn mt24 d-block as-stretch fs-body2 px32 bar-md p-ff-source-bold p-bg-purple d:p-bg-purple-alt h:p-bg-purple-tint fc-white d:fc-black" data-ga="[&quot;teams landing&quot;,&quot;plans menu click&quot;,&quot;stackoverflow.com/enterprise/get-started&quot;,null,null]" basic="">\n' +
+      '                Request a demo\n' +
+      '            </a>',
+    'Background Color': { red: 43, green: 45, blue: 110, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '12.33',
+    'AA Compliance': true,
+    'AAA Compliance': true,
+    'AA Suggestions': 'No AA contrast issues',
+    'AAA Suggestions': 'No AAA contrast issues'
+  },
+  {
+    innerHTML: 'Unlimited teammates',
+    outerHTML: '<p class="fc-black-300 mb0 ta-center pt12">Unlimited teammates</p>',
+    'Background Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Text Color': { red: 159, green: 166, blue: 173, alpha: 1 },
+    'Contrast Ratio': '2.46',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#6d7882', bg: '#ffffff', contrast: '4.51' },
+    'AAA Suggestions': { fg: '#4b5b69', bg: '#ffffff', contrast: '7.00' }
+  },
+  {
+    innerHTML: 'A Forrester Consulting study shows',
+    outerHTML: '<span class="fc-white d:fc-black">A Forrester Consulting study shows</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '1.05',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#747777', fg: '#ffffff', contrast: '4.52' },
+    'AAA Suggestions': { bg: '#565a5a', fg: '#ffffff', contrast: '6.99' }
+  },
+  {
+    innerHTML: '179% return on investment',
+    outerHTML: '<strong class="p-ff-roboto-slab-bold fs-title px4">179% return on investment</strong>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 10, green: 149, blue: 255, alpha: 1 },
+    'Contrast Ratio': '2.95',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { fg: '#0093fd', bg: '#f8f9f9', contrast: '3.02' },
+    'AAA Suggestions': { fg: '#0075cb', bg: '#f8f9f9', contrast: '4.52' }
+  },
+  {
+    innerHTML: 'with Stack Overflow for Teams.',
+    outerHTML: '<span class="fc-white d:fc-black">with Stack Overflow for Teams.</span>',
+    'Background Color': { red: 248, green: 249, blue: 249, alpha: 1 },
+    'Text Color': { red: 255, green: 255, blue: 255, alpha: 1 },
+    'Contrast Ratio': '1.05',
+    'AA Compliance': false,
+    'AAA Compliance': false,
+    'AA Suggestions': { bg: '#747777', fg: '#ffffff', contrast: '4.52' },
+    'AAA Suggestions': { bg: '#565a5a', fg: '#ffffff', contrast: '6.99' }
+  },
+  ... 90 more items
 ]
-Violated Lables [ 'urltotest', '', '' ]
-No Consent Found
-No Cookie Information
+Violated Lables [ '' ]
+Consent!!
+Manage Cookie!!
+Check for more Cookie info https://stackoverflow.com/legal/cookie-policy

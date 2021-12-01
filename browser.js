@@ -99,8 +99,8 @@ module.exports = instance = async (host) => {
     headings.each((i,el)=>{
       var $el = $(el)
       var level = +$el.prop('tagName').slice(1)
-      var content = $el.prop('innerText')
-      if(dict[content]!=null && level!=dict[content]){
+      var content = $el.prop('innerText').split(" ")[0]
+      if(dict[content]!=null){
         items.push({"repeating header name at":dict[content], level})
       }
       dict[content] = level
@@ -109,8 +109,6 @@ module.exports = instance = async (host) => {
       } else if (prevLevel && level - prevLevel > 1) {
         items.push({ "Non consecutive headers present at ": prevLevel, level });
       }
-
-
       prevLevel = level;
 
     })
@@ -203,36 +201,35 @@ module.exports = instance = async (host) => {
   const cookie_consent = await page.evaluate(()=>{
     var div_id = []
     var buttons
-    $("div[id*='consent' i], div[class*='consent' i], div[class*='cookie' i], div[class*='cookie' i]").each((i, el)=>{
+    $("[id*='consent' i], [class*='consent' i], [class*='cookie' i], [id*='cookie' i]").each((i, el)=>{
       // div_id.push(el.id)
       // if(RegExp('Cookie','i').test(el.innerText.trim()))
       // {
-       buttons = $(el).find('button')
-        for(const [key,val] of Object.entries(buttons))
-        {
-            div_id.push(val.innerText)
-        }
-      // }
+      buttons = $(el).find('button')
+      for(const [key,val] of Object.entries(buttons))
+      {
+          div_id.push(val.innerText)
+      }
     })
     return div_id
   })
 
 
-  //Cookie Settings
+  // //Cookie Settings
 
+// console.log(cookie_settings)
   const cookie_settings = await page.evaluate(()=>{
-    var div_id = []
+    var cookie_href = []
     var flag = false
+    var alls
     $("footer").each((i, el)=>{
-      // div_id.push(el.id)
-      // if(RegExp('Cookie','i').test(el.innerText.trim()))
-      // {
-       buttons = $(el).find('*')
-        for(const [key,val] of Object.entries(buttons))
+       alls = $(el).find('*')
+        for(const [key,val] of Object.entries(alls))
         {
           if(val.innerText != "null" && val.innerText!=='' && RegExp('Cookie','i').test(val.innerText))
           {
-            if(String(val.tagName)==="A" || String(val.tagName)==="BUTTON"){
+            if(String(val.tagName)==="A"){
+              cookie_href.push(val['href'])
               flag = true
             }
             // div_id.push(val.tagName)
@@ -240,17 +237,41 @@ module.exports = instance = async (host) => {
         }
       // }
     })
-    return flag
+    return cookie_href
     // return div_id
   })
-  //console.log(cookie_settings)
-  // const footerText = await page.$eval('footer', (el) => el.innerText);
-  // var cookie_settings = RegExp('Cookie','i').test(footerText.trim());
-  
 
-  var buttons = cookie_consent,consent_flag = -1,manage_flag = -1
+  const cookie_settingsall = await page.evaluate(()=>{
+    var cookie_href = []
+    var flag = false
+    var alls
+    $("*").each((i, el)=>{
+       alls = $(el).find('*')
+        for(const [key,val] of Object.entries(alls))
+        {
+          if(val.innerText != "null" && val.innerText!=='' && RegExp('Cookie','i').test(val.innerText))
+          {
+            if(String(val.tagName)==="A"){
+              cookie_href.push(val['href'])
+              flag = true
+            }
+            // div_id.push(val.tagName)
+          }
+        }
+      // }
+    })
+    return cookie_href
+    // return div_id
+  })
+  // console.log(cookie_settings)
+  //const footerText = await page.$eval('footer', (el) => el.innerText);
+  //var cookie_settings = RegExp('Cookie','i').test(footerText.trim());
+  
+  //var links = cookie_settings
+  var buttons = cookie_consent,consent_flag = -1,manage_flag = -1, hrefs = cookie_settings
   var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i]
   var manage_word = [/manage/i, /custom/i, /setting/i]
+  var f = -1
   for(var i=0;i<buttons.length;i++)
   {
     if(consent_word.some(r => r.test(buttons[i]))){
@@ -274,11 +295,36 @@ module.exports = instance = async (host) => {
   if(manage_flag !== -1 && manage_flag!== consent_flag)
   {
     console.log("Manage Cookie!!")
+  }else{
+    console.log("No Cookie Manage")
   }
-  else{
-    (cookie_settings===false)? console.log("No Cookie Information") : console.log("Cookie Information")
+  
+  
+  for(var j=0;j<hrefs.length;j++)
+  {
+    if(hrefs.length==1)
+    {
+      f =0
+      console.log("Check for more Cookie info", hrefs[j]);
+    }else
+    if(RegExp('Cookie','i').test(hrefs[j]))
+    {
+      f = 0
+      console.log("Check for more Cookie info", hrefs[j]);
+      break;
+    }
   }
- // console.log(cookie_consent)
+  if(f===-1)
+  {
+    var list2 = cookie_settingsall
+    if(list2.length===0)
+    console.log("No Cookie info")
+    else
+    {
+      console.log("Check for more Cookie info", list2[list2.length-1]);
+    }
+  }
+  
   await browser.close();
 
 };
