@@ -86,19 +86,19 @@ module.exports = instance = async (host) => {
     return urlList
   })
  // console.log(urls)
-
+// heading control
   const headers = await page.evaluate(()=>{
     // var headings = document.getElementsByTagName("h")
     var headings = $("h1, h2, h3, h4, h5, h6")
     var items = []
     var prevLevel
     var dict = {}
-    // key : innerTag, val : H tag
+    // key : innerText, val : H tag level
     headings.each((i,el)=>{
       var $el = $(el)
       var level = +$el.prop('tagName').slice(1)
       var content = $el.prop('innerText')
-      if(dict[content]!=null){
+      if(dict[content]!=null && level!=dict[content]){
         items.push({"repeating header name at":dict[content], level})
       }
       dict[content] = level
@@ -151,9 +151,39 @@ module.exports = instance = async (host) => {
     })
     return div_id
   })
-  var buttons = cookie_consent
-  var consent_flag = -1
-  var manage_flag = -1
+
+
+  //Cookie Settings
+
+  const cookie_settings = await page.evaluate(()=>{
+    var div_id = []
+    var flag = false
+    $("footer").each((i, el)=>{
+      // div_id.push(el.id)
+      // if(RegExp('Cookie','i').test(el.innerText.trim()))
+      // {
+       buttons = $(el).find('*')
+        for(const [key,val] of Object.entries(buttons))
+        {
+          if(val.innerText != "null" && val.innerText!=='' && RegExp('Cookie','i').test(val.innerText))
+          {
+            if(String(val.tagName)==="A" || String(val.tagName)==="BUTTON"){
+              flag = true
+            }
+            // div_id.push(val.tagName)
+          }
+        }
+      // }
+    })
+    return flag
+    // return div_id
+  })
+  //console.log(cookie_settings)
+  // const footerText = await page.$eval('footer', (el) => el.innerText);
+  // var cookie_settings = RegExp('Cookie','i').test(footerText.trim());
+  
+
+  var buttons = cookie_consent,consent_flag = -1,manage_flag = -1
   var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i]
   var manage_word = [/manage/i, /custom/i, /setting/i]
   for(var i=0;i<buttons.length;i++)
@@ -179,21 +209,12 @@ module.exports = instance = async (host) => {
   if(manage_flag !== -1 && manage_flag!== consent_flag)
   {
     console.log("Manage Cookie!!")
-  }else{
-    console.log("No Manage Cookies.")
   }
-  // console.log(cookie_consent)
+  else{
+    (cookie_settings===false)? console.log("Cookie Information") : console.log("Cookie Information")
+  }
+ // console.log(cookie_consent)
 
-
-//Cookie Settings
-// const cookie_settings = await page.evaluate(()=>{
-//   var all = document.getElementsByTagName("*");
-//   $("footer").find('#cookie, .cookie')
-//   for (var i=0, max=all.length; i < max; i++) {
-//     all[i].find('#cookie','.cookie')
-//   }
-//   return 
-// })
   await browser.close();
 
 };

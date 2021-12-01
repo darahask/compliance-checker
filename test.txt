@@ -1,32 +1,18 @@
 The browser has cookie consent?  true
-Number of Interactive Elements Violations:  53
+Number of Interactive Elements Violations:  280
 Number of tabIndex violations:  0
-Alternate Image Violations:  { totalimg: 58, score: 25 }
+Alternate Image Violations:  { totalimg: 79, score: 70 }
 [
-  { 'H1 not present, instead starts from ': 4 },
-  { 'repeating header name at': 2, level: 2 },
-  { 'repeating header name at': 2, level: 2 },
-  { 'repeating header name at': 2, level: 2 },
-  { 'repeating header name at': 2, level: 2 },
-  { 'repeating header name at': 2, level: 2 },
-  { 'repeating header name at': 2, level: 2 },
-  { 'repeating header name at': 3, level: 3 },
-  { 'repeating header name at': 3, level: 3 },
-  { 'repeating header name at': 3, level: 3 },
-  { 'repeating header name at': 3, level: 3 },
-  { 'repeating header name at': 3, level: 4 }
+  { 'H1 not present, instead starts from ': 3 },
+  { 'repeating header name at': 3, level: 4 },
+  { 'Non consecutive headers present at ': 1, level: 4 },
+  { 'Non consecutive headers present at ': 1, level: 4 },
+  { 'repeating header name at': 4, level: 2 },
+  { 'repeating header name at': 4, level: 2 },
+  { 'Non consecutive headers present at ': 1, level: 4 },
+  { 'repeating header name at': 4, level: 2 },
+  { 'Non consecutive headers present at ': 1, level: 4 }
 ]
-Violated Lables [
-  '',
-  '',
-  '',
-  'twoStep-9X2h',
-  'Region__c-2LpS',
-  'validForm-af0N',
-  'isFromSingleLineForm-0yGw',
-  '',
-  'fileSelector',
-  ''
-]
-Consent!!
-Manage Cookie!!
+Violated Lables [ '' ]
+No Consent Found
+Cookie Information

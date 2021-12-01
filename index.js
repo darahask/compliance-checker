@@ -2,7 +2,7 @@ const instance = require('./browser')
 const checkSSL = require("./checkSSL")
 
 
-HOST = 'www.salesforce.com/'
+HOST = 'www.goldmansachs.com/'
 
 var options = {
     method: "HEAD",
