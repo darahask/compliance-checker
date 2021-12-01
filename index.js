@@ -2,7 +2,7 @@ const instance = require('./browser')
 const checkSSL = require("./checkSSL")
 
 
-HOST = 'en.wikipedia.org/'
+HOST = 'bootstrapmade.com/'
 
 var options = {
     method: "HEAD",

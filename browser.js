@@ -268,7 +268,8 @@ module.exports = instance = async (host) => {
   //var cookie_settings = RegExp('Cookie','i').test(footerText.trim());
   
   //var links = cookie_settings
-  var buttons = cookie_consent,consent_flag = -1,manage_flag = -1, hrefs = cookie_settings
+  var buttons = cookie_consent,consent_flag = -1,manage_flag = -1, hrefs = new Set(cookie_settings)
+  hrefs = Array.from(hrefs)
   var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i]
   var manage_word = [/manage/i, /custom/i, /setting/i]
   var f = -1
@@ -316,15 +317,31 @@ module.exports = instance = async (host) => {
   }
   if(f===-1)
   {
-    var list2 = cookie_settingsall
+    var list2 = new Set(cookie_settingsall)
+    list2 = Array.from(list2)
     if(list2.length===0)
     console.log("No Cookie info")
     else
     {
-      console.log("Check for more Cookie info", list2[list2.length-1]);
+      for(var j=0;j<list2.length;j++)
+      {
+        if(list2.length==1)
+        {
+          f = 0
+          console.log("Check for more Cookie info", list2[j]);
+        }else
+        if(RegExp('Cookie','i').test(list2[j]))
+        {
+          f = 0
+          console.log("Check for more Cookie info", list2[j]);
+          break;
+        }
+      }
+      //console.log("Check for more Cookie info", list2[list2.length-1]);
     }
   }
-  
+  if(f===-1)
+  console.log("No Cookie info")
   await browser.close();
 
 };
