@@ -2,6 +2,8 @@ console.log("JS File loaded")
 
 loadSSL = (data) => {
     let HTML = '<h1 class="display-1">SSL 📑certificate and Expiry</h1>'
+    if(data.length()!==0)
+    {
     HTML += `<p>The certificate is valid upto: ${moment(data.valid_to).format('MMMM Do YYYY, h:mm:ss a')}</p>`
     HTML += `<p>Certificate expires ${moment(data.valid_to).startOf('day').fromNow()}</p>`
     HTML += `<p>Issued to: <b>${data["subject"]["CN"]}</b></p>`
@@ -21,10 +23,15 @@ loadSSL = (data) => {
     document.getElementById('compliance-data').innerHTML = HTML;
     let editor = new JsonEditor("#more-details",data,);
     editor.load(data);
+    }else{
+        HTML += `<h4><b>Opps!! Something Wrong.</b></h4>`
+    }
+    
 }
 loadcookie = (data) => {
     let HTML = '<h1 class="display-1">Cookie Consent and Cookie details</h1>';
     HTML += (data.cookieConsent) ? (`<p>✅Page has cookie consent</p>`) : (`<p>❌Page does not have cookie consent</p>`)
+    if(data.cookieDetailPage!=="")
     HTML += `<p>📚Details about the cookies🍪 used in this site🌐 can be found at <a href="${data.cookieDetailPage}">${data.cookieDetailPage}</a></p>`
     HTML += (data.cookieManagement) ? (`<p>✅Page has cookie management</p>`) : (`<p>❌Page does not have cookie management</p>`)
     HTML += `<h2 class="display-2">Cookie details are as follows: </h2>`
