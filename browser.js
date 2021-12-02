@@ -165,18 +165,20 @@ module.exports = instance = async (host) => {
         bgColor,
         fgColor,
         { AAA: requiredAAARatio }).AAA;
-
-      results.push({
-        "innerHTML": element.innerHTML,
-        "outerHTML": element.outerHTML,
-        "Background Color": bgColor,
-        "Text Color": fgColor,
-        "Contrast Ratio": contrastRatio,
-        "AA Compliance": aacompliance,
-        "AAA Compliance": aaacompliance,
-        "AA Suggestions": suggestionsAA,
-        "AAA Suggestions": suggestionsAAA
-      })
+      
+      if(!aaacompliance || !aaacompliance){
+        results.push({
+          "innerHTML": element.innerHTML,
+          "outerHTML": element.outerHTML,
+          "Background Color": bgColor,
+          "Text Color": fgColor,
+          "Contrast Ratio": contrastRatio,
+          "AA Compliance": aacompliance,
+          "AAA Compliance": aaacompliance,
+          "AA Suggestions": suggestionsAA,
+          "AAA Suggestions": suggestionsAAA
+        })
+      }
     })
 
     return results;
@@ -185,4 +187,17 @@ module.exports = instance = async (host) => {
 
   await browser.close();
 
+  return {
+    cookieCompliance: cookies,
+    adaCompliance:{
+      hasConsent:consent,
+      tabIndex:{
+        violation:tabIndex_violation,
+        violationCount: int_violation
+      },
+      altImageText:alts,
+      headers:headers,
+      contrast:contrast
+    }
+  }
 };
