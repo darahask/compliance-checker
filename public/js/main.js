@@ -2,8 +2,8 @@ console.log("JS File loaded")
 
 loadSSL = (data) => {
     let HTML = '<h1 class="display-1">SSL 📑certificate and Expiry</h1>'
-    HTML += `<p>The certificate is valid upto: ${moment(data.valid_to).format('MMMM Do YYYY, h:mm:ss a')}</p>`
-    HTML += `<p>Certificate expires ${moment(data.valid_to).startOf('day').fromNow()}</p>`
+    HTML += `<p>The certificate is valid upto: <span style="color:green">${moment(data.valid_to).format('MMMM Do YYYY, h:mm:ss a')}</span></p>`
+    HTML += `<p>Certificate expires <span style="color:red">${moment(data.valid_to).startOf('day').fromNow()}</span></p>`
     HTML += `<p>Issued to: <b>${data["subject"]["CN"]}</b></p>`
     HTML += `<p>Issued By:<b> ${data["issuer"]["CN"]}</b></p>`
     HTML += `<div class="accordion accordion-flush border border-dark" id="accordionFlushExample">
