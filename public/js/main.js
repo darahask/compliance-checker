@@ -61,17 +61,61 @@ loadcookie = (data) => {
 }
 loadADA = (data) => {
     let HTML = '';
-    data.headers.forEach((el)=>{
-        HTML += 
-        `
-        <div class="m-2 border border-dark">
-            <div class="row m-2">
-                <div class="col">${el.Error}</div>
-                <div class="col">${el.level.map((e)=> {return "h"+e})}</div>
-                <div class="col"><textarea readonly>${el.html}</textarea></div>
-            </div>
-        </div>
-        `
+    data.headers.forEach((el,i)=>{
+        if(el.htmlprv=="")
+        {
+            HTML += 
+            `   <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    ${el.Error}
+                    </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                    ${el.Error + " instead it started with H"+el.level[0]}</div>
+                    <div class="form-floating">
+                    <textarea readonly class="form-control" placeholder="Leave a comment here" id="floatingTextarea">${el.html.trim()}</textarea>
+                    <label for="floatingTextarea"></label>
+                    </div>
+                </div>
+                </div>
+                </div>
+            `
+            
+        }else{
+            HTML += 
+            `
+            <div class="accordion accordion-flush" id="accordionFlush${i}">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-heading${String(i)}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${String(i)}" aria-expanded="false" aria-controls="flush-collapse${String(i)}">
+                    ${el.Error}
+                    </button>
+                    </h2>
+                    <div id="flush-collapse${String(i)}" class="accordion-collapse collapse" aria-labelledby="flush-heading${String(i)}" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                    ${el.Error + " at H"+el.level[0]+ " at H"+el.level[1]}</div>
+                    <div class="form-floating">
+                    ${"H"+el.level[0]+": Details"}
+                    <textarea readonly class="form-control" placeholder="Leave a comment here" id="floatingTextarea">${el.html.trim()}</textarea>
+    
+                    <label for="floatingTextarea"></label>
+                    </div>
+
+                    <div class="form-floating2">
+                    ${"H"+el.level[1]+": Details"}
+                    <textarea readonly class="form-control" placeholder="Leave a comment here" id="floatingTextarea2">${el.htmlprv.trim()}</textarea>
+                    <label for="floatingTextarea2"></label>
+                    </div>
+                </div>
+                </div>
+                </div>
+            `
+            
+        }
+        
     })
     data.contrast.forEach(element => {
         HTML += `
