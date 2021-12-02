@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer');
-const j = require('jquery')
 
 module.exports = instance = async (host) => {
   const browser = await puppeteer.launch();
@@ -10,7 +9,7 @@ module.exports = instance = async (host) => {
     path: "node_modules/accessibility-developer-tools/dist/js/axs_testing.js"
   })
   await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.2.1.min.js' })
-  let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
+
   // console.log(page);
 
   // Cookie in details printed
@@ -22,40 +21,28 @@ module.exports = instance = async (host) => {
 
   // Tab Index violation check
 
-  const tabIndex_v = await page.evaluate(() => {
-    var tabIndex = []
-    var tag = []
+  const tabIndex_violaitons = await page.evaluate(() => {
+    let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
+    var elements = []
+    var violations = {"intViolations":[],"tabIndexViolations":[]}
     var all = document.getElementsByTagName("*");
 
     for (var i = 0, max = all.length; i < max; i++) {
-      tabIndex.push(all[i].tabIndex);
-      tag.push(all[i].tagName)
-      // console.log(all[i].tabIndex);
+      elements.push(all[i])
     }
-    return {
-      "tabIndex": tabIndex,
-      "tag": tag
-    }
-  })
-  var x = tabIndex_v
-  var int_violation = 0
-  var tabIndex_violation = 0
-  for (var i in x['tabIndex']) {
-    if (interactive_content.includes(x['tag'][i].toLowerCase())) {
-      if (Number(x['tabIndex'][i]) === -1) {
-        int_violation += 1;
-        // console.log("Violations: ", x['tag'][i]);
+
+    for (var i in elements) {
+      if (interactive_content.includes(elements[i].tagName.toLowerCase()) && Number(elements[i].tabIndex) === -1) {
+        violations["intViolations"].push(elements[i].outerHTML)
       }
-
+      if (elements[i].tabIndex !== 0 && elements[i].tabIndex !== -1) {
+        violations["tabIndexViolations"].push(elements[i].outerHTML)
+      }
     }
-    if (x['tabIndex'][i] !== 0 && x['tabIndex'][i] !== -1) {
-      tabIndex_violation += 1
-    }
-    //console.log(x['tabIndex'][i],"  ", x['tag'][i]);
-  }
+    return violations
+  })
 
-  console.log("Number of Interactive Elements Violations: ", int_violation)
-  console.log("Number of tabIndex violations: ", tabIndex_violation)
+  console.log("Number of Tab Violations: ", tabIndex_violaitons)
   // for(var i in x)
   // {
   //   console.log(x[i]);
@@ -102,13 +89,13 @@ module.exports = instance = async (host) => {
       var level = +$el.prop('tagName').slice(1)
       var content = $el.prop('innerText').split(" ")[0]
       if (dict[content] != null) {
-        items.push({ "repeating header name at": dict[content], level })
+        items.push({ "repeating header name at": dict[content], level ,"html":el.outerHTML})
       }
       dict[content] = level
       if (i === 0 && level !== 1) {
         items.push({ "H1 not present, instead starts from ": level });
       } else if (prevLevel && level - prevLevel > 1) {
-        items.push({ "Non consecutive headers present at ": prevLevel, level });
+        items.push({ "Non consecutive headers present at ": prevLevel, level, "html":el.outerHTML});
       }
       prevLevel = level;
 
@@ -185,16 +172,15 @@ module.exports = instance = async (host) => {
   // Labeling Control
   const labels = await page.evaluate(() => {
     var allInput = document.getElementsByTagName("input");
-    var allLabel = document.getElementsByTagName("label");
+    var allLabel = document.getElementsByTagName("label, aria-label");
     var control_violation = []
-    var flag
     var dict = {}
     for (var i = 0, max = allLabel.length; i < max; i++) {
       dict[allLabel[i].getAttribute("for")] = "exists";
     }
     for (var j = 0, max2 = allInput.length; j < max2; j++) {
       if (!(allInput[j].id in dict) && allInput[j].id!=='') {
-        control_violation.push(allInput[j].id)
+        control_violation.push({"ID":allInput[j].id,"html":allInput[j].outerHTML})
       }
     }
     return control_violation
@@ -348,10 +334,7 @@ module.exports = instance = async (host) => {
     cookieDetails,
     adaCompliance: {
       labels: labels,
-      tabIndex: {
-        violation: tabIndex_violation,
-        violationCount: int_violation
-      },
+      tab_Violations: tabIndex_violaitons,
       altImageText: alts,
       headers: headers,
       contrast: contrast

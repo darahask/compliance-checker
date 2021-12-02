@@ -1,20 +1,16 @@
-const instance = require('./browser')
-const checkSSL = require("./checkSSL")
+const instance = require('./utils/browser')
+const checkSSL = require("./utils/checkSSL")
 const express = require("express")
 const app = express();
 const path = require("path")
 
-HOST = 'bootstrapmade.com/'
+var PORT = process.env.PORT || 3333
 
 var options = {
     method: "HEAD",
     port: 443,
     rejectUnauthorized: false
 };
-
-
-
-// instance(HOST);
 
 app.use(express.json({extended:true}));
 app.use(express.static("public"));
@@ -30,4 +26,4 @@ app.post('/api/compliance',async (req,res)=>{
     res.json({data,ssl});
 })
 
-app.listen(3333,()=>console.log("Server started!!!"))
+app.listen(PORT,()=>console.log(`Server started at ${PORT}!!!`))
