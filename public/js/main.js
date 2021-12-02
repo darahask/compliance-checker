@@ -1,5 +1,15 @@
 console.log("JS File loaded")
 
+loadSSL = (data) =>{
+    document.getElementById("compliance-data").innerText = JSON.stringify( data, undefined, 2);
+}
+loadcookie = (data) =>{
+    document.getElementById("compliance-data").innerText = JSON.stringify( data, undefined, 2);
+}
+loadADA = (data) =>{
+    document.getElementById("compliance-data").innerText = JSON.stringify( data, undefined, 2);
+}
+
 let form = document.getElementById("search-compliance");
 form.addEventListener("submit",(event)=>{
     event.preventDefault();
@@ -17,7 +27,18 @@ form.addEventListener("submit",(event)=>{
         if(xhr.readyState == 4 && xhr.status == 200){
             let response = JSON.parse(xhr.responseText)
             console.log(response)
-            document.getElementById("compliance-data").innerHTML = response;
+            document.getElementById("ssl").addEventListener("click",(event)=>{
+                event.preventDefault()
+                loadSSL(response.ssl)
+            });
+            document.getElementById("ada").addEventListener("click",(event)=>{
+                event.preventDefault()
+                loadSSL(response.data.adaCompliance)
+            });
+            document.getElementById("cookies").addEventListener("click",(event)=>{
+                event.preventDefault()
+                loadSSL(response.data.cookieDetails)
+            });
         }
     }
 })
