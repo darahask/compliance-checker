@@ -3,6 +3,7 @@ const checkSSL = require("./utils/checkSSL")
 const express = require("express")
 const app = express();
 const path = require("path")
+const cors = require("cors")
 
 var PORT = process.env.PORT || 3333
 
@@ -12,6 +13,7 @@ var options = {
     rejectUnauthorized: false
 };
 
+app.use(cors())
 app.use(express.json({extended:true}));
 app.use(express.static("public"));
 
