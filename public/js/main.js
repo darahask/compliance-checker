@@ -6,6 +6,18 @@ loadSSL = (data) => {
     HTML += `<p>Certificate expires ${moment(data.valid_to).startOf('day').fromNow()}</p>`
     HTML += `<p>Issued to: <b>${data["subject"]["CN"]}</b></p>`
     HTML += `<p>Issued By:<b> ${data["issuer"]["CN"]}</b></p>`
+    HTML += `<div class="accordion accordion-flush border border-dark" id="accordionFlushExample">
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    More Details of certificate
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body"><pre>${JSON.stringify(data,null,2)}</pre></div>
+                </div>
+                </div>
+            </div>`
     document.getElementById('compliance-data').innerHTML = HTML;
 }
 loadcookie = (data) => {
