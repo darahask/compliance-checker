@@ -1,8 +1,10 @@
-const instance = require('./browser')
-const checkSSL = require("./checkSSL")
+const instance = require('./utils/browser')
+const checkSSL = require("./utils/checkSSL")
+const express = require("express")
+const app = express();
+const path = require("path")
 
-
-HOST = 'bootstrapmade.com/'
+var PORT = process.env.PORT || 3333
 
 var options = {
     method: "HEAD",
@@ -10,6 +12,18 @@ var options = {
     rejectUnauthorized: false
 };
 
+app.use(express.json({extended:true}));
+app.use(express.static("public"));
 
-// checkSSL(HOST,options);
-instance(HOST);
+app.get('/', (req,res)=>{
+    res.sendFile(path.resolve(__dirname,"views","index.html"))
+})
+
+app.post('/api/compliance',async (req,res)=>{
+    let url = req.body.searchUrl;
+    let ssl = await checkSSL(url,options);
+    let data = await instance(url);
+    res.json({data,ssl});
+})
+
+app.listen(PORT,()=>console.log(`Server started at ${PORT}!!!`))
