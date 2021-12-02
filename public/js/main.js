@@ -14,11 +14,13 @@ loadSSL = (data) => {
                     </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"><pre>${JSON.stringify(data,null,2)}</pre></div>
+                    <div class="accordion-body"><pre readonly id="more-details"></pre></div>
                 </div>
                 </div>
             </div>`
     document.getElementById('compliance-data').innerHTML = HTML;
+    let editor = new JsonEditor("#more-details",data,);
+    editor.load(data);
 }
 loadcookie = (data) => {
     let HTML = '<h1>Cookie Consent and Cookie details</h1>';
