@@ -13,7 +13,7 @@ var options = {
 };
 
 
-// checkSSL(HOST,options);
+
 // instance(HOST);
 
 app.use(express.json({extended:true}));
@@ -25,8 +25,9 @@ app.get('/', (req,res)=>{
 
 app.post('/api/compliance',async (req,res)=>{
     let url = req.body.searchUrl;
+    let ssl = await checkSSL(url,options);
     let data = await instance(url);
-    res.json(data);
+    res.json({data,ssl});
 })
 
 app.listen(3333,()=>console.log("Server started!!!"))
