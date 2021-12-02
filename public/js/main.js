@@ -1,7 +1,7 @@
 console.log("JS File loaded")
 
 loadSSL = (data) => {
-    let HTML = '<h1>SSL 📑certificate and Expiry</h1>'
+    let HTML = '<h1 class="display-1">SSL 📑certificate and Expiry</h1>'
     HTML += `<p>The certificate is valid upto: ${moment(data.valid_to).format('MMMM Do YYYY, h:mm:ss a')}</p>`
     HTML += `<p>Certificate expires ${moment(data.valid_to).startOf('day').fromNow()}</p>`
     HTML += `<p>Issued to: <b>${data["subject"]["CN"]}</b></p>`
@@ -21,12 +21,40 @@ loadSSL = (data) => {
     document.getElementById('compliance-data').innerHTML = HTML;
 }
 loadcookie = (data) => {
-    let HTML = '<h1>Cookie Consent and Cookie details</h1>';
+    let HTML = '<h1 class="display-1">Cookie Consent and Cookie details</h1>';
     HTML += (data.cookieConsent) ? (`<p>✅Page has cookie consent</p>`) : (`<p>❌Page does not have cookie consent</p>`)
     HTML += `<p>📚Details about the cookies🍪 used in this site🌐 can be found at <a href="${data.cookieDetailPage}">${data.cookieDetailPage}</a></p>`
     HTML += (data.cookieManagement) ? (`<p>✅Page has cookie management</p>`) : (`<p>❌Page does not have cookie management</p>`)
-    HTML += `<h2>Cookie deatils are as follows: </h2>`
-    HTML += `<pre>${JSON.stringify(data.cookieInfo.cookies,undefined,1)}</pre>`
+    HTML += `<h2 class="display-2">Cookie details are as follows: </h2>`
+    let cookieInfo = data.cookieInfo.cookies
+    cookieInfo.forEach((cookie,id)=>{
+        HTML+=
+        `
+        <div class="m-2 border border-dark">
+            <div class="row m-2">
+                <p><b>Name: </b>${cookie.name}</p>
+                <p><b>Value: </b>${cookie.value}</p>
+                <p><b>Session: </b>${(!cookie.session)? ("❌false"):("✅true")}</p>
+                <p><b>Secure: </b>${(!cookie.secure)? ("❌false"):("✅true")}</p>
+                <p><b>HTTP only: </b>${(!cookie.httponly)? ("❌false"):("✅true")}</p>
+                <p><b>Domain: ${cookie.domain}</b></p>
+                <div class="accordion accordion-flush border border-dark" id="${cookie.name}">
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="${cookie.value}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cookie${id}" aria-expanded="false" aria-controls="cookie${id}">
+                        More Details of Cookie
+                        </button>
+                    </h2>
+                    <div id="cookie${id}" class="accordion-collapse collapse" aria-labelledby="${cookie.value}" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body"><pre>${JSON.stringify(cookie,undefined,1)}</pre></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+    })
+    // HTML += `<pre>${JSON.stringify(data.cookieInfo.cookies,undefined,1)}</pre>`
     document.getElementById('compliance-data').innerHTML = HTML;
 }
 loadADA = (data) => {
