@@ -4,7 +4,7 @@ const express = require("express")
 const app = express();
 const path = require("path")
 
-HOST = 'www.google.com'
+HOST = 'bootstrapmade.com/'
 
 var options = {
     method: "HEAD",
