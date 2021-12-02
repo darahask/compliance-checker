@@ -25,7 +25,7 @@ loadADA = (data) => {
         <div class="m-2 border border-dark">
             <div class="row m-2">
                 <div class="col">${el.Error}</div>
-                <div class="col">${el.level.map((e)=> {return e})}</div>
+                <div class="col">${el.level.map((e)=> {return "h"+e})}</div>
                 <div class="col"><textarea readonly>${el.html}</textarea></div>
             </div>
         </div>
@@ -111,17 +111,28 @@ form.addEventListener("submit", (event) => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             document.getElementById("search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
+            document.getElementById("ssl").classList.add("active")
+            loadSSL(response.ssl)
             console.log(response)
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
+                document.getElementById("ssl").classList.add("active")
+                document.getElementById("cookies").classList.remove("active")
+                document.getElementById("ada").classList.remove("active")
                 loadSSL(response.ssl)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
+                document.getElementById("ada").classList.add("active")
+                document.getElementById("ssl").classList.remove("active")
+                document.getElementById("cookies").classList.remove("active")
                 loadADA(response.data.adaCompliance)
             });
             document.getElementById("cookies").addEventListener("click", (event) => {
                 event.preventDefault()
+                document.getElementById("cookies").classList.add("active")
+                document.getElementById("ada").classList.remove("active")
+                document.getElementById("ssl").classList.remove("active")
                 loadcookie(response.data.cookieDetails)
             });
         }else{
