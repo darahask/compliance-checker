@@ -91,13 +91,13 @@ module.exports = instance = async (host) => {
       var level = +$el.prop('tagName').slice(1)
       var content = $el.prop('innerText').split(" ")[0]
       if (dict[content] != null) {
-        items.push({ "Error":"Repeating header name at", "level":[dict[content], level] ,"html":el.outerHTML, "htmlprv":prvHeading})
+        items.push({ "Error":"Repeating header names", "level":[dict[content], level] ,"html":el.outerHTML, "htmlprv":prvHeading})
       }
       dict[content] = level
       if (i === 0 && level !== 1) {
-        items.push({ "Error":"H1 not present, instead starts from ", "level":[level], "html":el.outerHTML,"htmlprv":""});
+        items.push({ "Error":"H1 not present", "level":[level], "html":el.outerHTML,"htmlprv":""});
       } else if (prevLevel && level - prevLevel > 1) {
-        items.push({ "Error":"Non consecutive headers present at ", "level":[prevLevel, level], "html":el.outerHTML, "htmlprv":prvHeading});
+        items.push({ "Error":"Non consecutive headers present", "level":[prevLevel, level], "html":el.outerHTML, "htmlprv":prvHeading});
       }
       prevLevel = level;
       prvHeading = el.outerHTML;

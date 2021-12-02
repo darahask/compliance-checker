@@ -19,61 +19,59 @@ loadcookie = (data) => {
 }
 loadADA = (data) => {
     let HTML = '';
-    data.headers.forEach((el)=>{
+    data.headers.forEach((el,i)=>{
         if(el.htmlprv=="")
         {
             HTML += 
-            `
-                <div class="accordion" id="accordionExample">
+            `   <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Accordion Item #1
+                    <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    ${el.Error}
                     </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
+                    ${el.Error + " instead it started with H"+el.level[0]}</div>
+                    <div class="form-floating">
+                    <textarea readonly class="form-control" placeholder="Leave a comment here" id="floatingTextarea">${el.html.trim()}</textarea>
+                    <label for="floatingTextarea"></label>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #2
-                    </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Accordion Item #3
-                    </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                    </div>
                 </div>
                 </div>
             `
+            
         }else{
             HTML += 
             `
-            <div class="m-2 border border-dark">
-                <div class="row m-2">
-                    <div class="col">${el.Error}</div>
-                    <div class="col">${el.level.map((e)=> {return e})}</div>
-                    <div class="col"><textarea readonly>${el.html}</textarea></div>
+            <div class="accordion accordion-flush" id="accordionFlush${i}">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-heading${String(i)}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${String(i)}" aria-expanded="false" aria-controls="flush-collapse${String(i)}">
+                    ${el.Error}
+                    </button>
+                    </h2>
+                    <div id="flush-collapse${String(i)}" class="accordion-collapse collapse" aria-labelledby="flush-heading${String(i)}" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                    ${el.Error + " at H"+el.level[0]+ " at H"+el.level[1]}</div>
+                    <div class="form-floating">
+                    ${"H"+el.level[0]+": Details"}
+                    <textarea readonly class="form-control" placeholder="Leave a comment here" id="floatingTextarea">${el.html.trim()}</textarea>
+    
+                    <label for="floatingTextarea"></label>
+                    </div>
+
+                    <div class="form-floating2">
+                    ${"H"+el.level[1]+": Details"}
+                    <textarea readonly class="form-control" placeholder="Leave a comment here" id="floatingTextarea2">${el.htmlprv.trim()}</textarea>
+                    <label for="floatingTextarea2"></label>
+                    </div>
                 </div>
-            </div>
+                </div>
+                </div>
             `
+            
         }
         
     })
@@ -157,17 +155,28 @@ form.addEventListener("submit", (event) => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             document.getElementById("search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
+            document.getElementById("ssl").classList.add("active")
+            loadSSL(response.ssl)
             console.log(response)
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
+                document.getElementById("ssl").classList.add("active")
+                document.getElementById("cookies").classList.remove("active")
+                document.getElementById("ada").classList.remove("active")
                 loadSSL(response.ssl)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
+                document.getElementById("ada").classList.add("active")
+                document.getElementById("ssl").classList.remove("active")
+                document.getElementById("cookies").classList.remove("active")
                 loadADA(response.data.adaCompliance)
             });
             document.getElementById("cookies").addEventListener("click", (event) => {
                 event.preventDefault()
+                document.getElementById("cookies").classList.add("active")
+                document.getElementById("ada").classList.remove("active")
+                document.getElementById("ssl").classList.remove("active")
                 loadcookie(response.data.cookieDetails)
             });
         }else{
