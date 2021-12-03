@@ -24,7 +24,7 @@ module.exports = instance = async (host) => {
   const tabIndex_violaitons = await page.evaluate(() => {
     let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
     var elements = []
-    var violations = {"intViolations":[],"tabIndexViolations":[]}
+    var violations = { "intViolations": [], "tabIndexViolations": [] }
     var all = document.getElementsByTagName("*");
 
     for (var i = 0, max = all.length; i < max; i++) {
@@ -56,7 +56,7 @@ module.exports = instance = async (host) => {
     for (const [key, val] of Object.entries(data)) {
       if (val.alt.trim() !== '') {
         score += 1;
-      }else{
+      } else {
         ViolatedTags.push(val.outerHTML)
       }
     }
@@ -95,20 +95,19 @@ module.exports = instance = async (host) => {
       var $el = $(el)
       var level = +$el.prop('tagName').slice(1)
       var content = $el.prop('innerText').split(" ")[0]
-      if(content!=='')
-      {
-      if (dict[content] != null && level!== dict[content]) {
-        items.push({ "Error":"Repeating header names", "level":[dict[content], level] ,"html":el.outerHTML, "type":"2", "htmlprv":previousL[content]})
-      }
-      dict[content] = level
-      
-      var k = el.outerHTML
-      previousL[content] = "" + k 
+      if (content !== '') {
+        if (dict[content] != null && level !== dict[content]) {
+          items.push({ "Error": "Repeating header names", "level": [dict[content], level], "html": el.outerHTML, "type": "2", "htmlprv": previousL[content] })
+        }
+        dict[content] = level
+
+        var k = el.outerHTML
+        previousL[content] = "" + k
       }
       if (i === 0 && level !== 1) {
-        items.push({ "Error":"H1 not present", "level":[level], "html":el.outerHTML,"type":"1"});
+        items.push({ "Error": "H1 not present", "level": [level], "html": el.outerHTML, "type": "1" });
       } else if (prevLevel && level - prevLevel > 1) {
-        items.push({ "Error":"Non consecutive headers present", "level":[prevLevel, level], "html":el.outerHTML, "type":"3", "htmlprv":prvHeading});
+        items.push({ "Error": "Non consecutive headers present", "level": [prevLevel, level], "html": el.outerHTML, "type": "3", "htmlprv": prvHeading });
       }
       prevLevel = level;
       prvHeading = el.outerHTML;
@@ -175,7 +174,7 @@ module.exports = instance = async (host) => {
 
     return results;
   })
- // console.log(contrast);
+  // console.log(contrast);
 
   // Labeling Control
   const labels = await page.evaluate(() => {
@@ -187,8 +186,8 @@ module.exports = instance = async (host) => {
       dict[allLabel[i].getAttribute("for")] = "exists";
     }
     for (var j = 0, max2 = allInput.length; j < max2; j++) {
-      if (!(allInput[j].id in dict) && allInput[j].id!=='') {
-        control_violation.push({"ID":allInput[j].id,"html":allInput[j].outerHTML})
+      if (!(allInput[j].id in dict) && allInput[j].id !== '') {
+        control_violation.push({ "ID": allInput[j].id, "html": allInput[j].outerHTML })
       }
     }
     return control_violation
@@ -278,7 +277,7 @@ module.exports = instance = async (host) => {
 
   }
   var cookieDetailPage = ""
-  
+
   if (consent_flag !== -1) {
     console.log("Consent!!")
   } else {
@@ -327,13 +326,13 @@ module.exports = instance = async (host) => {
       //console.log("Check for more Cookie info", list2[list2.length-1]);
     }
   }
-  if (f === -1){
-      console.log("No Cookie info")
+  if (f === -1) {
+    console.log("No Cookie info")
   }
   var cookieDetails = {
     cookieInfo,
-    cookieConsent : (consent_flag===-1) ? (false) : (true),
-    cookieManagement: (manage_flag===-1) ? (false) : (true),
+    cookieConsent: (consent_flag === -1) ? (false) : (true),
+    cookieManagement: (manage_flag === -1) ? (false) : (true),
     cookieDetailPage
   };
   await browser.close();
