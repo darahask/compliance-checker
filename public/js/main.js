@@ -1,8 +1,8 @@
 console.log("JS File loaded")
 
-loadSSL = (data) => {
-    let HTML = '<h1 class="display-1">SSL 📑certificate and Expiry</h1>'
-    if (data !== "") {
+loadSSL = (data,url) => {
+    let HTML = `<h1>SSL 📑 certificate and Expiry for <a href="https://${url}">${url}</a></h1>`
+    if (data.length !== 0) {
         HTML += `<p>The certificate is valid upto: <span style="color:green">${moment(data.valid_to).format('MMMM Do YYYY, h:mm:ss a')}</span></p>`
         HTML += `<p>Certificate expires <span style="color:red">${moment(data.valid_to).startOf('day').fromNow()}</span></p>`
         HTML += `<p>Issued to: <b>${data["subject"]["CN"]}</b></p>`
@@ -27,8 +27,8 @@ loadSSL = (data) => {
     // editor.load(data);
 
 }
-loadcookie = (data) => {
-    let HTML = '<h1>🍪Cookie Consent and 👀Cookie details</h1>';
+loadcookie = (data,url) => {
+    let HTML = `<h1>🍪 Cookie Consent and 👀 Cookie details for <a href="https://${url}">${url}</a></h1>`;
     HTML += (data.cookieConsent) ? (`<p>✅Page has cookie consent</p>`) : (`<p>❌Page does not have cookie consent</p>`)
     if (data.cookieDetailPage !== "")
         HTML += `<p>📚Details about the cookies🍪 used in this site🌐 can be found at <a href="${data.cookieDetailPage}">${data.cookieDetailPage}</a></p>`
@@ -67,10 +67,8 @@ loadcookie = (data) => {
     // HTML += `<pre>${JSON.stringify(data.cookieInfo.cookies,undefined,1)}</pre>`
     document.getElementById('compliance-data').innerHTML = HTML;
 }
-loadADA = (data) => {
-    let HTML = ''
-
-    HTML += `<div class="m-2"><h1>ADA Compliance details</h1></div>`
+loadADA = (data,url) => {
+    let HTML = `<div class="m-2"><h1>🌈 ADA Compliance details for <a href="https://${url}">${url}</a></h1></div>`
 
     HTML += `<center><div class="btn-group m-4" role="group" aria-label="Basic checkbox toggle button group">
                 <input type="checkbox" class="btn-check" checked id="btncheck1" autocomplete="off">
@@ -378,12 +376,11 @@ loadADA = (data) => {
 let form = document.getElementById("search-compliance");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    let inputtext = document.getElementById('search-url');
-    let url = inputtext.value;
+    let inputtext = document.getElementById('search-url').value;
+    let url = urlCleaner(inputtext);
     console.log(url);
 
-    document.getElementById("search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Loading...`
+    document.getElementById("search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:3333/api/compliance", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -394,29 +391,23 @@ form.addEventListener("submit", (event) => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             document.getElementById("search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
-            document.getElementById("ssl").classList.add("active")
-            loadSSL(response.ssl)
+            sslActive()
+            loadSSL(response.ssl,url)
             console.log(response)
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("ssl").classList.add("active")
-                document.getElementById("cookies").classList.remove("active")
-                document.getElementById("ada").classList.remove("active")
-                loadSSL(response.ssl)
+                sslActive()
+                loadSSL(response.ssl,url)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("ada").classList.add("active")
-                document.getElementById("ssl").classList.remove("active")
-                document.getElementById("cookies").classList.remove("active")
-                loadADA(response.data.adaCompliance)
+                adaActive()
+                loadADA(response.data.adaCompliance,url)
             });
             document.getElementById("cookies").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("cookies").classList.add("active")
-                document.getElementById("ada").classList.remove("active")
-                document.getElementById("ssl").classList.remove("active")
-                loadcookie(response.data.cookieDetails)
+                cookiesActive()
+                loadcookie(response.data.cookieDetails,url)
             });
         } else {
             document.getElementById("search").innerHTML = `Search`
@@ -427,12 +418,11 @@ form.addEventListener("submit", (event) => {
 let homeForm = document.getElementById("home-search-compliance");
 homeForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    let inputtext = document.getElementById('home-search-url');
-    let url = inputtext.value;
+    let inputtext = document.getElementById('home-search-url').value;
+    let url = urlCleaner(inputtext);
     console.log(url);
 
-    document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Loading...`
+    document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:3333/api/compliance", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -443,29 +433,23 @@ homeForm.addEventListener("submit", (event) => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             document.getElementById("home-search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
-            document.getElementById("ssl").classList.add("active")
-            loadSSL(response.ssl)
-            console.log(response)
+            sslActive()
+            loadSSL(response.ssl,url)
+            console.log(response);
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("ssl").classList.add("active")
-                document.getElementById("cookies").classList.remove("active")
-                document.getElementById("ada").classList.remove("active")
-                loadSSL(response.ssl)
+                sslActive()
+                loadSSL(response.ssl,url)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("ada").classList.add("active")
-                document.getElementById("ssl").classList.remove("active")
-                document.getElementById("cookies").classList.remove("active")
-                loadADA(response.data.adaCompliance)
+                adaActive()
+                loadADA(response.data.adaCompliance,url)
             });
             document.getElementById("cookies").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("cookies").classList.add("active")
-                document.getElementById("ada").classList.remove("active")
-                document.getElementById("ssl").classList.remove("active")
-                loadcookie(response.data.cookieDetails)
+                cookiesActive()
+                loadcookie(response.data.cookieDetails,url)
             });
         } else {
             document.getElementById("home-search").innerHTML = `Search`
@@ -502,3 +486,46 @@ function syntaxHighlight(json) {
         return '<span class="' + cls + '">' + match + '</span>';
     });
 }
+
+function urlCleaner (url) {
+    // shouldcover cases like https://, http://, www.
+    return url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "")
+}
+
+function sslActive() {
+    document.getElementById("ssl").classList.add("active")
+    document.getElementById("cookies").classList.remove("active")
+    document.getElementById("ada").classList.remove("active")
+}
+
+function adaActive() {
+    document.getElementById("ssl").classList.remove("active")
+    document.getElementById("cookies").classList.remove("active")
+    document.getElementById("ada").classList.add("active")
+}
+
+function cookiesActive() {
+    document.getElementById("ssl").classList.remove("active")
+    document.getElementById("cookies").classList.add("active")
+    document.getElementById("ada").classList.remove("active")
+}
+
+document.getElementById("search-url").addEventListener('keyup', (event) => {
+    if (event.target.value==='') {
+        document.getElementById('search').classList.add("disabled");
+        // console.log("worked")
+    } else {
+        document.getElementById('search').classList.remove("disabled");
+        // console.log("not worked")
+    }
+})
+
+document.getElementById("home-search-url").addEventListener('keyup', (event) => {
+    if (event.target.value==='') {
+        document.getElementById('home-search').classList.add("disabled");
+        // console.log("worked")
+    } else {
+        document.getElementById('home-search').classList.remove("disabled");
+        // console.log("not worked")
+    }
+})
