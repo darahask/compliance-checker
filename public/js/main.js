@@ -315,8 +315,8 @@ loadADA = (data) => {
 let form = document.getElementById("search-compliance");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    let inputtext = document.getElementById('search-url');
-    let url = inputtext.value;
+    let inputtext = document.getElementById('search-url').value;
+    let url = inputtext;
     console.log(url);
 
     document.getElementById("search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -364,8 +364,8 @@ form.addEventListener("submit", (event) => {
 let homeForm = document.getElementById("home-search-compliance");
 homeForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    let inputtext = document.getElementById('home-search-url');
-    let url = inputtext.value;
+    let inputtext = document.getElementById('home-search-url').value;
+    let url = urlCleaner(inputtext);
     console.log(url);
 
     document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -439,3 +439,28 @@ function syntaxHighlight(json) {
         return '<span class="' + cls + '">' + match + '</span>';
     });
 }
+
+function urlCleaner (url) {
+    // shouldcover cases like https://, http://, www.
+    return url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "")
+}
+
+document.getElementById("search-url").addEventListener('keyup', (event) => {
+    if (event.target.value==='') {
+        document.getElementById('search').classList.add("disabled");
+        // console.log("worked")
+    } else {
+        document.getElementById('search').classList.remove("disabled");
+        // console.log("not worked")
+    }
+})
+
+document.getElementById("home-search-url").addEventListener('keyup', (event) => {
+    if (event.target.value==='') {
+        document.getElementById('home-search').classList.add("disabled");
+        // console.log("worked")
+    } else {
+        document.getElementById('home-search').classList.remove("disabled");
+        // console.log("not worked")
+    }
+})
