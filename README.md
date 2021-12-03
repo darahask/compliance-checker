@@ -46,10 +46,26 @@ As of now the tool performs the following features:
 
 Screenshots of Web Crawler in action
 ---------------------------
-![Home Page](Screenshots/home.png "Home Page")
-![SSL Page](Screenshots/ssl.png "SSL page")
-![ADA Page](Screenshots/ada.png "ADA Medicine")
-![Cookie Page](Screenshots/cookie.png "Cookie list")
+
+**Home Page**
+
+<img src="Screenshots/home.png" alt="Home Page" width="800px"></img>
+
+---------------------------
+**SSL Information Page**
+
+<img src="Screenshots/ssl.png" alt="ssl Page" width="800px"></img>
+
+---------------------------
+**ADA Information Page**
+
+<img src="Screenshots/ada.png" alt="ada Page" width="800px"></img>
+
+---------------------------
+**Cookie Information Page**
+
+<img src="Screenshots/cookie.png" alt="cookie Page" width="800px"></img>
+
 
 ## Tool info
 * Release version v1.0.0
