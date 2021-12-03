@@ -77,16 +77,16 @@ loadADA = (data) => {
                 <label class="btn btn-outline-primary" for="btncheck1">Alt Image Text</label>
             
                 <input type="checkbox" class="btn-check" checked id="btncheck2" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck2">Label violation</label>
+                <label class="btn btn-outline-success" for="btncheck2">Label violation</label>
             
                 <input type="checkbox" class="btn-check" checked id="btncheck3" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck3">Headers Violation</label>
+                <label class="btn btn-outline-warning" for="btncheck3">Headers Violation</label>
 
                 <input type="checkbox" class="btn-check" checked id="btncheck4" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck4">Contrast Violation</label>
+                <label class="btn btn-outline-info" for="btncheck4">Contrast Violation</label>
 
                 <input type="checkbox" class="btn-check" checked id="btncheck5" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck5">Tab Violations</label>
+                <label class="btn btn-outline-danger" for="btncheck5">Tab Violations</label>
             </div></center>`
 
     HTML += `<div class="m-2 border border-dark px-4 py-2" id="image-compliance">
@@ -102,6 +102,9 @@ loadADA = (data) => {
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labeltab${i}">${el.trim()}</textarea>
         </div>`
     })
+    violations += `<ul>
+                    <li><b>All inerative elements should be tab focusable</b></li>
+                </ul>`
     data.tab_Violations.tabIndexViolations.forEach((el, i) => {
         violations += `<div class="m-2">
             <p><b>Tab Index violation</b></p>
@@ -109,6 +112,9 @@ loadADA = (data) => {
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labeltab${i}">${el.trim()}</textarea>
         </div>`
     })
+    violations += `<hr><ul>
+                <li><b>The tab index must be either O or -1</b></li>
+            </ul>`
     HTML += `<div class="accordion accordion-flush border border-dark m-2" id="accordionTab">
                 <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOneTab">
@@ -171,18 +177,17 @@ loadADA = (data) => {
                     <ul>
                     <li>${el.Error + " instead it started with H" + el.level[0]}</li>
                     </ul> 
-                   </div>
                     Detail:
                     <div class="form-floating">
                     <textarea readonly class="form-control" placeholder="Leave a comment here" id="floatingTextarea">${el.html}</textarea>
                     <strong>Suggestion: </strong> Heading should start with H1
                     <label for="floatingTextarea"></label>
                     </div>
+                   </div>
                 </div>
                 </div>
                 </div>
             `
-
         } else if (el.type === "2") {
             repeatHeader += `<ul>
                             <li><strong>${el.Error + " at H" + el.level[0] + " at H" + el.level[1]}</strong></li>
