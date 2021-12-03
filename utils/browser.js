@@ -9,7 +9,7 @@ module.exports = instance = async (host) => {
   });
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
-  await page.goto('https://' + host); // getting the instance of the website
+  const response = await page.goto('https://' + host); // getting the instance of the website
   await page.addScriptTag({ // Librabry for dom manipulation and colour contrast
     path: "node_modules/accessibility-developer-tools/dist/js/axs_testing.js"
   })
@@ -17,7 +17,8 @@ module.exports = instance = async (host) => {
 
   // Gettign all cookie details 
   let cookieInfo = await page._client.send('Network.getAllCookies');
-
+  const securityDetails = await response.securityDetails()
+  //console.log(securityDetails)
  
 // Tab Index violation check
 // Best practice: 
@@ -319,6 +320,7 @@ module.exports = instance = async (host) => {
   await browser.close();
 
   return {
+    securityDetails,
     cookieDetails,
     adaCompliance: {
       labels: labels,
