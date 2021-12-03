@@ -8,7 +8,9 @@ We are proposing a tool, which would crawl the web and report the following meas
 - Cookie checker
     - We will be running scripts over web drivers to fetch all the cookies and compare them with your database to check their types and mention them in the report. For checking the cookie consent we will be parsing the web pages and looking for specific keywords present in the DOM. 
 - ADA compliance
-    - We will be selecting a few of the guidelines from the list of ADA compliances set up by W3 consortium based on our prime focus on user accessibility and ease of use. We will then be inspecting the tags of the HTML elements for getting the relevant information. [Web-Crawler Link](https://webcrawler-wcc.herokuapp.com/)
+    - We will be selecting a few of the guidelines from the list of ADA compliances set up by W3 consortium based on our prime focus on user accessibility and ease of use. We will then be inspecting the tags of the HTML elements for getting the relevant information. 
+ 
+[Web-Crawler Link](https://webcrawler-wcc.herokuapp.com/)
 
 
 ## Installation
