@@ -18,6 +18,7 @@ let loadcookie = (data, url) => {
                     <p><b>Secure: </b>${(!cookie.secure) ? ("❌false") : ("✅true")}</p>
                     <p><b>HTTP only: </b>${(!cookie.httponly) ? ("❌false") : ("✅true")}</p>
                     <p><b>Domain: ${cookie.domain}</b></p>
+                    <p><b>Expires at: ${moment(new Date(cookie.expires * 1000)).format('MMMM Do YYYY, h:mm:ss a')}</b></p>
                     <div class="accordion accordion-flush border border-dark" id="${cookie.name}">
                         <div class="accordion-item">
                         <h2 class="accordion-header" id="${cookie.value}">

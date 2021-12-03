@@ -39,11 +39,11 @@ form.addEventListener("submit", (event) => {
             document.getElementById("search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
             sslActive()
-            loadSSL(response.ssl, url)
+            loadSSL(response.data.securityDetails, url)
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
                 sslActive()
-                loadSSL(response.ssl, url)
+                loadSSL(response.data.securityDetails, url)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
@@ -80,11 +80,11 @@ homeForm.addEventListener("submit", (event) => {
             document.getElementById("home-search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
             sslActive()
-            loadSSL(response.ssl, url)
+            loadSSL(response.data.securityDetails, url)
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
                 sslActive()
-                loadSSL(response.ssl, url)
+                loadSSL(response.data.securityDetails, url)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
