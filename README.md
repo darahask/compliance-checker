@@ -10,7 +10,7 @@ We are proposing a tool, which would crawl the web and report the following meas
 - ADA compliance
     - We will be selecting a few of the guidelines from the list of ADA compliances set up by W3 consortium based on our prime focus on user accessibility and ease of use. We will then be inspecting the tags of the HTML elements for getting the relevant information. 
  
- Finf Website Link Here: [Web-Crawler Link](https://webcrawler-wcc.herokuapp.com/)
+ Find Website Link Here: [Web-Crawler Link](https://webcrawler-wcc.herokuapp.com/)
 
 
 ## Installation
@@ -46,10 +46,10 @@ As of now the tool performs the following features:
 
 Screenshots of Web Crawler in action
 ---------------------------
-![Home Page](Screenshots/signup_shop.png "Sign Up Page")
-![SSL Page](Screenshots/inventory.png "Inventory page")
-![ADA Page](Screenshots/search_medicine.png "Search Medicine")
-![Cookie Page](Screenshots/shop_medicine_add.png "Shop list")
+![Home Page](Screenshots/home.png "Home Page")
+![SSL Page](Screenshots/ssl.png "SSL page")
+![ADA Page](Screenshots/ada.png "ADA Medicine")
+![Cookie Page](Screenshots/cookie.png "Cookie list")
 
 ## Tool info
 * Release version v1.0.0
