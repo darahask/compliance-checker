@@ -20,7 +20,7 @@ document.getElementById("home-search-url").addEventListener('keyup', (event) => 
     }
 })
 
-let callURL = "https://webcrawler-wcc.herokuapp.com/api/compliance"
+let callURL = "http://localhost:3333/api/compliance"
 let form = document.getElementById("search-compliance");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
