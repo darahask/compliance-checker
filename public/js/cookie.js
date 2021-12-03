@@ -16,7 +16,7 @@ let loadcookie = (data, url) => {
                     <p><b>Name: </b>${cookie.name}</p>
                     <p><b>Session: </b>${(!cookie.session) ? ("❌false") : ("✅true")}</p>
                     <p><b>Secure: </b>${(!cookie.secure) ? ("❌false") : ("✅true")}</p>
-                    <p><b>HTTP only: </b>${(!cookie.httponly) ? ("❌false") : ("✅true")}</p>
+                    <p><b>HTTP only: </b>${(!cookie.httpOnly) ? ("❌false") : ("✅true")}</p>
                     <p><b>Domain: ${cookie.domain}</b></p>
                     <div class="accordion accordion-flush border border-dark" id="${cookie.name}">
                         <div class="accordion-item">
