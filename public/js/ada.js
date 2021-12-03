@@ -215,7 +215,7 @@ let loadADA = (data, url) => {
             <div class="accordion-body">
             ${(nonConsecutiveHeader === '') ? "<p><b>No consecutive error violation</b></p>" : nonConsecutiveHeader
         }
-            <strong>Suggestion: </strong> In order for HTML page to be organized, at any two consecutive levels, heading tag should be consecutive.
+            <strong>Suggestion: In order for HTML page to be organized, at any two consecutive levels, heading tag should be consecutive.</strong>
             </div>
         </div>
         </div>
