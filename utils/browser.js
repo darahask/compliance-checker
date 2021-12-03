@@ -21,7 +21,7 @@ module.exports = instance = async (host) => {
   const tabIndex_violaitons = await page.evaluate(() => {
     let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
     var elements = []
-    var violations = {"intViolations":[],"tabIndexViolations":[]}
+    var violations = { "intViolations": [], "tabIndexViolations": [] }
     var all = document.getElementsByTagName("*");
 
     for (var i = 0, max = all.length; i < max; i++) {
@@ -91,7 +91,7 @@ module.exports = instance = async (host) => {
       if (i === 0 && level !== 1) { // checking for h1 and non consecutive header
         items.push({ "Error":"H1 not present", "level":[level], "html":el.outerHTML,"type":"1"});
       } else if (prevLevel && level - prevLevel > 1) {
-        items.push({ "Error":"Non consecutive headers present", "level":[prevLevel, level], "html":el.outerHTML, "type":"3", "htmlprv":prvHeading});
+        items.push({ "Error": "Non consecutive headers present", "level": [prevLevel, level], "html": el.outerHTML, "type": "3", "htmlprv": prvHeading });
       }
       prevLevel = level;
       prvHeading = el.outerHTML;
@@ -112,12 +112,6 @@ module.exports = instance = async (host) => {
       if (!axs.properties.hasDirectTextDescendant(element)) {
         return;
       }
-
-      // Ignore elements that are part of the tota11y UI
-      if ($(element).parents(".tota11y").length > 0) {
-        return;
-      }
-
       // Ignore invisible elements
       if (axs.utils.elementIsTransparent(element) ||
         axs.utils.elementHasZeroArea(element)) {
@@ -177,8 +171,8 @@ module.exports = instance = async (host) => {
       dict[allLabel[i].getAttribute("for")] = "exists";
     }
     for (var j = 0, max2 = allInput.length; j < max2; j++) {
-      if (!(allInput[j].id in dict) && allInput[j].id!=='') {
-        control_violation.push({"ID":allInput[j].id,"html":allInput[j].outerHTML})
+      if (!(allInput[j].id in dict) && allInput[j].id !== '') {
+        control_violation.push({ "ID": allInput[j].id, "html": allInput[j].outerHTML })
       }
     }
     return control_violation
@@ -313,8 +307,8 @@ module.exports = instance = async (host) => {
   // all cookie details 
   var cookieDetails = {
     cookieInfo,
-    cookieConsent : (consent_flag===-1) ? (false) : (true),
-    cookieManagement: (manage_flag===-1) ? (false) : (true),
+    cookieConsent: (consent_flag === -1) ? (false) : (true),
+    cookieManagement: (manage_flag === -1) ? (false) : (true),
     cookieDetailPage
   };
   await browser.close();
