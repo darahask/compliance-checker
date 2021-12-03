@@ -314,11 +314,10 @@ let form = document.getElementById("search-compliance");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     let inputtext = document.getElementById('search-url').value;
-    let url = inputtext;
+    let url = urlCleaner(inputtext);
     console.log(url);
 
-    document.getElementById("search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Loading...`
+    document.getElementById("search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:3333/api/compliance", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -329,29 +328,23 @@ form.addEventListener("submit", (event) => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             document.getElementById("search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
-            document.getElementById("ssl").classList.add("active")
-            loadSSL(response.ssl)
+            sslActive()
+            loadSSL(response.ssl,url)
             console.log(response)
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("ssl").classList.add("active")
-                document.getElementById("cookies").classList.remove("active")
-                document.getElementById("ada").classList.remove("active")
-                loadSSL(response.ssl)
+                sslActive()
+                loadSSL(response.ssl,url)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("ada").classList.add("active")
-                document.getElementById("ssl").classList.remove("active")
-                document.getElementById("cookies").classList.remove("active")
-                loadADA(response.data.adaCompliance)
+                adaActive()
+                loadADA(response.data.adaCompliance,url)
             });
             document.getElementById("cookies").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("cookies").classList.add("active")
-                document.getElementById("ada").classList.remove("active")
-                document.getElementById("ssl").classList.remove("active")
-                loadcookie(response.data.cookieDetails)
+                cookiesActive()
+                loadcookie(response.data.cookieDetails,url)
             });
         } else {
             document.getElementById("search").innerHTML = `Search`
@@ -366,8 +359,7 @@ homeForm.addEventListener("submit", (event) => {
     let url = urlCleaner(inputtext);
     console.log(url);
 
-    document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    Loading...`
+    document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:3333/api/compliance", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -378,28 +370,22 @@ homeForm.addEventListener("submit", (event) => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             document.getElementById("home-search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
-            document.getElementById("ssl").classList.add("active")
+            sslActive()
             loadSSL(response.ssl,url)
-            console.log(url);
+            console.log(response);
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("ssl").classList.add("active")
-                document.getElementById("cookies").classList.remove("active")
-                document.getElementById("ada").classList.remove("active")
-                loadSSL(response.ssl)
+                sslActive()
+                loadSSL(response.ssl,url)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("ada").classList.add("active")
-                document.getElementById("ssl").classList.remove("active")
-                document.getElementById("cookies").classList.remove("active")
+                adaActive()
                 loadADA(response.data.adaCompliance,url)
             });
             document.getElementById("cookies").addEventListener("click", (event) => {
                 event.preventDefault()
-                document.getElementById("cookies").classList.add("active")
-                document.getElementById("ada").classList.remove("active")
-                document.getElementById("ssl").classList.remove("active")
+                cookiesActive()
                 loadcookie(response.data.cookieDetails,url)
             });
         } else {
@@ -441,6 +427,24 @@ function syntaxHighlight(json) {
 function urlCleaner (url) {
     // shouldcover cases like https://, http://, www.
     return url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "")
+}
+
+function sslActive() {
+    document.getElementById("ssl").classList.add("active")
+    document.getElementById("cookies").classList.remove("active")
+    document.getElementById("ada").classList.remove("active")
+}
+
+function adaActive() {
+    document.getElementById("ssl").classList.remove("active")
+    document.getElementById("cookies").classList.remove("active")
+    document.getElementById("ada").classList.add("active")
+}
+
+function cookiesActive() {
+    document.getElementById("ssl").classList.remove("active")
+    document.getElementById("cookies").classList.add("active")
+    document.getElementById("ada").classList.remove("active")
 }
 
 document.getElementById("search-url").addEventListener('keyup', (event) => {
