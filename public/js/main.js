@@ -1,13 +1,9 @@
 console.log("JS File loaded")
 
 loadSSL = (data) => {
-<<<<<<< HEAD
-    let HTML = '<h1>SSL 📑certificate and Expiry</h1>'
-=======
     let HTML = '<h1 class="display-1">SSL 📑certificate and Expiry</h1>'
     if(data.length()!==0)
     {
->>>>>>> 7059d01d7642894cc9155a7f60a23ad73f07ca27
     HTML += `<p>The certificate is valid upto: <span style="color:green">${moment(data.valid_to).format('MMMM Do YYYY, h:mm:ss a')}</span></p>`
     HTML += `<p>Certificate expires <span style="color:red">${moment(data.valid_to).startOf('day').fromNow()}</span></p>`
     HTML += `<p>Issued to: <b>${data["subject"]["CN"]}</b></p>`
@@ -25,27 +21,18 @@ loadSSL = (data) => {
                 </div>
             </div>`
     document.getElementById('compliance-data').innerHTML = HTML;
-<<<<<<< HEAD
-    // let editor = new JsonEditor("#more-details",data,);
-    // editor.load(data);
-=======
     let editor = new JsonEditor("#more-details",data,);
     editor.load(data);
     }else{
         HTML += `<h4><b>Opps!! Something Wrong.</b></h4>`
     }
     
->>>>>>> 7059d01d7642894cc9155a7f60a23ad73f07ca27
 }
 loadcookie = (data) => {
     let HTML = '<h1>🍪Cookie Consent and 👀Cookie details</h1>';
     HTML += (data.cookieConsent) ? (`<p>✅Page has cookie consent</p>`) : (`<p>❌Page does not have cookie consent</p>`)
-<<<<<<< HEAD
-    HTML += (data.cookieDetailPage!=='') ? (`<p>📚Details about the cookies🍪 used in this site🌐 can be found at <a href="${data.cookieDetailPage}">${data.cookieDetailPage}</a></p>`) : (`<p>❌No information about cookies used in this site found</p>`)
-=======
     if(data.cookieDetailPage!=="")
     HTML += `<p>📚Details about the cookies🍪 used in this site🌐 can be found at <a href="${data.cookieDetailPage}">${data.cookieDetailPage}</a></p>`
->>>>>>> 7059d01d7642894cc9155a7f60a23ad73f07ca27
     HTML += (data.cookieManagement) ? (`<p>✅Page has cookie management</p>`) : (`<p>❌Page does not have cookie management</p>`)
     let cookieInfo = data.cookieInfo.cookies
     HTML += (cookieInfo.length) ? (`<h2>Cookie details are as follows: </h2>`) : (`<p>😌 This site does not use any cookie.</p>`)
