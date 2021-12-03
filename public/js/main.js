@@ -1,6 +1,6 @@
 console.log("JS File loaded")
 
-loadSSL = (data,url) => {
+loadSSL = (data, url) => {
     let HTML = `<h1>SSL 📑 certificate and Expiry for <a href="https://${url}">${url}</a></h1>`
     if (data.length !== 0) {
         HTML += `<p>The certificate is valid upto: <span style="color:green">${moment(data.valid_to).format('MMMM Do YYYY, h:mm:ss a')}</span></p>`
@@ -27,18 +27,19 @@ loadSSL = (data,url) => {
     // editor.load(data);
 
 }
-loadcookie = (data,url) => {
+loadcookie = (data, url) => {
     let HTML = `<h1>🍪 Cookie Consent and 👀 Cookie details for <a href="https://${url}">${url}</a></h1>`;
-    HTML += (data.cookieConsent) ? (`<p>✅Page has cookie consent</p>`) : (`<p>❌Page does not have cookie consent</p>`)
-    if (data.cookieDetailPage !== "")
-        HTML += `<p>📚Details about the cookies🍪 used in this site🌐 can be found at <a href="${data.cookieDetailPage}">${data.cookieDetailPage}</a></p>`
-    HTML += (data.cookieManagement) ? (`<p>✅Page has cookie management</p>`) : (`<p>❌Page does not have cookie management</p>`)
-    let cookieInfo = data.cookieInfo.cookies
-    HTML += (cookieInfo.length) ? (`<h2>Cookie details are as follows: </h2>`) : (`<p>😌 This site does not use any cookie.</p>`)
-    if (cookieInfo.length) {
-        cookieInfo.forEach((cookie, id) => {
-            HTML +=
-                `
+    if (data) {
+        HTML += (data.cookieConsent) ? (`<p>✅Page has cookie consent</p>`) : (`<p>❌Page does not have cookie consent</p>`)
+        if (data.cookieDetailPage !== "")
+            HTML += `<p>📚Details about the cookies🍪 used in this site🌐 can be found at <a href="${data.cookieDetailPage}">${data.cookieDetailPage}</a></p>`
+        HTML += (data.cookieManagement) ? (`<p>✅Page has cookie management</p>`) : (`<p>❌Page does not have cookie management</p>`)
+        let cookieInfo = data.cookieInfo.cookies
+        HTML += (cookieInfo.length) ? (`<h2>Cookie details are as follows: </h2>`) : (`<p>😌 This site does not use any cookie.</p>`)
+        if (cookieInfo.length) {
+            cookieInfo.forEach((cookie, id) => {
+                HTML +=
+                    `
             <div class="m-2 border border-dark">
                 <div class="row m-2">
                     <p><b>Name: </b>${cookie.name}</p>
@@ -62,12 +63,16 @@ loadcookie = (data,url) => {
                 </div>
             </div>
             `
-        })
+            })
+        } else {
+            HTML += `<h2>❌ The Website does not use any cookies 🍪</h2>`
+        }
+
+        // HTML += `<pre>${JSON.stringify(data.cookieInfo.cookies,undefined,1)}</pre>`
+        document.getElementById('compliance-data').innerHTML = HTML;
     }
-    // HTML += `<pre>${JSON.stringify(data.cookieInfo.cookies,undefined,1)}</pre>`
-    document.getElementById('compliance-data').innerHTML = HTML;
 }
-loadADA = (data,url) => {
+loadADA = (data, url) => {
     let HTML = `<div class="m-2"><h1>🌈 ADA Compliance details for <a href="https://${url}">${url}</a></h1></div>`
 
     HTML += `<center><div class="btn-group m-4" role="group" aria-label="Basic checkbox toggle button group">
@@ -87,10 +92,38 @@ loadADA = (data,url) => {
                 <label class="btn btn-outline-danger" for="btncheck5">Tab Violations</label>
             </div></center>`
 
-    HTML += `<div class="m-2 border border-dark px-4 py-2" id="image-compliance">
+    HTML += `<div id="image-compliance">`
+    let imageInfo = '';
+    data.altImageText.ViolatedTags.forEach((el, i) => {
+        imageInfo += `<div class="m-2">
+            <p><b>Image alt text violation</b></p>
+            <textarea readonly class="form-control" placeholder="Leave a comment here" id="labelhtml${i}">${el.trim()}</textarea>
+        </div>`
+    })
+    imageInfo += `
+        <ul>
+            <li><b>Provide alt text to the images</b></li>
+        </ul>
+    `
+    HTML +=
+        `   <div class="accordion accordion-flush border border-dark m-2" id="accordionImage">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOneImage">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneImage" aria-expanded="false" aria-controls="flush-collapseOneImage">
                 Total number of images present in the website are ${data.altImageText.totalimg}<br>
                 Number of images which have alt-text are ${data.altImageText.score}
-            </div>`
+                </button>
+                </h2>
+                <div id="flush-collapseOneImage" class="accordion-collapse collapse" aria-labelledby="flush-headingOneImage" data-bs-parent="#accordionImage">
+                <div class="accordion-body">
+                    ${imageInfo}
+                </div>
+            </div>
+            </div>
+            </div>
+        `
+
+    HTML += `</div>`
 
     let violations = ''
     data.tab_Violations.intViolations.forEach((el, i) => {
@@ -235,9 +268,8 @@ loadADA = (data,url) => {
                     </h2>
                     <div id="flush-collapseRepeat" class="accordion-collapse collapse" aria-labelledby="flush-headingRepeat" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                    ${
-                        (repeatHeader === '') ? "<p><b>No repeatative header violation</b></p>":repeatHeader
-                    }
+                    ${(repeatHeader === '') ? "<p><b>No repeatative header violation</b></p>" : repeatHeader
+        }
                     <strong>Suggestion: </strong> To make heading more descriptive, starting of the each heading should be different.
                     </div>
                 </div>
@@ -255,9 +287,8 @@ loadADA = (data,url) => {
             </h2>
             <div id="flush-collapseCon" class="accordion-collapse collapse" aria-labelledby="flush-headingCon" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-            ${
-                (nonConsecutiveHeader === '') ? "<p><b>No consecutive error violation</b></p>":nonConsecutiveHeader
-            }
+            ${(nonConsecutiveHeader === '') ? "<p><b>No consecutive error violation</b></p>" : nonConsecutiveHeader
+        }
             <strong>Suggestion: </strong> In order for HTML page to be organized, at any two consecutive levels, heading tag should be consecutive.
             </div>
         </div>
@@ -273,13 +304,13 @@ loadADA = (data,url) => {
                     <div class="col">
                         <div class="row">
                         <div class="col">
-                            <div class="row"
+                            <div class="row border border-2"
                             style="background-color: rgb(${element['Background Color']['red']}, ${element['Background Color']['green']}, ${element['Background Color']['blue']}, ${element['Background Color']['alpha']}); height:100px; width:100px;">
                             </div>
                             <div class="row">Background Color</div>
                         </div>
                         <div class="col">
-                            <div class="row"
+                            <div class="row border border-2"
                             style="background-color: rgb(${element['Text Color']['red']}, ${element['Text Color']['green']}, ${element['Text Color']['blue']}, ${element['Text Color']['alpha']}); height:100px; width:100px;">
                             </div>
                             <div class="row">Text Color</div>
@@ -307,7 +338,7 @@ loadADA = (data,url) => {
                             <div class="row">AA Background Color: ${element['AA Suggestions']['bg']}</div>
                         </div>
                         <div class="col">
-                            <div class="row" style="background-color: ${element['AA Suggestions']['fg']};height:100px; width:100px;">
+                            <div class="row border border-2" style="background-color: ${element['AA Suggestions']['fg']};height:100px; width:100px;">
                             </div>
                             <div class="row">AA Text Color: ${element['AA Suggestions']['fg']}</div>
                         </div>
@@ -317,12 +348,12 @@ loadADA = (data,url) => {
                     ${(element['AAA Suggestions']['bg']) ? `<div class="col">
                         <div class="row">
                         <div class="col">
-                            <div class="row" style="background-color: ${element['AAA Suggestions']['bg']}; height:100px; width:100px;">
+                            <div class="row border border-2" style="background-color: ${element['AAA Suggestions']['bg']}; height:100px; width:100px;">
                             </div>
                             <div class="row">AAA Background Color: ${element['AAA Suggestions']['bg']} </div>
                         </div>
                         <div class="col">
-                            <div class="row" style="background-color: ${element['AAA Suggestions']['fg']}; height:100px; width:100px;">
+                            <div class="row border border-2" style="background-color: ${element['AAA Suggestions']['fg']}; height:100px; width:100px;">
                             </div>
                             <div class="row">AAA Text Color: ${element['AAA Suggestions']['fg']}</div>
                         </div>
@@ -392,22 +423,22 @@ form.addEventListener("submit", (event) => {
             document.getElementById("search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
             sslActive()
-            loadSSL(response.ssl,url)
+            loadSSL(response.ssl, url)
             console.log(response)
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
                 sslActive()
-                loadSSL(response.ssl,url)
+                loadSSL(response.ssl, url)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
                 adaActive()
-                loadADA(response.data.adaCompliance,url)
+                loadADA(response.data.adaCompliance, url)
             });
             document.getElementById("cookies").addEventListener("click", (event) => {
                 event.preventDefault()
                 cookiesActive()
-                loadcookie(response.data.cookieDetails,url)
+                loadcookie(response.data.cookieDetails, url)
             });
         } else {
             document.getElementById("search").innerHTML = `Search`
@@ -434,22 +465,22 @@ homeForm.addEventListener("submit", (event) => {
             document.getElementById("home-search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
             sslActive()
-            loadSSL(response.ssl,url)
+            loadSSL(response.ssl, url)
             console.log(response);
             document.getElementById("ssl").addEventListener("click", (event) => {
                 event.preventDefault()
                 sslActive()
-                loadSSL(response.ssl,url)
+                loadSSL(response.ssl, url)
             });
             document.getElementById("ada").addEventListener("click", (event) => {
                 event.preventDefault()
                 adaActive()
-                loadADA(response.data.adaCompliance,url)
+                loadADA(response.data.adaCompliance, url)
             });
             document.getElementById("cookies").addEventListener("click", (event) => {
                 event.preventDefault()
                 cookiesActive()
-                loadcookie(response.data.cookieDetails,url)
+                loadcookie(response.data.cookieDetails, url)
             });
         } else {
             document.getElementById("home-search").innerHTML = `Search`
@@ -487,7 +518,7 @@ function syntaxHighlight(json) {
     });
 }
 
-function urlCleaner (url) {
+function urlCleaner(url) {
     // shouldcover cases like https://, http://, www.
     return url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "")
 }
@@ -511,7 +542,7 @@ function cookiesActive() {
 }
 
 document.getElementById("search-url").addEventListener('keyup', (event) => {
-    if (event.target.value==='') {
+    if (event.target.value === '') {
         document.getElementById('search').classList.add("disabled");
         // console.log("worked")
     } else {
@@ -521,7 +552,7 @@ document.getElementById("search-url").addEventListener('keyup', (event) => {
 })
 
 document.getElementById("home-search-url").addEventListener('keyup', (event) => {
-    if (event.target.value==='') {
+    if (event.target.value === '') {
         document.getElementById('home-search').classList.add("disabled");
         // console.log("worked")
     } else {

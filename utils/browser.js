@@ -129,12 +129,6 @@ module.exports = instance = async (host) => {
       if (!axs.properties.hasDirectTextDescendant(element)) {
         return;
       }
-
-      // Ignore elements that are part of the tota11y UI
-      if ($(element).parents(".tota11y").length > 0) {
-        return;
-      }
-
       // Ignore invisible elements
       if (axs.utils.elementIsTransparent(element) ||
         axs.utils.elementHasZeroArea(element)) {
