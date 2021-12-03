@@ -8,7 +8,9 @@ We are proposing a tool, which would crawl the web and report the following meas
 - Cookie checker
     - We will be running scripts over web drivers to fetch all the cookies and compare them with your database to check their types and mention them in the report. For checking the cookie consent we will be parsing the web pages and looking for specific keywords present in the DOM. 
 - ADA compliance
-    - We will be selecting a few of the guidelines from the list of ADA compliances set up by W3 consortium based on our prime focus on user accessibility and ease of use. We will then be inspecting the tags of the HTML elements for getting the relevant information.
+    - We will be selecting a few of the guidelines from the list of ADA compliances set up by W3 consortium based on our prime focus on user accessibility and ease of use. We will then be inspecting the tags of the HTML elements for getting the relevant information. 
+ 
+ Find Website Link Here: [Web-Crawler Link](https://webcrawler-wcc.herokuapp.com/)
 
 
 ## Installation
@@ -44,10 +46,26 @@ As of now the tool performs the following features:
 
 Screenshots of Web Crawler in action
 ---------------------------
-![Home Page](Screenshots/signup_shop.png "Sign Up Page")
-![SSL Page](Screenshots/inventory.png "Inventory page")
-![ADA Page](Screenshots/search_medicine.png "Search Medicine")
-![Cookie Page](Screenshots/shop_medicine_add.png "Shop list")
+
+**Home Page**
+
+<img src="Screenshots/home.png" alt="Home Page" width="800px"></img>
+
+---------------------------
+**SSL Information Page**
+
+<img src="Screenshots/ssl.png" alt="ssl Page" width="800px"></img>
+
+---------------------------
+**ADA Information Page**
+
+<img src="Screenshots/ada.png" alt="ada Page" width="800px"></img>
+
+---------------------------
+**Cookie Information Page**
+
+<img src="Screenshots/cookie.png" alt="cookie Page" width="800px"></img>
+
 
 ## Tool info
 * Release version v1.0.0
