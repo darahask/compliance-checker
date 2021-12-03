@@ -51,15 +51,19 @@ module.exports = instance = async (host) => {
   // Alternate text score calculation.
   const alts = await page.evaluate(() => {
     var score = 0;
+    var ViolatedTags = []
     data = document.getElementsByTagName('img')
     for (const [key, val] of Object.entries(data)) {
       if (val.alt.trim() !== '') {
         score += 1;
+      }else{
+        ViolatedTags.push(val.outerHTML)
       }
     }
     return {
       "totalimg": data.length,
-      "score": score
+      "score": score,
+      "ViolatedTags": ViolatedTags
     }
   })
 
