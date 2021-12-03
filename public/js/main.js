@@ -42,7 +42,6 @@ loadcookie = (data,url) => {
             <div class="m-2 border border-dark">
                 <div class="row m-2">
                     <p><b>Name: </b>${cookie.name}</p>
-                    <p><b>Value: </b>${cookie.value}</p>
                     <p><b>Session: </b>${(!cookie.session) ? ("❌false") : ("✅true")}</p>
                     <p><b>Secure: </b>${(!cookie.secure) ? ("❌false") : ("✅true")}</p>
                     <p><b>HTTP only: </b>${(!cookie.httponly) ? ("❌false") : ("✅true")}</p>
