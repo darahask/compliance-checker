@@ -28,7 +28,7 @@ let loadADA = (data, url) => {
     })
     imageInfo += `
         <ul>
-            <li><b>Provide alt text to the images</b></li>
+            <li><b>Suggestion: Provide alt text to the images</b></li>
         </ul>
     `
     HTML +=
@@ -60,7 +60,7 @@ let loadADA = (data, url) => {
         </div>`
     })
     violations += `<ul>
-                    <li><b>All inerative elements should be tab focusable</b></li>
+                    <li><b>Suggestion: All inerative elements should be tab focusable</b></li>
                 </ul>`
     data.tab_Violations.tabIndexViolations.forEach((el, i) => {
         violations += `<div class="m-2">
@@ -70,7 +70,7 @@ let loadADA = (data, url) => {
         </div>`
     })
     violations += `<hr><ul>
-                <li><b>The tab index must be either O or -1</b></li>
+                <li><b>Suggestion: The tab index must be either O or -1</b></li>
             </ul>`
     HTML += `<div class="accordion accordion-flush border border-dark m-2" id="accordionTab">
                 <div class="accordion-item">
@@ -137,7 +137,7 @@ let loadADA = (data, url) => {
                     Detail:
                     <div class="form-floating">
                     <textarea readonly class="form-control" placeholder="Leave a comment here" id="floatingTextarea">${el.html}</textarea>
-                    <strong>Suggestion: </strong> Heading should start with H1
+                    <strong>Suggestion: Heading should start with H1 </strong>
                     <label for="floatingTextarea"></label>
                     </div>
                    </div>
@@ -196,7 +196,7 @@ let loadADA = (data, url) => {
                     <div class="accordion-body">
                     ${(repeatHeader === '') ? "<p><b>No repeatative header violation</b></p>" : repeatHeader
         }
-                    <strong>Suggestion: </strong> To make heading more descriptive, starting of the each heading should be different.
+                    <strong>Suggestion: To make heading more descriptive, starting of the each heading should be different. </strong>
                     </div>
                 </div>
                 </div>
