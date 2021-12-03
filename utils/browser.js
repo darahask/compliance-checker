@@ -83,6 +83,7 @@ module.exports = instance = async (host) => {
     var items = []
     var prevLevel
     var dict = {}
+    var previousL = {}
     var prvHeading
     // key : innerText, val : H tag level
     // Error: "blabla", Level: "blabla", html: "blabla"
@@ -90,14 +91,20 @@ module.exports = instance = async (host) => {
       var $el = $(el)
       var level = +$el.prop('tagName').slice(1)
       var content = $el.prop('innerText').split(" ")[0]
-      if (dict[content] != null) {
-        items.push({ "Error":"Repeating header names", "level":[dict[content], level] ,"html":el.outerHTML, "htmlprv":prvHeading})
+      if(content!=='')
+      {
+      if (dict[content] != null && level!== dict[content]) {
+        items.push({ "Error":"Repeating header names", "level":[dict[content], level] ,"html":el.outerHTML, "type":"2", "htmlprv":previousL[content]})
       }
       dict[content] = level
+      
+      var k = el.outerHTML
+      previousL[content] = "" + k 
+      }
       if (i === 0 && level !== 1) {
-        items.push({ "Error":"H1 not present", "level":[level], "html":el.outerHTML,"htmlprv":""});
+        items.push({ "Error":"H1 not present", "level":[level], "html":el.outerHTML,"type":"1"});
       } else if (prevLevel && level - prevLevel > 1) {
-        items.push({ "Error":"Non consecutive headers present", "level":[prevLevel, level], "html":el.outerHTML, "htmlprv":prvHeading});
+        items.push({ "Error":"Non consecutive headers present", "level":[prevLevel, level], "html":el.outerHTML, "type":"3", "htmlprv":prvHeading});
       }
       prevLevel = level;
       prvHeading = el.outerHTML;
@@ -170,7 +177,7 @@ module.exports = instance = async (host) => {
 
     return results;
   })
-  console.log(contrast);
+ // console.log(contrast);
 
   // Labeling Control
   const labels = await page.evaluate(() => {
