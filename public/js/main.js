@@ -15,7 +15,7 @@ loadSSL = (data) => {
                     </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"><pre readonly id="more-details"></pre></div>
+                    <div class="accordion-body"><pre readonly id="more-details">${syntaxHighlight(data)}</pre></div>
                 </div>
                 </div>
             </div>`
@@ -23,8 +23,8 @@ loadSSL = (data) => {
         HTML += `<h4><b>Opps!! Something Wrong.</b></h4>`
     }
     document.getElementById('compliance-data').innerHTML = HTML;
-    let editor = new JsonEditor("#more-details", data,);
-    editor.load(data);
+    // let editor = new JsonEditor("#more-details", data,);
+    // editor.load(data);
 
 }
 loadcookie = (data) => {
@@ -412,7 +412,15 @@ homeForm.addEventListener("submit", (event) => {
 
 function syntaxHighlight(json) {
     if (typeof (json) != 'string') {
-        json = JSON.stringify(json, undefined, 2);
+        json = JSON.stringify(json, function(k,v) {
+            if(v instanceof Array)
+              return JSON.stringify(v);
+            return v;
+          }, 2).replace(/\\/g, '')
+                .replace(/\"\[/g, '[')
+                .replace(/\]\"/g,']')
+                .replace(/\"\{/g, '{')
+                .replace(/\}\"/g,'}');
     }
     json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
