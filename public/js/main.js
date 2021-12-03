@@ -228,7 +228,7 @@ loadADA = (data) => {
                 </div>
                 </div>
                 <div class="col">
-                    <div class="row">Contrast Ratio: ${element["Contast Ratio"]}</div>
+                    <div class="row">Contrast Ratio: ${element["Contrast Ratio"]}</div>
                     <div class="row">AA Compliance: ${element["AA Compliance"]}</div>
                     <div class="row">AAA Compliance: ${element["AAA Compliance"]}</div>
                 </div>
