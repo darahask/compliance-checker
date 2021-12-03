@@ -20,6 +20,7 @@ document.getElementById("home-search-url").addEventListener('keyup', (event) => 
     }
 })
 
+let callURL = "https://webcrawler-wcc.herokuapp.com/api/compliance"
 let form = document.getElementById("search-compliance");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -29,7 +30,7 @@ form.addEventListener("submit", (event) => {
 
     document.getElementById("search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3333/api/compliance", true);
+    xhr.open("POST", callURL, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         searchUrl: url
@@ -70,7 +71,7 @@ homeForm.addEventListener("submit", (event) => {
 
     document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3333/api/compliance", true);
+    xhr.open("POST", callURL, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         searchUrl: url
