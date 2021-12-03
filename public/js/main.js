@@ -29,7 +29,7 @@ form.addEventListener("submit", (event) => {
 
     document.getElementById("search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3333/api/compliance", true);
+    xhr.open("POST", "https://webcrawler-wcc.herokuapp.com/api/compliance", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         searchUrl: url
@@ -70,7 +70,7 @@ homeForm.addEventListener("submit", (event) => {
 
     document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3333/api/compliance", true);
+    xhr.open("POST", "https://webcrawler-wcc.herokuapp.com/api/compliance", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         searchUrl: url
