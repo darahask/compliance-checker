@@ -1,30 +1,27 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer'); // for simulating browser in node
 
 module.exports = instance = async (host) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
-  await page.goto('https://' + host);
-  await page.addScriptTag({
+  await page.goto('https://' + host); // getting the instance of the website
+  await page.addScriptTag({ // Librabry for dom manipulation and colour contrast
     path: "node_modules/accessibility-developer-tools/dist/js/axs_testing.js"
   })
-  await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.2.1.min.js' })
+  await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.2.1.min.js' }) // adding jquery
 
-  // console.log(page);
-
-  // Cookie in details printed
+  // Gettign all cookie details 
   let cookieInfo = await page._client.send('Network.getAllCookies');
 
-  // const extractedText = await page.$eval('*', (el) => el.innerText);
-  // var consent = RegExp('Cookie', 'i').test(extractedText.trim());
-  // console.log("The browser has cookie consent? ", consent)
-
-  // Tab Index violation check
-
+ 
+// Tab Index violation check
+// Best practice: 
+// All interactive elements should have tabindex 0, means its focusable
+// All tab index should be either 0 or -1
   const tabIndex_violaitons = await page.evaluate(() => {
     let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
     var elements = []
-    var violations = {"intViolations":[],"tabIndexViolations":[]}
+    var violations = { "intViolations": [], "tabIndexViolations": [] }
     var all = document.getElementsByTagName("*");
 
     for (var i = 0, max = all.length; i < max; i++) {
@@ -32,70 +29,56 @@ module.exports = instance = async (host) => {
     }
 
     for (var i in elements) {
-      if (interactive_content.includes(elements[i].tagName.toLowerCase()) && Number(elements[i].tabIndex) === -1) {
+      if (interactive_content.includes(elements[i].tagName.toLowerCase()) && Number(elements[i].tabIndex) === -1) { // checking whether interactive element is focusable or not 
         violations["intViolations"].push(elements[i].outerHTML)
       }
-      if (elements[i].tabIndex !== 0 && elements[i].tabIndex !== -1) {
+      if (elements[i].tabIndex !== 0 && elements[i].tabIndex !== -1) { // checking for tab index 0 and -1
         violations["tabIndexViolations"].push(elements[i].outerHTML)
       }
     }
     return violations
   })
 
-  console.log("Number of Tab Violations: ", tabIndex_violaitons)
-  // for(var i in x)
-  // {
-  //   console.log(x[i]);
-  // }
+
 
   // Alternate text score calculation.
+  // Best practice: All image should have alternative text
   const alts = await page.evaluate(() => {
     var score = 0;
     var ViolatedTags = []
-    data = document.getElementsByTagName('img')
+    data = document.getElementsByTagName('img') //getting all image elements
     for (const [key, val] of Object.entries(data)) {
-      if (val.alt.trim() !== '') {
+      if (val.alt.trim() !== '') { // Checking if alternative text is there or not
         score += 1;
       }else{
-        ViolatedTags.push(val.outerHTML)
+        ViolatedTags.push(val.outerHTML) // no alternative text found 
       }
     }
     return {
-      "totalimg": data.length,
-      "score": score,
-      "ViolatedTags": ViolatedTags
+      "totalimg": data.length, // total images present
+      "score": score,         // Number of images with alternative text
+      "ViolatedTags": ViolatedTags // Images with no alternative text
     }
   })
 
-  console.log("Alternate Image Violations: ", alts)
-
-  // Getting list of hyperlinks.
-  // const urls = await page.evaluate(() => {
-  //   var urlList = [];
-  //   data = document.getElementsByTagName('a')
-  //   for (const [key, val] of Object.entries(data)) {
-  //     urlList.push(val.href)
-  //   }
-  //   return urlList
-  // })
-  // console.log(urls)
-  // heading control
+  // Heading Violation Check
+  // Best Practice:
+  // Heading should be descriptive means every heading starting word should be different from each other.
+  // Heading should start with H1
+  // Two consecutive heading tags difference should not be more than 1
 
   const headers = await page.evaluate(() => {
-    // var headings = document.getElementsByTagName("h")
     var headings = $("h1, h2, h3, h4, h5, h6")
-    var items = []
+    var items = [] 
     var prevLevel
     var dict = {}
     var previousL = {}
     var prvHeading
-    // key : innerText, val : H tag level
-    // Error: "blabla", Level: "blabla", html: "blabla"
     headings.each((i, el) => {
       var $el = $(el)
       var level = +$el.prop('tagName').slice(1)
       var content = $el.prop('innerText').split(" ")[0]
-      if(content!=='')
+      if(content!=='') // checking for descriptive heading
       {
       if (dict[content] != null && level!== dict[content]) {
         items.push({ "Error":"Repeating header names", "level":[dict[content], level] ,"html":el.outerHTML, "type":"2", "htmlprv":previousL[content]})
@@ -105,10 +88,10 @@ module.exports = instance = async (host) => {
       var k = el.outerHTML
       previousL[content] = "" + k 
       }
-      if (i === 0 && level !== 1) {
+      if (i === 0 && level !== 1) { // checking for h1 and non consecutive header
         items.push({ "Error":"H1 not present", "level":[level], "html":el.outerHTML,"type":"1"});
       } else if (prevLevel && level - prevLevel > 1) {
-        items.push({ "Error":"Non consecutive headers present", "level":[prevLevel, level], "html":el.outerHTML, "type":"3", "htmlprv":prvHeading});
+        items.push({ "Error": "Non consecutive headers present", "level": [prevLevel, level], "html": el.outerHTML, "type": "3", "htmlprv": prvHeading });
       }
       prevLevel = level;
       prvHeading = el.outerHTML;
@@ -129,12 +112,6 @@ module.exports = instance = async (host) => {
       if (!axs.properties.hasDirectTextDescendant(element)) {
         return;
       }
-
-      // Ignore elements that are part of the tota11y UI
-      if ($(element).parents(".tota11y").length > 0) {
-        return;
-      }
-
       // Ignore invisible elements
       if (axs.utils.elementIsTransparent(element) ||
         axs.utils.elementHasZeroArea(element)) {
@@ -181,9 +158,10 @@ module.exports = instance = async (host) => {
 
     return results;
   })
- // console.log(contrast);
 
-  // Labeling Control
+
+  // Labeling Violation check
+  // Best practices: All input should have respective label
   const labels = await page.evaluate(() => {
     var allInput = document.getElementsByTagName("input");
     var allLabel = document.getElementsByTagName("label, aria-label");
@@ -193,33 +171,30 @@ module.exports = instance = async (host) => {
       dict[allLabel[i].getAttribute("for")] = "exists";
     }
     for (var j = 0, max2 = allInput.length; j < max2; j++) {
-      if (!(allInput[j].id in dict) && allInput[j].id!=='') {
-        control_violation.push({"ID":allInput[j].id,"html":allInput[j].outerHTML})
+      if (!(allInput[j].id in dict) && allInput[j].id !== '') {
+        control_violation.push({ "ID": allInput[j].id, "html": allInput[j].outerHTML })
       }
     }
     return control_violation
   })
-  console.log("Violated Lables", labels)
-  // Cookie Consent and Manage
+
+  // Cookie Consent and Manage Check
+  // getting classes which has cookie as a name or id 
+  // checking inside that class if we have buttons for consent and manage cookie or not
   const cookie_consent = await page.evaluate(() => {
     var div_id = []
     var buttons
     $("[id*='consent' i], [class*='consent' i], [class*='cookie' i], [id*='cookie' i]").each((i, el) => {
-      // div_id.push(el.id)
-      // if(RegExp('Cookie','i').test(el.innerText.trim()))
-      // {
-      buttons = $(el).find('button')
+      buttons = $(el).find('button') // getting all child buttons of cookie class
       for (const [key, val] of Object.entries(buttons)) {
-        div_id.push(val.innerText)
+        div_id.push(val.innerText) // gettin text written on the buttons
       }
     })
     return div_id
   })
 
 
-  // //Cookie Settings
-
-  // console.log(cookie_settings)
+  // Getting cookie information link from the website footer
   const cookie_settings = await page.evaluate(() => {
     var cookie_href = []
     var flag = false
@@ -227,20 +202,19 @@ module.exports = instance = async (host) => {
     $("footer").each((i, el) => {
       alls = $(el).find('*')
       for (const [key, val] of Object.entries(alls)) {
-        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText)) {
+        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText)) { // checking if the footer has element cookie
           if (String(val.tagName) === "A") {
             cookie_href.push(val['href'])
             flag = true
           }
-          // div_id.push(val.tagName)
+          
         }
       }
-      // }
     })
     return cookie_href
-    // return div_id
   })
 
+// if footer doesn't have cookie info the checking for the class with id or name as cookie in the website
   const cookie_settingsall = await page.evaluate(() => {
     var cookie_href = []
     var flag = false
@@ -253,38 +227,30 @@ module.exports = instance = async (host) => {
             cookie_href.push(val['href'])
             flag = true
           }
-          // div_id.push(val.tagName)
+          
         }
       }
-      // }
     })
-    return cookie_href
-    // return div_id
+    return cookie_href // all links inside cookie class and text also cookie
   })
-  // console.log(cookie_settings)
-  //const footerText = await page.$eval('footer', (el) => el.innerText);
-  //var cookie_settings = RegExp('Cookie','i').test(footerText.trim());
 
-  //var links = cookie_settings
   var buttons = cookie_consent, consent_flag = -1, manage_flag = -1, hrefs = new Set(cookie_settings)
   hrefs = Array.from(hrefs)
-  var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i]
-  var manage_word = [/manage/i, /custom/i, /setting/i]
+  var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i] // cookie consent checking keywords 
+  var manage_word = [/manage/i, /custom/i, /setting/i] // cookie manage keywords
   var f = -1
   for (var i = 0; i < buttons.length; i++) {
     if (consent_word.some(r => r.test(buttons[i]))) {
       consent_flag = i
-      //console.log("Consent", buttons[i])
     }
 
     if (manage_word.some(r => r.test(buttons[i]))) {
       manage_flag = i
-      // console.log("Manage",buttons[i])
     }
 
   }
   var cookieDetailPage = ""
-  
+  // cookie conscent and manage
   if (consent_flag !== -1) {
     console.log("Consent!!")
   } else {
@@ -297,7 +263,7 @@ module.exports = instance = async (host) => {
     console.log("No Cookie Manage")
   }
 
-  // for Footer
+  // cookie information check from Footer
   for (var j = 0; j < hrefs.length; j++) {
     if (hrefs.length == 1) {
       f = 0
@@ -311,6 +277,7 @@ module.exports = instance = async (host) => {
         break;
       }
   }
+  // cookie information check in cookie class
   if (f === -1) {
     var list2 = new Set(cookie_settingsall)
     list2 = Array.from(list2)
@@ -330,16 +297,18 @@ module.exports = instance = async (host) => {
             break;
           }
       }
-      //console.log("Check for more Cookie info", list2[list2.length-1]);
+      
     }
   }
+  // if cookie information link is not found in footer neither in cookie class
   if (f === -1){
       console.log("No Cookie info")
   }
+  // all cookie details 
   var cookieDetails = {
     cookieInfo,
-    cookieConsent : (consent_flag===-1) ? (false) : (true),
-    cookieManagement: (manage_flag===-1) ? (false) : (true),
+    cookieConsent: (consent_flag === -1) ? (false) : (true),
+    cookieManagement: (manage_flag === -1) ? (false) : (true),
     cookieDetailPage
   };
   await browser.close();

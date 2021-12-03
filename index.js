@@ -28,7 +28,9 @@ app.post('/api/compliance',async (req,res)=>{
         let data = await instance(url);
         return res.json({data,ssl});
     } catch (error) {
-        return res.status(400)
+        return  res.status(400).send({
+            message: 'Enter a vaild url'
+         });
     }
 })
 
