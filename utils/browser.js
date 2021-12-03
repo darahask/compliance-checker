@@ -1,7 +1,12 @@
 const puppeteer = require('puppeteer'); // for simulating browser in node
 
 module.exports = instance = async (host) => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+    ],
+  });
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
   await page.goto('https://' + host); // getting the instance of the website
@@ -304,7 +309,7 @@ module.exports = instance = async (host) => {
   if (f === -1){
       console.log("No Cookie info")
   }
-  // all cookie details 
+  // all cookie details  
   var cookieDetails = {
     cookieInfo,
     cookieConsent: (consent_flag === -1) ? (false) : (true),
