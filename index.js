@@ -22,10 +22,14 @@ app.get('/', (req,res)=>{
 })
 
 app.post('/api/compliance',async (req,res)=>{
-    let url = req.body.searchUrl;
-    let ssl = await checkSSL(url,options);
-    let data = await instance(url);
-    res.json({data,ssl});
+    try {
+        let url = req.body.searchUrl;
+        let ssl = await checkSSL(url,options);
+        let data = await instance(url);
+        return res.json({data,ssl});
+    } catch (error) {
+        return res.status(400)
+    }
 })
 
 app.listen(PORT,()=>console.log(`Server started at ${PORT}!!!`))
