@@ -56,8 +56,9 @@ form.addEventListener("submit", (event) => {
                 cookiesActive()
                 loadcookie(response.data.cookieDetails, url)
             });
-        } else {
+        } else if(xhr.status == 400){
             document.getElementById("search").innerHTML = `Search`
+            throwError(JSON.parse(xhr.responseText));
         }
     }
 })
@@ -97,8 +98,14 @@ homeForm.addEventListener("submit", (event) => {
                 cookiesActive()
                 loadcookie(response.data.cookieDetails, url)
             });
-        } else {
+        } else if(xhr.status == 400){
             document.getElementById("home-search").innerHTML = `Search`
+            throwError(JSON.parse(xhr.responseText));
         }
     }
 })
+
+function throwError(msg){
+    let HTML = `<h2>${msg.message}</h2>`
+    document.getElementById('compliance-data').innerHTML = HTML
+}

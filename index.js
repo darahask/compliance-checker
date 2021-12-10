@@ -24,11 +24,10 @@ app.get('/', (req,res)=>{
 app.post('/api/compliance',async (req,res)=>{
     try {
         let url = req.body.searchUrl;
-        // let ssl = await checkSSL(url,options);
         let data = await instance(url);
         return res.json({data});
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return  res.status(400).send({
             message: 'Enter a vaild url'
          });
