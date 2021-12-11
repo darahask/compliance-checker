@@ -1,3 +1,15 @@
+function sanitizer() {
+    document.getElementById("home-search-url").addEventListener('keyup', (event) => {
+        if (event.target.value === '') {
+            document.getElementById('home-search').classList.add("disabled");
+            // console.log("worked")
+        } else {
+            document.getElementById('home-search').classList.remove("disabled");
+            // console.log("not worked")
+        }
+    })
+}
+
 function urlCleaner(url) {
     return url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "")
 }
