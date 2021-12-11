@@ -61,56 +61,60 @@ let callURL = "http://localhost:3333/api/compliance"
 let homeForm = document.getElementById("home-search-compliance");
 homeForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    let inputtext = document.getElementById('home-search-url').value;
-    let url = urlCleaner(inputtext);
-    console.log(url);
+    if(!document.getElementById("sslRequested").checked && !document.getElementById("adaRequested").checked && !document.getElementById("cookieRequested").checked){
+        document.getElementById("selection-alert").innerHTML = '<div class="alert alert-danger alert-dismissible" role="alert">Please select at least one parameter for report.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+    }else{
+        let inputtext = document.getElementById('home-search-url').value;
+        let url = urlCleaner(inputtext);
+        console.log(url);
 
-    document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", callURL, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({
-        ssl: document.getElementById("sslRequested").checked,
-        ada: document.getElementById("adaRequested").checked,
-        cookie: document.getElementById("cookieRequested").checked,
-        searchUrl: url
-    }));
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            document.getElementById("home-search").innerHTML = `Search`
-            document.getElementById("ssl").addEventListener("click", (event) => {
-                event.preventDefault()
-                sslActive()
-                loadSSL(response.data.securityDetails, url)
-            });
-            document.getElementById("ada").addEventListener("click", (event) => {
-                event.preventDefault()
-                adaActive()
-                loadADA(response.data.adaCompliance, url)
-            });
-            document.getElementById("cookies").addEventListener("click", (event) => {
-                event.preventDefault()
-                cookiesActive()
-                loadcookie(response.data.cookieDetails, url)
-            });
+        document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", callURL, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            ssl: document.getElementById("sslRequested").checked,
+            ada: document.getElementById("adaRequested").checked,
+            cookie: document.getElementById("cookieRequested").checked,
+            searchUrl: url
+        }));
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("home-search").innerHTML = `Search`
+                document.getElementById("ssl").addEventListener("click", (event) => {
+                    event.preventDefault()
+                    sslActive()
+                    loadSSL(response.data.securityDetails, url)
+                });
+                document.getElementById("ada").addEventListener("click", (event) => {
+                    event.preventDefault()
+                    adaActive()
+                    loadADA(response.data.adaCompliance, url)
+                });
+                document.getElementById("cookies").addEventListener("click", (event) => {
+                    event.preventDefault()
+                    cookiesActive()
+                    loadcookie(response.data.cookieDetails, url)
+                });
 
-            let response = JSON.parse(xhr.responseText)
-            document.getElementById("ssl").hidden = (response.data.securityDetails) ? (false) : (true)
-            document.getElementById("ada").hidden = (response.data.adaCompliance) ? (false) : (true)
-            document.getElementById("cookies").hidden = (response.data.cookieDetails) ? (false) : (true)
+                let response = JSON.parse(xhr.responseText)
+                document.getElementById("ssl").hidden = (response.data.securityDetails) ? (false) : (true)
+                document.getElementById("ada").hidden = (response.data.adaCompliance) ? (false) : (true)
+                document.getElementById("cookies").hidden = (response.data.cookieDetails) ? (false) : (true)
 
-            if(response.data.securityDetails){
-                sslActive()
-                loadSSL(response.data.securityDetails, url)
-            }else if(response.data.adaCompliance){
-                adaActive()
-                loadADA(response.data.adaCompliance, url)
-            }else if(response.data.cookieDetails){
-                cookiesActive()
-                loadcookie(response.data.cookieDetails, url)
+                if(response.data.securityDetails){
+                    sslActive()
+                    loadSSL(response.data.securityDetails, url)
+                }else if(response.data.adaCompliance){
+                    adaActive()
+                    loadADA(response.data.adaCompliance, url)
+                }else if(response.data.cookieDetails){
+                    cookiesActive()
+                    loadcookie(response.data.cookieDetails, url)
+                }
+            } else {
+                document.getElementById("home-search").innerHTML = `Search`
             }
-        } else {
-            document.getElementById("home-search").innerHTML = `Search`
         }
     }
 })
