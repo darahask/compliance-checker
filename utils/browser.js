@@ -9,21 +9,21 @@ module.exports = instance = async (host) => {
   });
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
-  const response = await page.goto('http://' + host); // getting the instance of the website
+  const response = await page.goto('http://' + host.searchUrl); // getting the instance of the website
   await page.addScriptTag({ // Librabry for dom manipulation and colour contrast
     path: "node_modules/accessibility-developer-tools/dist/js/axs_testing.js"
   })
   await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.2.1.min.js' }) // adding jquery
 
   // Gettign all cookie details 
-  let cookieInfo = await page._client.send('Network.getAllCookies');
-  const securityDetails = await response.securityDetails()
+  // let cookieInfo
+  const securityDetails = await (host.ssl) ? (response.securityDetails()) : null
   //console.log(securityDetails)
- 
-// Tab Index violation check
-// Best practice: 
-// All interactive elements should have tabindex 0, means its focusable
-// All tab index should be either 0 or -1
+
+  // Tab Index violation check
+  // Best practice: 
+  // All interactive elements should have tabindex 0, means its focusable
+  // All tab index should be either 0 or -1
   const tabIndex_violaitons = await page.evaluate(() => {
     let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
     var elements = []
@@ -56,7 +56,7 @@ module.exports = instance = async (host) => {
     for (const [key, val] of Object.entries(data)) {
       if (val.alt.trim() !== '') { // Checking if alternative text is there or not
         score += 1;
-      }else{
+      } else {
         ViolatedTags.push(val.outerHTML) // no alternative text found 
       }
     }
@@ -72,10 +72,9 @@ module.exports = instance = async (host) => {
   // Heading should be descriptive means every heading starting word should be different from each other.
   // Heading should start with H1
   // Two consecutive heading tags difference should not be more than 1
-
   const headers = await page.evaluate(() => {
     var headings = $("h1, h2, h3, h4, h5, h6")
-    var items = [] 
+    var items = []
     var prevLevel
     var dict = {}
     var previousL = {}
@@ -84,18 +83,18 @@ module.exports = instance = async (host) => {
       var $el = $(el)
       var level = +$el.prop('tagName').slice(1)
       var content = $el.prop('innerText').split(" ")[0]
-      if(content!=='') // checking for descriptive heading
+      if (content !== '') // checking for descriptive heading
       {
-      if (dict[content] != null && level!== dict[content]) {
-        items.push({ "Error":"Repeating header names", "level":[dict[content], level] ,"html":el.outerHTML, "type":"2", "htmlprv":previousL[content]})
-      }
-      dict[content] = level
-      
-      var k = el.outerHTML
-      previousL[content] = "" + k 
+        if (dict[content] != null && level !== dict[content]) {
+          items.push({ "Error": "Repeating header names", "level": [dict[content], level], "html": el.outerHTML, "type": "2", "htmlprv": previousL[content] })
+        }
+        dict[content] = level
+
+        var k = el.outerHTML
+        previousL[content] = "" + k
       }
       if (i === 0 && level !== 1) { // checking for h1 and non consecutive header
-        items.push({ "Error":"H1 not present", "level":[level], "html":el.outerHTML,"type":"1"});
+        items.push({ "Error": "H1 not present", "level": [level], "html": el.outerHTML, "type": "1" });
       } else if (prevLevel && level - prevLevel > 1) {
         items.push({ "Error": "Non consecutive headers present", "level": [prevLevel, level], "html": el.outerHTML, "type": "3", "htmlprv": prvHeading });
       }
@@ -106,7 +105,7 @@ module.exports = instance = async (host) => {
 
     return items;
   })
-  console.log(headers)
+  // console.log(headers)
 
   // Evaluating the text contrast in a website
   // Ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
@@ -203,131 +202,123 @@ module.exports = instance = async (host) => {
   // Getting cookie information link from the website footer
   const cookie_settings = await page.evaluate(() => {
     var cookie_href = []
-    var flag = false
     var alls
     $("footer").each((i, el) => {
       alls = $(el).find('*')
       for (const [key, val] of Object.entries(alls)) {
-        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText)) { // checking if the footer has element cookie
-          if (String(val.tagName) === "A") {
+        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText) && String(val.tagName) === "A") { // checking if the footer has element cookie
+          if (val['href'].slice(0, val['href'].length - 1) !== document.URL)
             cookie_href.push(val['href'])
-            flag = true
-          }
-          
         }
       }
     })
     return cookie_href
   })
 
-// if footer doesn't have cookie info the checking for the class with id or name as cookie in the website
+  // if footer doesn't have cookie info the checking for the class with id or name as cookie in the website
   const cookie_settingsall = await page.evaluate(() => {
     var cookie_href = []
-    var flag = false
-    var alls
-    $("[class*='cookie' i], [id*='cookie' i]").each((i, el) => {
-      alls = $(el).find("*")
-      for (const [key, val] of Object.entries(alls)) {
-        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText)) {
-          if (String(val.tagName) === "A") {
-            cookie_href.push(val['href'])
-            flag = true
+    var atags
+    $("*").each((i, el) => {
+      for (var i = 0, atts = el.attributes, n = atts.length, arr = []; i < n; i++) {
+        if (RegExp('Cookie', 'i').test(atts[i].nodeValue) || RegExp('Consent', 'i').test(atts[i].nodeValue)) {
+          atags = $(el).find('a') // getting all child buttons of cookie class
+          for (const [key, val] of Object.entries(atags)) {
+            if (RegExp('Cookie', 'i').test(String(val['href'])) || RegExp('Cookie', 'i').test(val.innerText) || RegExp('Privacy', 'i').test(String(val['href']) + val.innerText)) {
+              if (val['href'].length !== 0 && val['href'].slice(0, val['href'].length - 1) !== document.URL)
+                cookie_href.push(val['href'])
+            }
           }
-          
+          break
         }
       }
     })
     return cookie_href // all links inside cookie class and text also cookie
   })
 
-  var buttons = cookie_consent, consent_flag = -1, manage_flag = -1, hrefs = new Set(cookie_settings)
-  hrefs = Array.from(hrefs)
-  var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i] // cookie consent checking keywords 
-  var manage_word = [/manage/i, /custom/i, /setting/i] // cookie manage keywords
-  var f = -1
-  for (var i = 0; i < buttons.length; i++) {
-    if (consent_word.some(r => r.test(buttons[i]))) {
-      consent_flag = i
+  function cookieFlags() {
+    var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i]           // cookie consent checking keywords 
+    var manage_word = [/manage/i, /custom/i, /setting/i]                            // cookie manage keywords
+    var cookieButtons = cookie_consent
+    var consent_flag = false, manage_flag = false
+
+    for (var i = 0; i < cookieButtons.length; i++) {
+      if (consent_word.some(r => r.test(cookieButtons[i]))) {
+        consent_flag = true
+      }
+      if (manage_word.some(r => r.test(cookieButtons[i]))) {
+        manage_flag = true
+      }
     }
-
-    if (manage_word.some(r => r.test(buttons[i]))) {
-      manage_flag = i
-    }
-
-  }
-  var cookieDetailPage = ""
-  // cookie conscent and manage
-  if (consent_flag !== -1) {
-    console.log("Consent!!")
-  } else {
-    console.log("No Consent Found")
+    return { consent_flag, manage_flag }
   }
 
-  if (manage_flag !== -1 && manage_flag !== consent_flag) {
-    console.log("Manage Cookie!!")
-  } else {
-    console.log("No Cookie Manage")
-  }
-
-  // cookie information check from Footer
-  for (var j = 0; j < hrefs.length; j++) {
-    if (hrefs.length == 1) {
-      f = 0
-      cookieDetailPage = hrefs[j]
-      console.log("Check for more Cookie info", hrefs[j]);
-    } else
-      if (RegExp('Cookie', 'i').test(hrefs[j])) {
-        f = 0
-        cookieDetailPage = hrefs[j]
-        console.log("Check for more Cookie info", hrefs[j]);
+  function cookieDetailsLink() {
+    var footerHrefs = cookie_settings
+    var allHrefs = cookie_settingsall
+    var flag = false
+    var cookieDetailPage = ""
+    // cookie information check from Footer
+    for (var j = 0; j < footerHrefs.length; j++) {
+      if (RegExp('Cookie', 'i').test(footerHrefs[j])) {
+        flag = true
+        cookieDetailPage = footerHrefs[j]
+        console.log("Check for more Cookie info", footerHrefs[j]);
         break;
       }
-  }
-  // cookie information check in cookie class
-  if (f === -1) {
-    var list2 = new Set(cookie_settingsall)
-    list2 = Array.from(list2)
-    if (list2.length === 0)
-      console.log("No Cookie info")
-    else {
-      for (var j = 0; j < list2.length; j++) {
-        if (list2.length == 1) {
-          f = 0
-          cookieDetailPage = list2[j]
-          console.log("Check for more Cookie info", list2[j]);
-        } else
-          if (RegExp('Cookie', 'i').test(list2[j])) {
-            f = 0
-            cookieDetailPage = list2[j]
-            console.log("Check for more Cookie info", list2[j]);
-            break;
-          }
-      }
-      
     }
+
+    // cookie information check in cookie class
+    if (!flag) {
+      for (var j = 0; j < allHrefs.length; j++) {
+        if (RegExp('Cookie', 'i').test(allHrefs[j])) {
+          flag = true
+          cookieDetailPage = allHrefs[j]
+          console.log("Check for more Cookie info", allHrefs[j]);
+          break;
+        }
+      }
+    }
+
+    return cookieDetailPage
   }
-  // if cookie information link is not found in footer neither in cookie class
-  if (f === -1){
-      console.log("No Cookie info")
-  }
+  // cookie conscent and manage
+  // if (consent_flag) {
+  //   console.log("Consent!!")
+  // } else {
+  //   console.log("No Consent Found")
+  // }
+
+  // if (manage_flag && manage_flag !== consent_flag) {
+  //   console.log("Manage Cookie!!")
+  // } else {
+  //   console.log("No Cookie Manage")
+  // }
+
+  // if cookie information link is neither found in footer nor in cookie class
+  // if (flag === -1){
+  //     console.log("No Cookie info")
+  // }
   // all cookie details  
-  var cookieDetails = {
-    cookieInfo,
-    cookieConsent: (consent_flag === -1) ? (false) : (true),
-    cookieManagement: (manage_flag === -1) ? (false) : (true),
-    cookieDetailPage
-  };
+  var cookieDetails = (host.cookie) ? ({
+    cookieInfo: await page._client.send('Network.getAllCookies'),
+    cookieConsent: cookieFlags().consent_flag,
+    cookieManagement: cookieFlags().manage_flag,
+    cookieDetailPage: cookieDetailsLink()
+  }) : null
+
+  var adaCompliance = (host.ada) ? ({
+    labels: labels,
+    tab_Violations: tabIndex_violaitons,
+    altImageText: alts,
+    headers: headers,
+    contrast: contrast
+  }) : null
   await browser.close();
 
   return {
     securityDetails,
     cookieDetails,
-    adaCompliance: {
-      labels: labels,
-      tab_Violations: tabIndex_violaitons,
-      altImageText: alts,
-      headers: headers,
-      contrast: contrast
-    }
+    adaCompliance
   }
 };
