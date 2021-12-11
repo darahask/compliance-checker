@@ -16,14 +16,14 @@ module.exports = instance = async (host) => {
   await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.2.1.min.js' }) // adding jquery
 
   // Gettign all cookie details 
-  let cookieInfo = await page._client.send('Network.getAllCookies');
+  // let cookieInfo
   const securityDetails = await (host.ssl) ? (response.securityDetails()) : null
   //console.log(securityDetails)
  
-// Tab Index violation check
-// Best practice: 
-// All interactive elements should have tabindex 0, means its focusable
-// All tab index should be either 0 or -1
+  // Tab Index violation check
+  // Best practice: 
+  // All interactive elements should have tabindex 0, means its focusable
+  // All tab index should be either 0 or -1
   const tabIndex_violaitons = await page.evaluate(() => {
     let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
     var elements = []
@@ -72,7 +72,6 @@ module.exports = instance = async (host) => {
   // Heading should be descriptive means every heading starting word should be different from each other.
   // Heading should start with H1
   // Two consecutive heading tags difference should not be more than 1
-
   const headers = await page.evaluate(() => {
     var headings = $("h1, h2, h3, h4, h5, h6")
     var items = [] 
@@ -207,11 +206,8 @@ module.exports = instance = async (host) => {
     $("footer").each((i, el) => {
       alls = $(el).find('*')
       for (const [key, val] of Object.entries(alls)) {
-        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText)) { // checking if the footer has element cookie
-          if (String(val.tagName) === "A") {
-            cookie_href.push(val['href'])
-          }
-          
+        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText) && String(val.tagName) === "A") { // checking if the footer has element cookie
+          cookie_href.push(val['href'])          
         }
       }
     })
@@ -225,93 +221,83 @@ module.exports = instance = async (host) => {
     $("[class*='cookie' i], [id*='cookie' i]").each((i, el) => {
       alls = $(el).find("*")
       for (const [key, val] of Object.entries(alls)) {
-        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText)) {
-          if (String(val.tagName) === "A") {
-            cookie_href.push(val['href'])
-          }
-          
+        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText) && String(val.tagName) === "A") {
+          cookie_href.push(val['href'])
         }
       }
     })
     return cookie_href // all links inside cookie class and text also cookie
   })
 
-  var buttons = cookie_consent, consent_flag = false, manage_flag = false, hrefs = new Set(cookie_settings)
-  hrefs = Array.from(hrefs)
-  var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i] // cookie consent checking keywords 
-  var manage_word = [/manage/i, /custom/i, /setting/i] // cookie manage keywords
-  var f = -1
-  for (var i = 0; i < buttons.length; i++) {
-    if (consent_word.some(r => r.test(buttons[i]))) {
-      consent_flag = true
+  function cookieFlags() {
+    var consent_word = [/^ok/i, /^okay/i, /^accept/i, /^got/i, /^allow/i]           // cookie consent checking keywords 
+    var manage_word = [/manage/i, /custom/i, /setting/i]                            // cookie manage keywords
+    var cookieButtons = cookie_consent
+    var consent_flag = false, manage_flag = false
+
+    for (var i = 0; i < cookieButtons.length; i++) {
+      if (consent_word.some(r => r.test(cookieButtons[i]))) {
+        consent_flag = true
+      }
+      if (manage_word.some(r => r.test(cookieButtons[i]))) {
+        manage_flag = true
+      }
     }
-
-    if (manage_word.some(r => r.test(buttons[i]))) {
-      manage_flag = true
-    }
-
-  }
-  var cookieDetailPage = ""
-  // cookie conscent and manage
-  if (consent_flag) {
-    console.log("Consent!!")
-  } else {
-    console.log("No Consent Found")
+    return {consent_flag, manage_flag}
   }
 
-  if (manage_flag && manage_flag !== consent_flag) {
-    console.log("Manage Cookie!!")
-  } else {
-    console.log("No Cookie Manage")
-  }
-
-  // cookie information check from Footer
-  for (var j = 0; j < hrefs.length; j++) {
-    if (hrefs.length == 1) {
-      f = 0
-      cookieDetailPage = hrefs[j]
-      console.log("Check for more Cookie info", hrefs[j]);
-    } else
-      if (RegExp('Cookie', 'i').test(hrefs[j])) {
-        f = 0
-        cookieDetailPage = hrefs[j]
-        console.log("Check for more Cookie info", hrefs[j]);
+  function cookieDetailsLink() {
+    var footerHrefs = cookie_settings
+    var allHrefs = cookie_settingsall
+    var flag = false
+    var cookieDetailPage = ""
+    // cookie information check from Footer
+    for (var j = 0; j < footerHrefs.length; j++) {
+      if (RegExp('Cookie', 'i').test(footerHrefs[j])) {
+        flag = true
+        cookieDetailPage = footerHrefs[j]
+        console.log("Check for more Cookie info", footerHrefs[j]);
         break;
       }
-  }
-  // cookie information check in cookie class
-  if (f === -1) {
-    var list2 = new Set(cookie_settingsall)
-    list2 = Array.from(list2)
-    if (list2.length === 0)
-      console.log("No Cookie info")
-    else {
-      for (var j = 0; j < list2.length; j++) {
-        if (list2.length == 1) {
-          f = 0
-          cookieDetailPage = list2[j]
-          console.log("Check for more Cookie info", list2[j]);
-        } else
-          if (RegExp('Cookie', 'i').test(list2[j])) {
-            f = 0
-            cookieDetailPage = list2[j]
-            console.log("Check for more Cookie info", list2[j]);
-            break;
-          }
-      }
-      
     }
+
+    // cookie information check in cookie class
+    if (!flag) {
+      for (var j = 0; j < allHrefs.length; j++) {
+        if (RegExp('Cookie', 'i').test(allHrefs[j])) {
+          flag = true
+          cookieDetailPage = allHrefs[j]
+          console.log("Check for more Cookie info", allHrefs[j]);
+          break;
+        }
+      }
+    }
+
+    return cookieDetailPage
   }
+  // cookie conscent and manage
+  // if (consent_flag) {
+  //   console.log("Consent!!")
+  // } else {
+  //   console.log("No Consent Found")
+  // }
+
+  // if (manage_flag && manage_flag !== consent_flag) {
+  //   console.log("Manage Cookie!!")
+  // } else {
+  //   console.log("No Cookie Manage")
+  // }
+
   // if cookie information link is neither found in footer nor in cookie class
-  if (f === -1){
-      console.log("No Cookie info")
-  }
+  // if (flag === -1){
+  //     console.log("No Cookie info")
+  // }
   // all cookie details  
   var cookieDetails = (host.cookie) ? ({
-    cookieInfo,
-    cookieConsent: consent_flag,
-    cookieManagement: manage_flag,
-    cookieDetailPage
+    cookieInfo: await page._client.send('Network.getAllCookies'),
+    cookieConsent: cookieFlags().consent_flag,
+    cookieManagement: cookieFlags().manage_flag,
+    cookieDetailPage: cookieDetailsLink()
   }) : null
 
   var adaCompliance = (host.ada) ? ({
