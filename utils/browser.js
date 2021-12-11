@@ -110,6 +110,9 @@ module.exports = instance = async (host) => {
   // Evaluating the text contrast in a website
   // Ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
   let contrast = await page.evaluate(() => {
+    if(typeof(axs)==="undefined"){
+      return null
+    }
     let results = [];
 
     $("*").each((i, element) => {
