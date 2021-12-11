@@ -20,7 +20,7 @@ document.getElementById("home-search-url").addEventListener('keyup', (event) => 
     }
 })
 
-let callURL = "https://webcrawler-wcc.herokuapp.com/api/compliance"
+let callURL = "http://localhost:3333/api/compliance"
 let form = document.getElementById("search-compliance");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -56,8 +56,9 @@ form.addEventListener("submit", (event) => {
                 cookiesActive()
                 loadcookie(response.data.cookieDetails, url)
             });
-        } else {
+        } else if(xhr.status == 400){
             document.getElementById("search").innerHTML = `Search`
+            throwError(JSON.parse(xhr.responseText));
         }
     }
 })
@@ -97,8 +98,14 @@ homeForm.addEventListener("submit", (event) => {
                 cookiesActive()
                 loadcookie(response.data.cookieDetails, url)
             });
-        } else {
+        } else if(xhr.status == 400){
             document.getElementById("home-search").innerHTML = `Search`
+            throwError(JSON.parse(xhr.responseText));
         }
     }
 })
+
+function throwError(msg){
+    let HTML = `<h2>${msg.message}</h2>`
+    document.getElementById('compliance-data').innerHTML = HTML
+}

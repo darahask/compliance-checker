@@ -1,10 +1,15 @@
 const puppeteer = require('puppeteer'); // for simulating browser in node
 
 module.exports = instance = async (host) => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+    ],
+  });
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
-  const response = await page.goto('https://' + host); // getting the instance of the website
+  const response = await page.goto('http://' + host); // getting the instance of the website
   await page.addScriptTag({ // Librabry for dom manipulation and colour contrast
     path: "node_modules/accessibility-developer-tools/dist/js/axs_testing.js"
   })
@@ -308,7 +313,7 @@ module.exports = instance = async (host) => {
   if (f === -1){
       console.log("No Cookie info")
   }
-  // all cookie details 
+  // all cookie details  
   var cookieDetails = {
     cookieInfo,
     cookieConsent: (consent_flag === -1) ? (false) : (true),
