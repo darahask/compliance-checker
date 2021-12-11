@@ -19,7 +19,7 @@ module.exports = instance = async (host) => {
   // let cookieInfo
   const securityDetails = await (host.ssl) ? (response.securityDetails()) : null
   //console.log(securityDetails)
- 
+
   // Tab Index violation check
   // Best practice: 
   // All interactive elements should have tabindex 0, means its focusable
@@ -56,7 +56,7 @@ module.exports = instance = async (host) => {
     for (const [key, val] of Object.entries(data)) {
       if (val.alt.trim() !== '') { // Checking if alternative text is there or not
         score += 1;
-      }else{
+      } else {
         ViolatedTags.push(val.outerHTML) // no alternative text found 
       }
     }
@@ -74,7 +74,7 @@ module.exports = instance = async (host) => {
   // Two consecutive heading tags difference should not be more than 1
   const headers = await page.evaluate(() => {
     var headings = $("h1, h2, h3, h4, h5, h6")
-    var items = [] 
+    var items = []
     var prevLevel
     var dict = {}
     var previousL = {}
@@ -83,18 +83,18 @@ module.exports = instance = async (host) => {
       var $el = $(el)
       var level = +$el.prop('tagName').slice(1)
       var content = $el.prop('innerText').split(" ")[0]
-      if(content!=='') // checking for descriptive heading
+      if (content !== '') // checking for descriptive heading
       {
-      if (dict[content] != null && level!== dict[content]) {
-        items.push({ "Error":"Repeating header names", "level":[dict[content], level] ,"html":el.outerHTML, "type":"2", "htmlprv":previousL[content]})
-      }
-      dict[content] = level
-      
-      var k = el.outerHTML
-      previousL[content] = "" + k 
+        if (dict[content] != null && level !== dict[content]) {
+          items.push({ "Error": "Repeating header names", "level": [dict[content], level], "html": el.outerHTML, "type": "2", "htmlprv": previousL[content] })
+        }
+        dict[content] = level
+
+        var k = el.outerHTML
+        previousL[content] = "" + k
       }
       if (i === 0 && level !== 1) { // checking for h1 and non consecutive header
-        items.push({ "Error":"H1 not present", "level":[level], "html":el.outerHTML,"type":"1"});
+        items.push({ "Error": "H1 not present", "level": [level], "html": el.outerHTML, "type": "1" });
       } else if (prevLevel && level - prevLevel > 1) {
         items.push({ "Error": "Non consecutive headers present", "level": [prevLevel, level], "html": el.outerHTML, "type": "3", "htmlprv": prvHeading });
       }
@@ -105,7 +105,7 @@ module.exports = instance = async (host) => {
 
     return items;
   })
-  console.log(headers)
+  // console.log(headers)
 
   // Evaluating the text contrast in a website
   // Ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
@@ -207,7 +207,8 @@ module.exports = instance = async (host) => {
       alls = $(el).find('*')
       for (const [key, val] of Object.entries(alls)) {
         if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText) && String(val.tagName) === "A") { // checking if the footer has element cookie
-          cookie_href.push(val['href'])          
+          if (val['href'].slice(0, val['href'].length - 1) !== document.URL)
+            cookie_href.push(val['href'])
         }
       }
     })
@@ -217,12 +218,18 @@ module.exports = instance = async (host) => {
   // if footer doesn't have cookie info the checking for the class with id or name as cookie in the website
   const cookie_settingsall = await page.evaluate(() => {
     var cookie_href = []
-    var alls
-    $("[class*='cookie' i], [id*='cookie' i]").each((i, el) => {
-      alls = $(el).find("*")
-      for (const [key, val] of Object.entries(alls)) {
-        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText) && String(val.tagName) === "A") {
-          cookie_href.push(val['href'])
+    var atags
+    $("*").each((i, el) => {
+      for (var i = 0, atts = el.attributes, n = atts.length, arr = []; i < n; i++) {
+        if (RegExp('Cookie', 'i').test(atts[i].nodeValue) || RegExp('Consent', 'i').test(atts[i].nodeValue)) {
+          atags = $(el).find('a') // getting all child buttons of cookie class
+          for (const [key, val] of Object.entries(atags)) {
+            if (RegExp('Cookie', 'i').test(String(val['href'])) || RegExp('Cookie', 'i').test(val.innerText) || RegExp('Privacy', 'i').test(String(val['href']) + val.innerText)) {
+              if (val['href'].length !== 0 && val['href'].slice(0, val['href'].length - 1) !== document.URL)
+                cookie_href.push(val['href'])
+            }
+          }
+          break
         }
       }
     })
@@ -243,7 +250,7 @@ module.exports = instance = async (host) => {
         manage_flag = true
       }
     }
-    return {consent_flag, manage_flag}
+    return { consent_flag, manage_flag }
   }
 
   function cookieDetailsLink() {
