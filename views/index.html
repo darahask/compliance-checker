@@ -83,18 +83,34 @@
                 accessible and fast. We thus propose to create a tool that would generate a comprehensive report based
                 on adherence policies of the websites and developers can look into it and reflect back accordingly to
                 make the changes.</p>
-            <ul>
+            <!-- <ul>
                 <li>📑SSL certificate validity and details</li>
                 <li>🦮ADA compliances</li>
                 <li>🍪Cookie Policy Verification</li>
-            </ul>
+            </ul> -->
             <h2>
                 <center>Check your site by entering url here...</center>
             </h2>
-            <form class="d-flex" id="home-search-compliance">
-                <input id="home-search-url" class="form-control me-2" type="search" placeholder="Enter website URL"
-                    aria-label="home-search">
-                <button class="btn btn-outline-success disabled" id="home-search" type="submit">Search</button>
+            <form class="row" id="home-search-compliance">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="sslRequested" id="sslRequested">
+                    <label class="form-check-label" for="ssl">📑SSL certificate validity and details</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="adaRequested" id="adaRequested">
+                    <label class="form-check-label" for="ada">🦮ADA compliances</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="cookieRequested" id="cookieRequested">
+                    <label class="form-check-label" for="cookie">🍪Cookie Policy Verification</label>
+                </div>
+                <div class="form-check mb-3">
+                    <div class="col">
+                        <input id="home-search-url" class="form-control me-2" type="search" placeholder="Enter website URL"
+                            aria-label="home-search">
+                        <button class="btn btn-outline-success disabled" id="home-search" type="submit">Search</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

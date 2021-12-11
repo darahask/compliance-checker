@@ -33,6 +33,9 @@ form.addEventListener("submit", (event) => {
     xhr.open("POST", callURL, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
+        ssl: document.getElementById("sslRequested").disabled,
+        ada: document.getElementById("adaRequested").disabled,
+        cookie: document.getElementById("cookieRequested").disabled,
         searchUrl: url
     }));
     xhr.onreadystatechange = () => {
@@ -74,6 +77,9 @@ homeForm.addEventListener("submit", (event) => {
     xhr.open("POST", callURL, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
+        ssl: document.getElementById("sslRequested").checked,
+        ada: document.getElementById("adaRequested").checked,
+        cookie: document.getElementById("cookieRequested").checked,
         searchUrl: url
     }));
     xhr.onreadystatechange = () => {

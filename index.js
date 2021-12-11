@@ -23,6 +23,7 @@ app.get('/', (req,res)=>{
 
 app.post('/api/compliance',async (req,res)=>{
     try {
+        console.log(req.body);
         let url = req.body.searchUrl;
         // let ssl = await checkSSL(url,options);
         let data = await instance(url);

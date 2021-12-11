@@ -9,7 +9,7 @@ module.exports = instance = async (host) => {
   });
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
-  const response = await page.goto('https://' + host); // getting the instance of the website
+  const response = await page.goto('http://' + host); // getting the instance of the website
   await page.addScriptTag({ // Librabry for dom manipulation and colour contrast
     path: "node_modules/accessibility-developer-tools/dist/js/axs_testing.js"
   })
