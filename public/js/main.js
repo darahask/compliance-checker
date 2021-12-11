@@ -39,6 +39,7 @@ form.addEventListener("submit", (event) => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             document.getElementById("search").innerHTML = `Search`
             let response = JSON.parse(xhr.responseText)
+            console.log(response)
             sslActive()
             loadSSL(response.data.securityDetails, url)
             document.getElementById("ssl").addEventListener("click", (event) => {
