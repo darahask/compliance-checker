@@ -9,12 +9,14 @@ let loadADA = (data, url) => {
                 <label class="btn btn-outline-success" for="btncheck2">Label violation</label>
             
                 <input type="checkbox" class="btn-check" checked id="btncheck3" autocomplete="off">
-                <label class="btn btn-outline-warning" for="btncheck3">Headers Violation</label>
+                <label class="btn btn-outline-warning" for="btncheck3">Headers Violation</label>`
 
-                <input type="checkbox" class="btn-check" checked id="btncheck4" autocomplete="off">
-                <label class="btn btn-outline-info" for="btncheck4">Contrast Violation</label>
+    if(data.contrast){            
+    HTML +=     `<input type="checkbox" class="btn-check" checked id="btncheck4" autocomplete="off">
+                <label class="btn btn-outline-info" for="btncheck4">Contrast Violation</label>`
+    }
 
-                <input type="checkbox" class="btn-check" checked id="btncheck5" autocomplete="off">
+    HTML +=     `<input type="checkbox" class="btn-check" checked id="btncheck5" autocomplete="off">
                 <label class="btn btn-outline-danger" for="btncheck5">Tab Violations</label>
             </div></center>`
 
@@ -223,6 +225,7 @@ let loadADA = (data, url) => {
     `
     HTML += "</div>"
 
+    if(data.contrast){
     HTML += "<div id='contrast-compliance' class='border border-dark m-2'>"
     data.contrast.forEach(element => {
         HTML += `<div class="m-2 border border-dark rounded-3">
@@ -290,6 +293,7 @@ let loadADA = (data, url) => {
                 </div>`
     });
     HTML += "</div>"
+    }
 
     document.getElementById('compliance-data').innerHTML = HTML;
 
@@ -314,6 +318,8 @@ let loadADA = (data, url) => {
             $("#headers-compliance").hide()
         }
     })
+
+    if(data.contrast){
     document.getElementById("btncheck4").addEventListener('change', (event) => {
         if (event.target.checked) {
             $("#contrast-compliance").show()
@@ -321,6 +327,7 @@ let loadADA = (data, url) => {
             $("#contrast-compliance").hide()
         }
     })
+    }
     document.getElementById("btncheck5").addEventListener('change', (event) => {
         if (event.target.checked) {
             $("#accordionTab").show()
