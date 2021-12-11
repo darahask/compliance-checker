@@ -190,6 +190,11 @@ module.exports = instance = async (host) => {
       for (const [key, val] of Object.entries(buttons)) {
         div_id.push(val.innerText) // gettin text written on the buttons
       }
+      atags = $(a).find('a') // getting all child buttons of cookie class
+      for (const [key, val] of Object.entries(buttons)) {
+        if(val.role === 'button')
+        div_id.push(val.innerText) // gettin text written on the buttons
+      }
     })
     return div_id
   })
@@ -223,13 +228,11 @@ module.exports = instance = async (host) => {
     $("[class*='cookie' i], [id*='cookie' i]").each((i, el) => {
       alls = $(el).find("*")
       for (const [key, val] of Object.entries(alls)) {
-        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText)) {
           if (String(val.tagName) === "A") {
             cookie_href.push(val['href'])
             flag = true
           }
           
-        }
       }
     })
     return cookie_href // all links inside cookie class and text also cookie
