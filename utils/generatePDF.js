@@ -5,10 +5,10 @@ function createPdf(pdfDoc) {
 
 	var fontDescriptors = {
 		Roboto: {
-			normal: path.join(__dirname, '..', '/fonts/Roboto-Regular.ttf'),
-			bold: path.join(__dirname, '..', '/fonts/Roboto-Medium.ttf'),
-			italics: path.join(__dirname, '..', '/fonts/Roboto-Italic.ttf'),
-			bolditalics: path.join(__dirname, '..', '/fonts/Roboto-MediumItalic.ttf')
+			normal: path.join(__dirname, '..', '/fonts/OpenSans-Regular.ttf'),
+			bold: path.join(__dirname, '..', '/fonts/OpenSans-Medium.ttf'),
+			italics: path.join(__dirname, '..', '/fonts/OpenSans-Italic.ttf'),
+			bolditalics: path.join(__dirname, '..', '/fonts/OpenSans-MediumItalic.ttf')
 		}
 	};
 

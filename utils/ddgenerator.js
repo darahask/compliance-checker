@@ -299,7 +299,7 @@ function generateDefinition(data) {
     let cc = (parseCookies(data.cookieDetails))
     let totalContent = []
     totalContent = [...sc, ...cc, ...ac];
-    let defination = {
+    let definition = {
         content: totalContent,
         styles: {
             header: {
@@ -319,7 +319,7 @@ function generateDefinition(data) {
             }
         }
     }
-    return defination
+    return definition
 }
 
 module.exports = generateDefinition;
