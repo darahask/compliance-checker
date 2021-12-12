@@ -8,7 +8,7 @@ module.exports = instance = async (host) => {
     ],
   });
   const page = await browser.newPage();
-  await page.setDefaultNavigationTimeout(0);
+  //await page.setDefaultNavigationTimeout(0);
   const response = await page.goto('http://' + host.searchUrl); // getting the instance of the website
   await page.addScriptTag({ // Librabry for dom manipulation and colour contrast
     path: "node_modules/accessibility-developer-tools/dist/js/axs_testing.js"
@@ -110,6 +110,9 @@ module.exports = instance = async (host) => {
   // Evaluating the text contrast in a website
   // Ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
   let contrast = await page.evaluate(() => {
+    if(typeof(axs)==="undefined"){
+      return null
+    }
     let results = [];
 
     $("*").each((i, element) => {
@@ -192,6 +195,11 @@ module.exports = instance = async (host) => {
     $("[id*='consent' i], [class*='consent' i], [class*='cookie' i], [id*='cookie' i]").each((i, el) => {
       buttons = $(el).find('button') // getting all child buttons of cookie class
       for (const [key, val] of Object.entries(buttons)) {
+        div_id.push(val.innerText) // gettin text written on the buttons
+      }
+      atags = $(a).find('a') // getting all child buttons of cookie class
+      for (const [key, val] of Object.entries(buttons)) {
+        if(val.role === 'button')
         div_id.push(val.innerText) // gettin text written on the buttons
       }
     })
