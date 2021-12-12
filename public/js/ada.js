@@ -79,9 +79,19 @@ let loadADA = (data, url) => {
                 <h2 class="accordion-header" id="flush-headingOneTab">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseOneTab" aria-expanded="false" aria-controls="flush-collapseOneTab">
-                    Tab-Index Violations: ${data.tab_Violations.tabIndexViolations.length}<br>
-                    InterativeElements Violations: ${data.tab_Violations.intViolations.length}
-                    </button>
+                   <p> Tab-Index Violations:`
+        if(data.tab_Violations.tabIndexViolations.length){
+            HTML += `<b style={color:"red"}>${data.tab_Violations.tabIndexViolations.length}</b>`
+        }else{
+            HTML += `<b style={color:"green"}>${data.tab_Violations.tabIndexViolations.length}</b>`
+        }
+        HTML += `</br><span>InterativeElements Violations:`
+        if(data.tab_Violations.intViolations.length){
+            HTML += `<b style={color:"red"}>${data.tab_Violations.intViolations.length}</b></span>`
+        }else{
+            HTML += `<b style={color:"green"}>${data.tab_Violations.intViolations.length}</b></span></p>`
+        }
+        HTML +=  `</button>
                 </h2>
                 <div id="flush-collapseOneTab" class="accordion-collapse collapse" aria-labelledby="flush-headingOneTab"
                     data-bs-parent="#accordionTab">
