@@ -1,10 +1,10 @@
 const instance = require('./utils/browser')
 const express = require("express")
 const app = express();
-const createPDF = require('./utils/generatePDF')
 const generateDefinition = require('./utils/ddgenerator')
 const path = require("path")
-const cors = require("cors")
+const cors = require("cors");
+const createPdf = require('./utils/generatePDF');
 
 var PORT = process.env.PORT || 3333
 
@@ -18,10 +18,8 @@ app.get('/', (req,res)=>{
 
 app.post('/api/compliance',async (req,res)=>{
     try {
-        console.log(req.body);
-        let url = req.body.searchUrl;
-        // let ssl = await checkSSL(url,options);
         let data = await instance(req.body);
+        console.log(data);
         return res.json({data});
     } catch (error) {
         console.error(error);
@@ -31,11 +29,12 @@ app.post('/api/compliance',async (req,res)=>{
     }
 })
 
-app.post('/api/report',(req,res)=>{
+app.post('/api/report',async(req,res)=>{
     try{
         let data = req.body.jsondata;
-        let val = generateDefinition(data);
-        console.log(val);
+        let val = generateDefinition(data.data);
+        let pdf = await createPdf(val)
+        res.contentType('application/pdf').send(pdf)
     }catch(error){
         console.error(error)
     }
