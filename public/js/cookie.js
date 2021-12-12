@@ -1,5 +1,5 @@
 let loadcookie = (data, url) => {
-    let HTML = `<h1>🍪 Cookie Consent and 👀 Cookie details for <a href="https://${url}">${url}</a></h1>`;
+    let HTML = `<h1>🍪 Cookie Consent and 👀 Cookie details for <a href="http://${url}">${url}</a></h1>`;
     if (data) {
         HTML += (data.cookieConsent) ? (`<p>✅Page has cookie consent</p>`) : (`<p>❌Page does not have cookie consent</p>`)
         if (data.cookieDetailPage !== "")
@@ -40,6 +40,9 @@ let loadcookie = (data, url) => {
         }
 
         // HTML += `<pre>${JSON.stringify(data.cookieInfo.cookies,undefined,1)}</pre>`
-        document.getElementById('compliance-data').innerHTML = HTML;
+    }else{
+        HTML += `<h2 style="color:red"><b>Could not get the cookie details for this site, please refer back later.</b></h2>`
     }
+
+    document.getElementById('compliance-data').innerHTML = HTML;
 }
