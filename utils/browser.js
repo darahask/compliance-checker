@@ -110,7 +110,7 @@ module.exports = instance = async (host) => {
   // Evaluating the text contrast in a website
   // Ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
   let contrast = await page.evaluate(() => {
-    if(typeof(axs)==="undefined"){
+    if (typeof (axs) === "undefined") {
       return null
     }
     let results = [];
@@ -192,15 +192,21 @@ module.exports = instance = async (host) => {
   const cookie_consent = await page.evaluate(() => {
     var div_id = []
     var buttons
-    $("[id*='consent' i], [class*='consent' i], [class*='cookie' i], [id*='cookie' i]").each((i, el) => {
-      buttons = $(el).find('button') // getting all child buttons of cookie class
-      for (const [key, val] of Object.entries(buttons)) {
-        div_id.push(val.innerText) // gettin text written on the buttons
-      }
-      atags = $(a).find('a') // getting all child buttons of cookie class
-      for (const [key, val] of Object.entries(buttons)) {
-        if(val.role === 'button')
-        div_id.push(val.innerText) // gettin text written on the buttons
+    $("*").each((i, el) => {
+      for (var i = 0, atts = el.attributes, n = atts.length, arr = []; i < n; i++) {
+        if (RegExp('Cookie', 'i').test(atts[i].nodeValue) || RegExp('Consent', 'i').test(atts[i].nodeValue)) {
+          buttons = $(el).find('*') // getting all child buttons of cookie class
+
+          for (const [key, val] of Object.entries(buttons)) {
+            for (const [k, v] of Object.entries(val)) {
+              if (v.tagName === 'BUTTON' || [role = "button"])
+                div_id.push(v.innerText) // getting text written on the buttons
+
+            }
+          }
+
+          break
+        }
       }
     })
     return div_id
@@ -214,9 +220,17 @@ module.exports = instance = async (host) => {
     $("footer").each((i, el) => {
       alls = $(el).find('*')
       for (const [key, val] of Object.entries(alls)) {
-        if (val.innerText != "null" && val.innerText !== '' && RegExp('Cookie', 'i').test(val.innerText) && String(val.tagName) === "A") { // checking if the footer has element cookie
-          if (val['href'].slice(0, val['href'].length - 1) !== document.URL)
-            cookie_href.push(val['href'])
+        if (val.innerText != "null" && val.innerText !== '' && (RegExp('Cookie', 'i').test(val.innerText))) { // checking if the footer has element cookie
+          if (String(val.tagName) === "A") {
+            var url = document.URL
+            var suggUrl
+            if (val['href'][val['href'].length - 1] === '#') {
+              suggUrl = val['href'].slice(0, val['href'].length - 1)
+            }
+            if (suggUrl !== url)
+              cookie_href.push(val['href'])
+          }
+
         }
       }
     })
@@ -233,7 +247,12 @@ module.exports = instance = async (host) => {
           atags = $(el).find('a') // getting all child buttons of cookie class
           for (const [key, val] of Object.entries(atags)) {
             if (RegExp('Cookie', 'i').test(String(val['href'])) || RegExp('Cookie', 'i').test(val.innerText) || RegExp('Privacy', 'i').test(String(val['href']) + val.innerText)) {
-              if (val['href'].length !== 0 && val['href'].slice(0, val['href'].length - 1) !== document.URL)
+              var url = document.URL
+              var suggUrl
+              if (val['href'][val['href'].length - 1] === '#') {
+                suggUrl = val['href'].slice(0, val['href'].length - 1)
+              }
+              if (suggUrl !== url)
                 cookie_href.push(val['href'])
             }
           }
@@ -267,14 +286,14 @@ module.exports = instance = async (host) => {
     var flag = false
     var cookieDetailPage = ""
     // cookie information check from Footer
-    for (var j = 0; j < footerHrefs.length; j++) {
-      if (RegExp('Cookie', 'i').test(footerHrefs[j])) {
-        flag = true
-        cookieDetailPage = footerHrefs[j]
-        console.log("Check for more Cookie info", footerHrefs[j]);
-        break;
-      }
+    console.log(footerHrefs)
+    console.log(cookie_settingsall)
+    if (footerHrefs.length > 0) {
+      flag = true
+      cookieDetailPage = footerHrefs[0]
+      console.log("Check for more Cookie info", footerHrefs[0]);
     }
+
 
     // cookie information check in cookie class
     if (!flag) {
@@ -285,6 +304,11 @@ module.exports = instance = async (host) => {
           console.log("Check for more Cookie info", allHrefs[j]);
           break;
         }
+      }
+      if (!flag && allHrefs.length > 0) {
+        flag = true
+        cookieDetailPage = allHrefs[0]
+        console.log("Check for more Cookie info", allHrefs[0]);
       }
     }
 
