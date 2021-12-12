@@ -29,12 +29,12 @@ function parseCookies(data) {
         style: "header"
     })
     if (data) {
-        content.push((data.cookieConsent) ? (`✅Page has cookie consent`) : (`❌Page does not have cookie consent`))
-        content.push((data.cookieManagement) ? (`✅Page has cookie management`) : (`❌Page does not have cookie management`))
-        content.push((data.cookieDetailPage !== "") ? `📚Details about the cookies🍪 used in this site🌐 can be found at ${data.cookieDetailPage}` : `No Cookie Detail page`)
+        content.push((data.cookieConsent) ? (`Page has cookie consent`) : (`Page does not have cookie consent`))
+        content.push((data.cookieManagement) ? (`Page has cookie management`) : (`Page does not have cookie management`))
+        content.push((data.cookieDetailPage !== "") ? `Details about the cookies used in this site can be found at - ${data.cookieDetailPage}` : `No Cookie Detail page`)
         data.cookieInfo.cookies.forEach((element, i) => {
             content.push(
-                { text: `Cookie-${i}: `, fontSize: 12, bold: true },
+                { text: `Cookie-${i}: `, style: "header3" },
             )
             let text = [
                 {
@@ -65,7 +65,11 @@ function parseCookies(data) {
             content = [...content, ...text]
         })
     } else {
-        //:TODO 
+        content.push({
+            text: "Cookies are not used",
+            style: "header2"
+        })
+        content.push('\n')
     }
     return content;
 }
@@ -73,50 +77,76 @@ function parseCookies(data) {
 function parseADA(data) {
     let content = []
     content.push({
-        text: "Ada Compliances",
+        text: "\nAda Compliances",
         style: "header"
     })
     if (data) {
         content.push({
-            text: "Label Violations",
+            text: "Label Violations:",
             style: "header2"
         })
-        data['labels'].forEach(element => {
+        if (data['labels'].length !== 0) {
+            data['labels'].forEach(element => {
+                content.push({
+                    text: [
+                        { text: 'Element: ', fontSize: 12, bold: true },
+                        element["html"],
+                    ]
+                })
+            });
+        } else {
             content.push({
                 text: [
-                    { text: 'Element: ', fontSize: 12, bold: true },
-                    element["html"],
+                    { text: 'No label violations found', fontSize: 12, bold: true }
                 ]
             })
-        });
-        content.push({
-            text: "Interactive Elements Violations:",
-            style: "header3"
-        })
-        data['tab_Violations']['intViolations'].forEach(element => {
-            content.push({
-                text: [
-                    { text: 'Element: ', fontSize: 12, bold: true },
-                    element,
-                ]
-            })
-        });
-        content.push({
-            text: "Tab Index Violations:",
-            style: "header3"
-        })
-        data['tab_Violations']['tabIndexViolations'].forEach(element => {
-            content.push({
-                text: [
-                    { text: 'Element: ', fontSize: 12, bold: true },
-                    element,
-                ]
-            })
-        });
+        }
 
         content.push({
-            text: "Image alt-text Violations:",
-            style: "header3"
+            text: "\nInteractive Elements Violations:",
+            style: "header2"
+        })
+        if (data['tab_Violations']['intViolations'].length !== 0) {
+            data['tab_Violations']['intViolations'].forEach(element => {
+                content.push({
+                    text: [
+                        { text: 'Element: ', fontSize: 12, bold: true },
+                        element,
+                    ]
+                })
+            })
+        } else {
+            content.push({
+                text: [
+                    { text: 'No interactive violations found', fontSize: 12, bold: true }
+                ]
+            })
+        }
+
+        content.push({
+            text: "\nTab Index Violations:",
+            style: "header2"
+        })
+        if (data['tab_Violations']['tabIndexViolations'].length !== 0) {
+            data['tab_Violations']['tabIndexViolations'].forEach(element => {
+                content.push({
+                    text: [
+                        { text: 'Element: ', fontSize: 12, bold: true },
+                        element,
+                    ]
+                })
+            })
+        } else {
+            content.push({
+                text: [
+                    { text: 'No tab index violations found', fontSize: 12, bold: true }
+                ]
+            })
+        };
+
+        content.push({
+            text: "\nImage alt-text Violations:",
+            style: "header2"
         })
         content.push({
             text: [
@@ -127,7 +157,7 @@ function parseADA(data) {
         content.push({
             text: [
                 { text: 'Total Violations: ', fontSize: 12, bold: true },
-                data['altImageText']['score'],
+                data['altImageText']['totalimg'] - data['altImageText']['score'],
             ]
         })
         data['altImageText']['ViolatedTags'].forEach(element => {
@@ -140,108 +170,159 @@ function parseADA(data) {
         });
 
         content.push({
-            text: "Header Violations:",
-            style: "header3"
+            text: "\nHeader Violations:",
+            style: "header2"
         })
         let violations1 = []
         let violations2 = []
         let violations3 = []
-        data['headers'].forEach((el,i)=>{
-            if(el['type'] == 1){
+        data['headers'].forEach((el, i) => {
+            if (el['type'] == 1) {
                 violations1.push({
-                    text:[
-                        { text:"Violation: ", fontSize: 12, bold: true },
+                    text: [
+                        { text: "Violation: ", fontSize: 12, bold: true },
                         `${el['Error']} instead the page started with ${el['level'][0]}`
                     ]
                 })
                 violations1.push(`Element: ${el['html']}`)
-            }else if(el['type'] == 2){
+            } else if (el['type'] == 2) {
                 violations2.push({
-                    text:[
-                        { text:"Violation: ", fontSize: 12, bold: true },
+                    text: [
+                        { text: "Violation: ", fontSize: 12, bold: true },
                         `${el['Error']} at ${el['level'][0]} and ${el['level'][1]}`
                     ]
                 })
                 violations2.push(`Element: ${el['html']}`)
-                violations2.push(`Element prev: ${el['htmlprv']}`)
-            }else{
+                violations2.push(`Previous Element: ${el['htmlprv']}`)
+            } else {
                 violations3.push({
-                    text:[
-                        { text:"Violation: ", fontSize: 12, bold: true },
+                    text: [
+                        { text: "Violation: ", fontSize: 12, bold: true },
                         `${el['Error']} at ${el['level'][0]} and ${el['level'][1]}`
                     ]
                 })
                 violations3.push(`Element: ${el['html']}`)
-                violations3.push(`Element prev: ${el['htmlprv']}`)
+                violations3.push(`Previous Element: ${el['htmlprv']}`)
             }
         })
         content.push({
             text: "H1 Not present:",
             style: "header3"
         })
-        content = [...content,...violations1]
+        if (violations1.length !== 0) {
+            content = [...content, ...violations1]
+        } else {
+            content.push({
+                text: [
+                    { text: 'No violations found', fontSize: 12, bold: true }
+                ]
+            })
+        }
         content.push({
-            text: "Repetitive Heading Violations:",
+            text: "\nRepeatative Heading Violations:",
             style: "header3"
         })
-        content = [...content,...violations2]
+        if (violations2.length !== 0) {
+            content = [...content, ...violations2]
+        } else {
+            content.push({
+                text: [
+                    { text: 'No violations found', fontSize: 12, bold: true }
+                ]
+            })
+        }
         content.push({
-            text: "Repetitive Heading Violations:",
+            text: "\nNon Consectutive Heading Tag Violations:",
             style: "header3"
         })
-        content = [...content,...violations3]
+        if (violations3.length !== 0) {
+            content = [...content, ...violations3]
+        } else {
+            content.push({
+                text: [
+                    { text: 'No violations found', fontSize: 12, bold: true }
+                ]
+            })
+        }
 
         content.push({
-            text: "Non Consectutive Heading Tag Violations:",
-            style: "header3"
+            text: "\nContrast Violations:",
+            style: "header2"
         })
         data['contrast'].forEach((element, i) => {
             content.push(
-                { text: `Violation-${i}: `, fontSize: 12, bold: true },
+                { text: `Violation-${i}: `, style: "header3" },
             )
             let text = [
-                {text:[{ text: 'Text: ', fontSize: 12, bold: true },
-                element['innerHTML']]},
-                { text:[{text: 'Background: ', fontSize: 12, bold: true },
-                element['outerHTML']]},
-                {text:[{ text: 'Text Color: ', fontSize: 12, bold: true },
-                rgba2hex(`rgba("${element['Text Color']['red']},${element['Text Color']['green']},${element['Text Color']['blue']},${element['Text Color']['alpha']}")`)]},
-                {text:[{ text: 'Background Color: ', fontSize: 12, bold: true },
-                rgba2hex(`rgba("${element['Background Color']['red']},${element['Background Color']['green']},${element['Background Color']['blue']},${element['Background Color']['alpha']}")`)]},
-                {text:[{ text: 'Contrast Ratio: ', fontSize: 12, bold: true },
-                element['Contrast Ratio']]},
-                {text:[{ text: 'AA Compliance: ', fontSize: 12, bold: true },
-                element['AA Compliance']]},
-                {text:[{ text: 'AAA Compliance: ', fontSize: 12, bold: true },
-                element['AAA Compliance']]},
-                {text:[{ text: 'AA Suggestions: ', fontSize: 12, bold: true },
+                {
+                    text: [{ text: 'Text: ', fontSize: 12, bold: true },
+                    element['innerHTML']]
+                },
+                {
+                    text: [{ text: 'Background: ', fontSize: 12, bold: true },
+                    element['outerHTML']]
+                },
+                {
+                    text: [{ text: 'Text Color: ', fontSize: 12, bold: true },
+                    "#" + rgba2hex(`rgba(${element['Text Color']['red']},${element['Text Color']['green']},${element['Text Color']['blue']},${element['Text Color']['alpha']})`)]
+                },
+                {
+                    text: [{ text: 'Background Color: ', fontSize: 12, bold: true },
+                    "#" + rgba2hex(`rgba(${element['Background Color']['red']},${element['Background Color']['green']},${element['Background Color']['blue']},${element['Background Color']['alpha']})`)]
+                },
+                {
+                    text: [{ text: 'Contrast Ratio: ', fontSize: 12, bold: true },
+                    element['Contrast Ratio']]
+                },
+                {
+                    text: [{ text: 'AA Compliance: ', fontSize: 12, bold: true },
+                    element['AA Compliance']]
+                },
+                {
+                    text: [{ text: 'AAA Compliance: ', fontSize: 12, bold: true },
+                    element['AAA Compliance']]
+                },
+                {
+                    text: { text: 'AA Suggestions: ', fontSize: 12, bold: true }
+                },
                 (element['AA Suggestions']['fg']) ? {
                     ul: [
                         {
                             text: [
                                 { text: 'Text Color: ', fontSize: 12, bold: true },
                                 element['AA Suggestions']['fg'],
+                            ]
+                        },
+                        {
+                            text: [
                                 { text: 'Background Color: ', fontSize: 12, bold: true },
                                 element['AA Suggestions']['bg'],
                             ]
                         }
                     ]
-                } : element['AA Suggestions']]},
-                {text:[{ text: 'AAA Suggestions: ', fontSize: 12, bold: true },
+                } : element['AA Suggestions'],
+                {
+                    text: { text: 'AAA Suggestions: ', fontSize: 12, bold: true }
+                },
                 (element['AAA Suggestions']['fg']) ? {
                     ul: [
                         {
                             text: [
                                 { text: 'Text Color: ', fontSize: 12, bold: true },
                                 element['AAA Suggestions']['fg'],
+                            ]
+                        },
+                        {
+                            text: [
                                 { text: 'Background Color: ', fontSize: 12, bold: true },
                                 element['AAA Suggestions']['bg'],
                             ]
                         }
                     ]
-                } : element['AAA Suggestions']]},
+                } : element['AAA Suggestions'],
+                '\n'
             ]
-            content = [...content,...text]
+            content = [...content, ...text]
         });
     }
     return content;
@@ -256,50 +337,52 @@ function parseSSL(data) {
     if (data) {
         content.push({
             text: [
-                { text: 'Name:', fontSize: 12, bold: true },
+                { text: 'Name: ', fontSize: 12, bold: true },
                 data['_subjectName'],
             ]
         })
         content.push({
             text: [
-                { text: 'Issuer', fontSize: 12, bold: true },
+                { text: 'Issuer: ', fontSize: 12, bold: true },
                 data['_issuer'],
             ]
         })
         content.push({
             text: [
-                { text: 'ValidFrom:', fontSize: 12, bold: true },
-                data['_validFrom'],
+                { text: 'ValidFrom: ', fontSize: 12, bold: true },
+                moment(new Date(data._validFrom * 1000)).format('MMMM Do YYYY, h:mm:ss a'),
             ]
         })
         content.push({
             text: [
-                { text: 'ValidTo:', fontSize: 12, bold: true },
-                data['_validTo'],
+                { text: 'ValidTill: ', fontSize: 12, bold: true },
+                moment(new Date(data._validTo * 1000)).format('MMMM Do YYYY, h:mm:ss a'),
             ]
         })
         content.push({
             text: [
-                { text: 'Protocol:', fontSize: 12, bold: true },
+                { text: 'Protocol: ', fontSize: 12, bold: true },
                 data['_protocol'],
             ]
         })
+        content.push('\n')
     } else {
         content.push({
-            text: "❌ Website is not secure!",
+            text: "Website is not secure!",
             style: "header2"
         })
+        content.push('\n')
     }
     return content
 }
 
 function generateDefinition(data) {
-    let sc = (parseSSL(data.securityDetails))
-    let ac = (parseADA(data.adaCompliance))
-    let cc = (parseCookies(data.cookieDetails))
+    let sc = (data.securityDetails) ? (parseSSL(data.securityDetails)) : []
+    let ac = (data.adaCompliance) ? (parseADA(data.adaCompliance)) : []
+    let cc = (data.cookieDetails) ? (parseCookies(data.cookieDetails)) : []
     let totalContent = []
     totalContent = [...sc, ...cc, ...ac];
-    let defination = {
+    let definition = {
         content: totalContent,
         styles: {
             header: {
@@ -319,7 +402,7 @@ function generateDefinition(data) {
             }
         }
     }
-    return defination
+    return definition
 }
 
 module.exports = generateDefinition;
