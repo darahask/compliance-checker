@@ -63,8 +63,8 @@ module.exports = instance = async (host) => {
       }
     }
     return {
-      "totalimg": data.length, // total images present
-      "score": score,         // Number of images with alternative text
+      "totalimg": (ViolatedTags.length + score), // total images present
+      "score": ViolatedTags.length,         // Number of images with alternative text
       "ViolatedTags": ViolatedTags // Images with no alternative text
     }
   })

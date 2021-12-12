@@ -1,3 +1,4 @@
+const suggestionColor = 'blue', errorColor = 'red', positiveColor = 'green'
 function sanitizer() {
     document.getElementById("home-search-url").addEventListener('keyup', (event) => {
         if (event.target.value === '') {

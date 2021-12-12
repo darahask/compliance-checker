@@ -2,35 +2,39 @@ let loadADA = (data, url) => {
     let HTML = `<div class="m-2"><h1>🌈 ADA Compliance details for <a href="http://${url}">${url}</a></h1></div>`
     if (data) {
         HTML += `<center><div class="btn-group m-4" role="group" aria-label="Basic checkbox toggle button group">
-                <input type="checkbox" class="btn-check" checked id="btncheck1" autocomplete="off">
+                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
                 <label class="btn btn-outline-primary" for="btncheck1">Alt Image Text</label>
             
-                <input type="checkbox" class="btn-check" checked id="btncheck2" autocomplete="off">
+                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
                 <label class="btn btn-outline-secondary" for="btncheck2">Label violation</label>
             
-                <input type="checkbox" class="btn-check" checked id="btncheck3" autocomplete="off">
+                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
                 <label class="btn btn-outline-warning" for="btncheck3">Headers Violation</label>`
 
         if (data.contrast) {
-            HTML += `<input type="checkbox" class="btn-check" checked id="btncheck4" autocomplete="off">
+            HTML += `<input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
                 <label class="btn btn-outline-info" for="btncheck4">Contrast Violation</label>`
         }
 
-        HTML += `<input type="checkbox" class="btn-check" checked id="btncheck5" autocomplete="off">
+        HTML += `<input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
                 <label class="btn btn-outline-danger" for="btncheck5">Tab Violations</label>
             </div></center>`
 
-        HTML += `<div id="image-compliance">`
+        HTML += `<div id="image-compliance" hidden>`
         let imageInfo = '';
         data.altImageText.ViolatedTags.forEach((el, i) => {
             imageInfo += `<div class="m-2">
-            <p style="color:red"><b>Image alt text violation</b></p>
+            <p style="color:${errorColor}"><b>Image alt text violation</b></p>
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labelhtml${i}">${el.trim()}</textarea>
         </div>`
         })
+        if(data.altImageText.score===0)
+        {
+            imageInfo +=  `<p style="color:${positiveColor}"><b>No image without alternative text found.</b></p>`
+        }
         imageInfo += `
         <ul>
-            <li style="color:green"><b>Suggestion: Provide alt text to the images</b></li>
+            <li style="color:${suggestionColor}"><b>Suggestion: Provide alt text to the images</b></li>
         </ul>
     `
         HTML +=
@@ -39,7 +43,14 @@ let loadADA = (data, url) => {
                 <h2 class="accordion-header" id="flush-headingOneImage">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneImage" aria-expanded="false" aria-controls="flush-collapseOneImage">
                 <p>Total number of images present in the website are ${data.altImageText.totalimg} <br>
-                <span>Number of images which does not have alt-text are ${data.altImageText.totalimg - data.altImageText.score}</span></p>
+                `
+        if(data.altImageText.score){
+            HTML += `<span>Number of images which do not have alt-text are <strong style="color:${errorColor}">${data.altImageText.score}</strong></span></p>`
+        }else{
+            HTML += `<span>Number of images which do not have alt-text are <strong style="color:${positiveColor}">${data.altImageText.score}</strong></span></p>`
+        }
+        HTML+=`
+                
                 </button>
                 </h2>
                 <div id="flush-collapseOneImage" class="accordion-collapse collapse" aria-labelledby="flush-headingOneImage" data-bs-parent="#accordionImage">
@@ -56,40 +67,47 @@ let loadADA = (data, url) => {
         let violations = ''
         data.tab_Violations.intViolations.forEach((el, i) => {
             violations += `<div class="m-2">
-            <p style="color:red"><b>Interactive element violation</b></p>
+            <p style="color:${errorColor}"><b>Interactive element violation</b></p>
             <label for="labeltab${i}"></label>
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labeltab${i}">${el.trim()}</textarea>
         </div>`
         })
-        violations += `<ul>
-                    <li style="color:green"><b>Suggestion: All inerative elements should be tab focusable</b></li>
-                </ul>`
+        if(data.tab_Violations.tabIndexViolations.length===0)
+        {
+            violations +=  `<p style="color:${positiveColor}"><b>No tabIndex with value > 0 </b></p>`
+        }
+        if(data.tab_Violations.intViolations.length===0)
+        {
+            violations +=  `<p style="color:${positiveColor}"><b>All interactive elements are tab focusable</b></p>`
+        }
+
+        violations += `
+                    <p style="color:${suggestionColor}"><b>Suggestion: All interactive elements should be tab focusable</b></p>
+                   `
         data.tab_Violations.tabIndexViolations.forEach((el, i) => {
             violations += `<div class="m-2">
-            <p style="color:red"><b>Tab Index violation</b></p>
+            <p style="color:${errorColor}"><b>Tab Index violation</b></p>
             <label for="labeltab${i}"></label>
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labeltab${i}">${el.trim()}</textarea>
         </div>`
         })
-        violations += `<hr><ul>
-                <li style="color:green"><b>Suggestion: The tab index must be either O or -1</b></li>
-            </ul>`
-        HTML += `<div class="accordion accordion-flush border border-dark m-2" id="accordionTab">
+        violations += `<p style="color:${suggestionColor}"><b>Suggestion: The tab index must be either 0 or -1</b></p>`
+        HTML += `<div class="accordion accordion-flush border border-dark m-2" id="accordionTab" hidden>
                 <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOneTab">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseOneTab" aria-expanded="false" aria-controls="flush-collapseOneTab">
-                   <p> Tab-Index Violations:`
+                   <p> Tab-Index Violations: `
         if(data.tab_Violations.tabIndexViolations.length){
-            HTML += `<b style={color:"red"}>${data.tab_Violations.tabIndexViolations.length}</b>`
+            HTML += `<strong style="color:${errorColor}">${data.tab_Violations.tabIndexViolations.length}</strong>`
         }else{
-            HTML += `<b style={color:"green"}>${data.tab_Violations.tabIndexViolations.length}</b>`
+            HTML += `<strong style="color:${positiveColor}">${data.tab_Violations.tabIndexViolations.length}</strong>`
         }
-        HTML += `</br><span>InterativeElements Violations:`
+        HTML += `</br><span>InterativeElements Violations: `
         if(data.tab_Violations.intViolations.length){
-            HTML += `<b style={color:"red"}>${data.tab_Violations.intViolations.length}</b></span>`
+            HTML += `<strong style="color:${errorColor}">${data.tab_Violations.intViolations.length}</strong></span></p>`
         }else{
-            HTML += `<b style={color:"green"}>${data.tab_Violations.intViolations.length}</b></span></p>`
+            HTML += `<strong style="color:${positiveColor}">${data.tab_Violations.intViolations.length}</strong></span></p>`
         }
         HTML +=  `</button>
                 </h2>
@@ -106,29 +124,40 @@ let loadADA = (data, url) => {
         let labelInfo = '';
         data.labels.forEach((el, i) => {
             labelInfo += `<div class="m-2">
-            <p style="color:red"><b>ID of the input tag: ${el.ID}</b></p>
+            <p style="color:${errorColor}"><b>ID of the input tag: ${el.ID}</b></p>
             <label for="labelhtml${i}"></label>
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labelhtml${i}">${el.html.trim()}</textarea>
         </div>`
         })
+        if(data.labels.length===0)
+        {
+            labelInfo +=  `<p style="color:${positiveColor}"><b>No input found without label.</b></p>`
+        }
         HTML +=
-            `   <div class="accordion accordion-flush border border-dark m-2" id="accordionLabel">
+            `   <div class="accordion accordion-flush border border-dark m-2" id="accordionLabel" hidden>
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOneLabel">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneLabel" aria-expanded="false" aria-controls="flush-collapseOneLabel">
-                Inputs which do not have labels🏷 are ${data.labels.length}
+
+                Inputs which do not have labels are: `
+                if(data.labels.length){
+                    HTML += `<strong style="color:${errorColor}">${data.labels.length}</strong>`
+                }else{
+                    HTML += `<strong style="color:${positiveColor}">${data.labels.length}</strong>`
+                }
+        HTML+= `
                 </button>
                 </h2>
                 <div id="flush-collapseOneLabel" class="accordion-collapse collapse" aria-labelledby="flush-headingOneLabel" data-bs-parent="#accordionLabel">
                 <div class="accordion-body">
                     ${labelInfo}
-                    <strong style="color:green">Suggestion: Every Input should have respective labels </strong>
+                    <strong style="color:${suggestionColor}">Suggestion: Every Input should have respective labels </strong>
                 </div>
             </div>
             </div>
             </div>
             `
-        HTML += "<div id='headers-compliance' class='border border-dark m-2'>"
+        HTML += "<div id='headers-compliance' hidden class='border border-dark m-2'>"
         let repeatHeader = '';
         let nonConsecutiveHeader = '';
         data.headers.forEach((el, i) => {
@@ -145,12 +174,12 @@ let loadADA = (data, url) => {
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                     <ul>
-                    <li style="color:red">${el.Error + " instead it started with H" + el.level[0]}</li>
+                    <li style="color:${errorColor}">${el.Error + " instead it started with H" + el.level[0]}</li>
                     </ul> 
                     Detail:
                     <div class="form-floating">
                     <textarea readonly class="form-control" placeholder="Leave a comment here" id="floatingTextarea">${el.html}</textarea>
-                    <strong style="color:green">Suggestion: Heading should start with H1 </strong>
+                    <strong style="color:${suggestionColor}">Suggestion: Heading should start with H1 </strong>
                     <label for="floatingTextarea"></label>
                     </div>
                    </div>
@@ -160,7 +189,7 @@ let loadADA = (data, url) => {
             `
             } else if (el.type === "2") {
                 repeatHeader += `<ul>
-                            <li style="color:red"><strong>${el.Error + " at H" + el.level[0] + " at H" + el.level[1]}</strong></li>
+                            <li style="color:${errorColor}"><strong>${el.Error + " at H" + el.level[0] + " at H" + el.level[1]}</strong></li>
                             </ul> 
                             <div class="form-floating">
                             ${"H" + el.level[0] + ": Details"}
@@ -178,7 +207,7 @@ let loadADA = (data, url) => {
 
             } else if (el.type === "3") {
                 nonConsecutiveHeader += `<ul>
-            <li style="color:red"><strong>${el.Error + " at H" + el.level[0] + " at H" + el.level[1]}</strong></li>
+            <li style="color:${errorColor}"><strong>${el.Error + " at H" + el.level[0] + " at H" + el.level[1]}</strong></li>
             </ul> 
             <div class="form-floating">
             ${"H" + el.level[0] + ": Details"}
@@ -202,14 +231,14 @@ let loadADA = (data, url) => {
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingRepeat}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseRepeat" aria-expanded="false" aria-controls="flush-collapseRepeat">
-                    Repeatative Heading Violations
+                    Repetitive Heading Violations
                     </button>
                     </h2>
                     <div id="flush-collapseRepeat" class="accordion-collapse collapse" aria-labelledby="flush-headingRepeat" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                    ${(repeatHeader === '') ? "<p><b>No repeatative header violation</b></p>" : repeatHeader
+                    ${(repeatHeader === '') ? `<p style="color:${positiveColor}"><b>No repetitive header violation</b></p>` : repeatHeader
             }
-                    <strong style="color:green">Suggestion: To make heading more descriptive, starting of the each heading should be different. </strong>
+                    <strong style="color:${suggestionColor}">Suggestion: To make heading more descriptive, starting of the each heading should be different. </strong>
                     </div>
                 </div>
                 </div>
@@ -226,9 +255,9 @@ let loadADA = (data, url) => {
             </h2>
             <div id="flush-collapseCon" class="accordion-collapse collapse" aria-labelledby="flush-headingCon" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-            ${(nonConsecutiveHeader === '') ? "<p><b>No consecutive error violation</b></p>" : nonConsecutiveHeader
+            ${(nonConsecutiveHeader === '') ? `<p style="color:${positiveColor}"><b>No consecutive error violation</b></p>` : nonConsecutiveHeader
             }
-            <strong style="color:green">Suggestion: In order for HTML page to be organized, at any two consecutive levels, heading tag should be consecutive.</strong>
+            <strong style="color:${suggestionColor}">Suggestion: In order for HTML page to be organized, at any two consecutive levels, heading tag should be consecutive.</strong>
             </div>
         </div>
         </div>
@@ -237,7 +266,7 @@ let loadADA = (data, url) => {
         HTML += "</div>"
 
         if (data.contrast) {
-            HTML += "<div id='contrast-compliance' class='border border-dark m-2'>"
+            HTML += "<div id='contrast-compliance' hidden class='border border-dark m-2'>"
             data.contrast.forEach(element => {
                 HTML += `<div class="m-2 border border-dark rounded-3">
                     <div class="row m-2">
@@ -269,7 +298,7 @@ let loadADA = (data, url) => {
                     </div>
                     </div>
                     <div class="row m-2 border-2 border-top">
-                    <p class="ms-2" style="color:green"><b>Suggestions:</b></p>
+                    <p class="ms-2" style="color:${suggestionColor}"><b>Suggestions:</b></p>
                     ${(element['AA Suggestions']['bg']) ? `<div class="col">
                         <div class="row">
                         <div class="col">
@@ -307,7 +336,7 @@ let loadADA = (data, url) => {
         }
 
     }else{
-        HTML += `<h2 style="color:red"><b>Could not get the ADA compliance for this site, please refer back later.</b></h2>`
+        HTML += `<h2 style="color:${errorColor}"><b>Could not get the ADA compliance for this site, please refer back later.</b></h2>`
     }
 
     document.getElementById('compliance-data').innerHTML = HTML;
@@ -315,40 +344,50 @@ let loadADA = (data, url) => {
     if(data){
         document.getElementById("btncheck1").addEventListener('change', (event) => {
             if (event.target.checked) {
-                $("#image-compliance").show();
+                // $("#image-compliance").show();
+                document.getElementById("image-compliance").hidden = false
             } else {
-                $("#image-compliance").hide();
+                document.getElementById("image-compliance").hidden = true
+                // $("#image-compliance").hide();
             }
         })
         document.getElementById("btncheck2").addEventListener('change', (event) => {
             if (event.target.checked) {
-                $("#accordionLabel").show()
+                document.getElementById("accordionLabel").hidden = false
+                // $("#accordionLabel").show()
             } else {
-                $("#accordionLabel").hide()
+                document.getElementById("accordionLabel").hidden = true
+                // $("#accordionLabel").hide()
             }
         })
         document.getElementById("btncheck3").addEventListener('change', (event) => {
             if (event.target.checked) {
-                $("#headers-compliance").show()
+                document.getElementById("headers-compliance").hidden = false
+                // $("#headers-compliance").show()
             } else {
-                $("#headers-compliance").hide()
+                document.getElementById("headers-compliance").hidden = true
+                // $("#headers-compliance").hide()
             }
         })
 
         if (data.contrast) {
             document.getElementById("btncheck4").addEventListener('change', (event) => {
                 if (event.target.checked) {
-                    $("#contrast-compliance").show()
+                document.getElementById("contrast-compliance").hidden = false
+                // $("#contrast-compliance").show()
                 } else {
-                    $("#contrast-compliance").hide()
+                document.getElementById("contrast-compliance").hidden = true
+                // $("#contrast-compliance").hide()
                 }
             })
         }
         document.getElementById("btncheck5").addEventListener('change', (event) => {
             if (event.target.checked) {
-                $("#accordionTab").show()
+                document.getElementById("accordionTab").hidden = false
+                // $("#accordionTab").show()
             } else {
-                $("#accordionTab").hide()
+                document.getElementById("accordionTab").hidden = true
+                // $("#accordionTab").hide()
             }
         })
     }

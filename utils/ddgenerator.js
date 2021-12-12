@@ -181,12 +181,12 @@ function parseADA(data) {
         })
         content = [...content,...violations1]
         content.push({
-            text: "Repeatative Heading Violations:",
+            text: "Repetitive Heading Violations:",
             style: "header3"
         })
         content = [...content,...violations2]
         content.push({
-            text: "Repeatative Heading Violations:",
+            text: "Repetitive Heading Violations:",
             style: "header3"
         })
         content = [...content,...violations3]
