@@ -9,7 +9,7 @@ const createPdf = require('./utils/generatePDF');
 var PORT = process.env.PORT || 3333
 
 app.use(cors())
-app.use(express.json({extended:true}));
+app.use(express.json({extended:true,limit:"100mb"}));
 app.use(express.static("public"));
 
 app.get('/', (req,res)=>{

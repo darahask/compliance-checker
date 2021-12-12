@@ -31,10 +31,10 @@ function parseCookies(data) {
     if (data) {
         content.push((data.cookieConsent) ? (`Page has cookie consent`) : (`Page does not have cookie consent`))
         content.push((data.cookieManagement) ? (`Page has cookie management`) : (`Page does not have cookie management`))
-        content.push((data.cookieDetailPage !== "") ? `Details about the cookies used in this site can be found at - ${data.cookieDetailPage}` : `No Cookie Detail page`)
+        content.push((data.cookieDetailPage !== "") ? `Details about the cookies used in this site can be found at - \n${data.cookieDetailPage}` : `No Cookie Detail page`)
         data.cookieInfo.cookies.forEach((element, i) => {
             content.push(
-                { text: `Cookie-${i}: `, style: "header3" },
+                { text: `\nCookie-${i}: `, style: "header3" },
             )
             let text = [
                 {
@@ -80,19 +80,27 @@ function parseADA(data) {
         text: "\nAda Compliances",
         style: "header"
     })
+    //labels
     if (data) {
         content.push({
             text: "Label Violations:",
             style: "header2"
         })
         if (data['labels'].length !== 0) {
+            content.push({
+                text: [
+                    { text: 'Number of Label violations: ', fontSize: 12, bold: true },
+                    data['labels'].length,
+                ]
+            })
             data['labels'].forEach(element => {
                 content.push({
                     text: [
                         { text: 'Element: ', fontSize: 12, bold: true },
-                        element["html"],
+                        element["html"].replace(/\n/g, "").replace(/\s\s+/g, " "),
                     ]
                 })
+                content.push('\n')
             });
         } else {
             content.push({
@@ -102,18 +110,26 @@ function parseADA(data) {
             })
         }
 
+        //int elements
         content.push({
             text: "\nInteractive Elements Violations:",
             style: "header2"
         })
         if (data['tab_Violations']['intViolations'].length !== 0) {
+            content.push({
+                text: [
+                    { text: 'Number of interactive elements violations: ', fontSize: 12, bold: true },
+                    data['tab_Violations']['intViolations'].length,
+                ]
+            })
             data['tab_Violations']['intViolations'].forEach(element => {
                 content.push({
                     text: [
                         { text: 'Element: ', fontSize: 12, bold: true },
-                        element,
+                        element.replace(/\n/g, "").replace(/\s\s+/g, " "),
                     ]
                 })
+                content.push('\n')
             })
         } else {
             content.push({
@@ -123,18 +139,26 @@ function parseADA(data) {
             })
         }
 
+        //tab index
         content.push({
             text: "\nTab Index Violations:",
             style: "header2"
         })
         if (data['tab_Violations']['tabIndexViolations'].length !== 0) {
+            content.push({
+                text: [
+                    { text: 'Number of tab index violations: ', fontSize: 12, bold: true },
+                    data['tab_Violations']['intViolations'].length,
+                ]
+            })
             data['tab_Violations']['tabIndexViolations'].forEach(element => {
                 content.push({
                     text: [
                         { text: 'Element: ', fontSize: 12, bold: true },
-                        element,
+                        element.replace(/\n/g, "").replace(/\s\s+/g, " "),
                     ]
                 })
+                content.push('\n')
             })
         } else {
             content.push({
@@ -144,6 +168,7 @@ function parseADA(data) {
             })
         };
 
+        //alt images
         content.push({
             text: "\nImage alt-text Violations:",
             style: "header2"
@@ -164,11 +189,13 @@ function parseADA(data) {
             content.push({
                 text: [
                     { text: 'Element: ', fontSize: 12, bold: true },
-                    element,
+                    element.replace(/\n/g, "").replace(/\s\s+/g, " "),
                 ]
             })
+            content.push('\n')
         });
 
+        //header violations
         content.push({
             text: "\nHeader Violations:",
             style: "header2"
@@ -180,29 +207,54 @@ function parseADA(data) {
             if (el['type'] == 1) {
                 violations1.push({
                     text: [
-                        { text: "Violation: ", fontSize: 12, bold: true },
-                        `${el['Error']} instead the page started with ${el['level'][0]}`
+                        { text: `Violation: ${el['Error']} instead the page started with ${el['level'][0]}`, fontSize: 12, bold: true },
                     ]
                 })
-                violations1.push(`Element: ${el['html']}`)
+                violations1.push({
+                    text: [
+                        { text: `Element: `, fontSize: 12, bold: true },
+                        `${el['html'].replace(/\n/g, "").replace(/\s\s+/g, " ")}`
+                    ]
+                })
             } else if (el['type'] == 2) {
                 violations2.push({
                     text: [
-                        { text: "Violation: ", fontSize: 12, bold: true },
-                        `${el['Error']} at ${el['level'][0]} and ${el['level'][1]}`
+                        { text: `Violation: ${el['Error']} at ${el['level'][0]} and ${el['level'][1]}`, fontSize: 12, bold: true },
+
                     ]
                 })
-                violations2.push(`Element: ${el['html']}`)
-                violations2.push(`Previous Element: ${el['htmlprv']}`)
+                violations2.push({
+                    text: [
+                        { text: `Element: `, fontSize: 12, bold: true },
+                        `${el['html'].replace(/\n/g, "").replace(/\s\s+/g, " ")}`
+                    ]
+                })
+                violations2.push({
+                    text: [
+                        { text: `Previous Element: `, fontSize: 12, bold: true },
+                        `${el['htmlprv'].replace(/\n/g, "").replace(/\s\s+/g, " ")}\n`
+                    ]
+                })
+                violations2.push('\n')
             } else {
                 violations3.push({
                     text: [
-                        { text: "Violation: ", fontSize: 12, bold: true },
-                        `${el['Error']} at ${el['level'][0]} and ${el['level'][1]}`
+                        { text: `Violation: ${el['Error']} at ${el['level'][0]} and ${el['level'][1]}`, fontSize: 12, bold: true },
                     ]
                 })
-                violations3.push(`Element: ${el['html']}`)
-                violations3.push(`Previous Element: ${el['htmlprv']}`)
+                violations3.push({
+                    text: [
+                        { text: `Element: `, fontSize: 12, bold: true },
+                        `${el['html'].replace(/\n/g, "").replace(/\s\s+/g, " ")}`
+                    ]
+                })
+                violations3.push({
+                    text: [
+                        { text: `Previous Element: `, fontSize: 12, bold: true },
+                        `${el['htmlprv'].replace(/\n/g, "").replace(/\s\s+/g, " ")}\n`
+                    ]
+                })
+                violations3.push('\n')
             }
         })
         content.push({
@@ -245,6 +297,7 @@ function parseADA(data) {
             })
         }
 
+        //contrast
         content.push({
             text: "\nContrast Violations:",
             style: "header2"
@@ -256,11 +309,11 @@ function parseADA(data) {
             let text = [
                 {
                     text: [{ text: 'Text: ', fontSize: 12, bold: true },
-                    element['innerHTML']]
+                    element['innerHTML'].replace(/\n/g, "").replace(/\s\s+/g, " ")]
                 },
                 {
                     text: [{ text: 'Background: ', fontSize: 12, bold: true },
-                    element['outerHTML']]
+                    element['outerHTML'].replace(/\n/g, "").replace(/\s\s+/g, " ")]
                 },
                 {
                     text: [{ text: 'Text Color: ', fontSize: 12, bold: true },
@@ -381,7 +434,15 @@ function generateDefinition(data) {
     let ac = (data.adaCompliance) ? (parseADA(data.adaCompliance)) : []
     let cc = (data.cookieDetails) ? (parseCookies(data.cookieDetails)) : []
     let totalContent = []
-    totalContent = [...sc, ...cc, ...ac];
+    totalContent = [{
+        text: 'Compliance Report\n\n',
+        style: 'headerl',
+        alignment: 'center'
+    }, ...sc, ...cc, ...ac, {
+        text: '\n\n---- END OF THE REPORT ----',
+        style: 'header',
+        alignment: 'center'
+    },];
     let definition = {
         content: totalContent,
         styles: {
@@ -397,6 +458,11 @@ function generateDefinition(data) {
             },
             header3: {
                 fontSize: 14,
+                bold: true,
+                alignment: 'justify'
+            },
+            headerl:{
+                fontSize: 24,
                 bold: true,
                 alignment: 'justify'
             }
