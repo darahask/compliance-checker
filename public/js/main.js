@@ -88,6 +88,7 @@ document.getElementById("report").addEventListener("click", (ev) => {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         jsondata: serverresponse,
+        url
     }));
     xhr.responseType = "blob";
     xhr.onload = function (event) {
