@@ -1,3 +1,4 @@
 node_modules/
 .vscode
 /public/js/dummy.js
+test.*
