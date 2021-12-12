@@ -4,7 +4,7 @@ A tool that generates an adherence report of a website based on parameters such 
 
 We are proposing a tool, which would crawl the web and report the following measures:
 - SSL certificate compliance
-    - We will be using a library to identify the certificate and its expiry date along with that we will also be extracting all the URLs and verifying their SSL certificates as well.
+    - We will be using a library to identify the certificate and its expiry date along.
 - Cookie checker
     - We will be running scripts over web drivers to fetch all the cookies and compare them with your database to check their types and mention them in the report. For checking the cookie consent we will be parsing the web pages and looking for specific keywords present in the DOM. 
 - ADA compliance
@@ -42,6 +42,8 @@ As of now the tool performs the following features:
     - Heading Violation
     - Color contrast for the site as per w3.org guidelines.
     - Accessibility issues to check the site markup for tab index violations
+4. Selectivity of which feature to be checked
+5. Report is generated and can be downloaded
 
 
 Screenshots of Web Crawler in action
@@ -66,9 +68,14 @@ Screenshots of Web Crawler in action
 
 <img src="Screenshots/cookie.png" alt="cookie Page" width="800px"></img>
 
+---------------------------
+**Downloadable Report**
+
+<img src="Screenshots/report.png" alt="cookie Page" width="800px"></img>
+
 
 ## Tool info
-* Release version v1.0.0
+* Release version v2.0.0
 
 ## Libraries Used
 
@@ -85,7 +92,6 @@ Screenshots of Web Crawler in action
 
 ## Future Releases
 These features may be part of the next update.
-* Generating report in pdf format 
 * Display purpose of each cookie
 
 ## Maintainers
