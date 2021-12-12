@@ -2,6 +2,7 @@ console.log("JS File loaded")
 sanitizer()
 
 let serverresponse;
+let url = "";
 let callURL = "http://localhost:3333/api/"
 
 let homeForm = document.getElementById("home-search-compliance");
@@ -12,18 +13,22 @@ homeForm.addEventListener("submit", (event) => {
         document.getElementById("selection-alert").innerHTML = '<div class="alert alert-danger alert-dismissible" role="alert">Please select at least one parameter for report.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
     } else {
         let inputtext = document.getElementById('home-search-url').value;
-        let url = urlCleaner(inputtext);
+        url = urlCleaner(inputtext);
         console.log(url);
 
         document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
+
+        var sslRequested = document.getElementById("sslRequested").checked
+        var adaRequested =  document.getElementById("adaRequested").checked
+        var cookieRequested =  document.getElementById("cookieRequested").checked
 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", callURL + "compliance", true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({
-            ssl: document.getElementById("sslRequested").checked,
-            ada: document.getElementById("adaRequested").checked,
-            cookie: document.getElementById("cookieRequested").checked,
+            ssl: sslRequested,
+            ada: adaRequested,
+            cookie: cookieRequested,
             searchUrl: url
         }));
         xhr.onreadystatechange = () => {
@@ -48,17 +53,18 @@ homeForm.addEventListener("submit", (event) => {
                     loadcookie(response.data.cookieDetails, url)
                 });
 
-                document.getElementById("ssl").hidden = (response.data.securityDetails) ? (false) : (true)
-                document.getElementById("ada").hidden = (response.data.adaCompliance) ? (false) : (true)
-                document.getElementById("cookies").hidden = (response.data.cookieDetails) ? (false) : (true)
-
-                if (response.data.securityDetails) {
+                document.getElementById("ssl").hidden = (sslRequested) ? (false) : (true)
+                document.getElementById("ada").hidden = (adaRequested) ? (false) : (true)
+                document.getElementById("cookies").hidden = (cookieRequested) ? (false) : (true)
+                document.getElementById("report").hidden = false
+                
+                if (sslRequested) {
                     sslActive()
                     loadSSL(response.data.securityDetails, url)
-                } else if (response.data.adaCompliance) {
+                } else if (adaRequested) {
                     adaActive()
                     loadADA(response.data.adaCompliance, url)
-                } else if (response.data.cookieDetails) {
+                } else if (cookieRequested) {
                     cookiesActive()
                     loadcookie(response.data.cookieDetails, url)
                 }
@@ -89,7 +95,7 @@ document.getElementById("report").addEventListener("click", (ev) => {
         console.log(blob.size);
         var link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = "compliance-report-" + new Date().toString() + ".pdf";
+        link.download = "compliance-report-" + url + "-" + new Date().toDateString() + ".pdf";
         link.click();
     };
 })
