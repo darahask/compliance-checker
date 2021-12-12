@@ -27,7 +27,7 @@ module.exports = instance = async (host) => {
   const tabIndex_violaitons = await page.evaluate(() => {
     let interactive_content = ["a", "button", "details", "embed", "iframe", "keygen", "label", "select", "textarea"]
     var elements = []
-    var violations = { "intViolations": [], "tabIndexViolations": [] }
+    var violations = { "intViolations": [], "tabIndexViolations": [] , "debug" : []}
     var all = document.getElementsByTagName("*");
 
     for (var i = 0, max = all.length; i < max; i++) {
@@ -35,8 +35,10 @@ module.exports = instance = async (host) => {
     }
 
     for (var i in elements) {
-      if (interactive_content.includes(elements[i].tagName.toLowerCase()) && Number(elements[i].tabIndex) === -1) { // checking whether interactive element is focusable or not 
+      if (interactive_content.includes(elements[i].tagName.toLowerCase()) && Number(elements[i].tabIndex) == -1) { // checking whether interactive element is focusable or not 
         violations["intViolations"].push(elements[i].outerHTML)
+        violations["debug"].push(elements[i].tabIndex)
+        //violations["intViolations"].push(elements[i].tabIndex)
       }
       if (elements[i].tabIndex !== 0 && elements[i].tabIndex !== -1) { // checking for tab index 0 and -1
         violations["tabIndexViolations"].push(elements[i].outerHTML)
@@ -44,7 +46,7 @@ module.exports = instance = async (host) => {
     }
     return violations
   })
-
+console.log(tabIndex_violaitons);
 
 
   // Alternate text score calculation.
@@ -172,7 +174,7 @@ module.exports = instance = async (host) => {
   // Best practices: All input should have respective label
   const labels = await page.evaluate(() => {
     var allInput = document.getElementsByTagName("input");
-    var allLabel = document.getElementsByTagName("label, aria-label");
+    var allLabel = document.querySelectorAll("label, aria-label");
     var control_violation = []
     var dict = {}
     for (var i = 0, max = allLabel.length; i < max; i++) {

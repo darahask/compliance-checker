@@ -6,7 +6,7 @@ let loadADA = (data, url) => {
                 <label class="btn btn-outline-primary" for="btncheck1">Alt Image Text</label>
             
                 <input type="checkbox" class="btn-check" checked id="btncheck2" autocomplete="off">
-                <label class="btn btn-outline-success" for="btncheck2">Label violation</label>
+                <label class="btn btn-outline-secondary" for="btncheck2">Label violation</label>
             
                 <input type="checkbox" class="btn-check" checked id="btncheck3" autocomplete="off">
                 <label class="btn btn-outline-warning" for="btncheck3">Headers Violation</label>`
@@ -24,7 +24,7 @@ let loadADA = (data, url) => {
     let imageInfo = '';
     data.altImageText.ViolatedTags.forEach((el, i) => {
         imageInfo += `<div class="m-2">
-            <p><b>Image alt text violation</b></p>
+            <p style="color:red"><b>Image alt text violation</b></p>
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labelhtml${i}">${el.trim()}</textarea>
         </div>`
     })
@@ -38,8 +38,8 @@ let loadADA = (data, url) => {
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOneImage">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneImage" aria-expanded="false" aria-controls="flush-collapseOneImage">
-                Total number of images present in the website are ${data.altImageText.totalimg}<br>
-                Number of images which have alt-text are ${data.altImageText.score}
+                <p>Total number of images present in the website are ${data.altImageText.totalimg} <br>
+                <span>Number of images which does not have alt-text are ${data.altImageText.totalimg - data.altImageText.score}</span></p>
                 </button>
                 </h2>
                 <div id="flush-collapseOneImage" class="accordion-collapse collapse" aria-labelledby="flush-headingOneImage" data-bs-parent="#accordionImage">
@@ -56,7 +56,7 @@ let loadADA = (data, url) => {
     let violations = ''
     data.tab_Violations.intViolations.forEach((el, i) => {
         violations += `<div class="m-2">
-            <p><b>Interactive element violation</b></p>
+            <p style="color:red"><b>Interactive element violation</b></p>
             <label for="labeltab${i}"></label>
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labeltab${i}">${el.trim()}</textarea>
         </div>`
@@ -66,7 +66,7 @@ let loadADA = (data, url) => {
                 </ul>`
     data.tab_Violations.tabIndexViolations.forEach((el, i) => {
         violations += `<div class="m-2">
-            <p><b>Tab Index violation</b></p>
+            <p style="color:red"><b>Tab Index violation</b></p>
             <label for="labeltab${i}"></label>
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labeltab${i}">${el.trim()}</textarea>
         </div>`
@@ -96,7 +96,7 @@ let loadADA = (data, url) => {
     let labelInfo = '';
     data.labels.forEach((el, i) => {
         labelInfo += `<div class="m-2">
-            <p><b>ID of the input tag: ${el.ID}</b></p>
+            <p style="color:red"><b>ID of the input tag: ${el.ID}</b></p>
             <label for="labelhtml${i}"></label>
             <textarea readonly class="form-control" placeholder="Leave a comment here" id="labelhtml${i}">${el.html.trim()}</textarea>
         </div>`
@@ -112,6 +112,7 @@ let loadADA = (data, url) => {
                 <div id="flush-collapseOneLabel" class="accordion-collapse collapse" aria-labelledby="flush-headingOneLabel" data-bs-parent="#accordionLabel">
                 <div class="accordion-body">
                     ${labelInfo}
+                    <strong style="color:green">Suggestion: Every Input should have respective labels </strong>
                 </div>
             </div>
             </div>
@@ -134,7 +135,7 @@ let loadADA = (data, url) => {
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                     <ul>
-                    <li>${el.Error + " instead it started with H" + el.level[0]}</li>
+                    <li style="color:red">${el.Error + " instead it started with H" + el.level[0]}</li>
                     </ul> 
                     Detail:
                     <div class="form-floating">
@@ -149,7 +150,7 @@ let loadADA = (data, url) => {
             `
         } else if (el.type === "2") {
             repeatHeader += `<ul>
-                            <li><strong>${el.Error + " at H" + el.level[0] + " at H" + el.level[1]}</strong></li>
+                            <li style="color:red"><strong>${el.Error + " at H" + el.level[0] + " at H" + el.level[1]}</strong></li>
                             </ul> 
                             <div class="form-floating">
                             ${"H" + el.level[0] + ": Details"}
@@ -167,7 +168,7 @@ let loadADA = (data, url) => {
 
         } else if (el.type === "3") {
             nonConsecutiveHeader += `<ul>
-            <li><strong>${el.Error + " at H" + el.level[0] + " at H" + el.level[1]}</strong></li>
+            <li style="color:red"><strong>${el.Error + " at H" + el.level[0] + " at H" + el.level[1]}</strong></li>
             </ul> 
             <div class="form-floating">
             ${"H" + el.level[0] + ": Details"}
