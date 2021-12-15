@@ -255,7 +255,7 @@ let loadADA = (data, url) => {
             </h2>
             <div id="flush-collapseCon" class="accordion-collapse collapse" aria-labelledby="flush-headingCon" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-            ${(nonConsecutiveHeader === '') ? `<p style="color:${positiveColor}"><b>No consecutive error violation</b></p>` : nonConsecutiveHeader
+            ${(nonConsecutiveHeader === '') ? `<p style="color:${positiveColor}"><b>No consecutive header tag violation</b></p>` : nonConsecutiveHeader
             }
             <strong style="color:${suggestionColor}">Suggestion: In order for HTML page to be organized, at any two consecutive levels, heading tag should be consecutive.</strong>
             </div>
