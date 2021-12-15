@@ -6,6 +6,7 @@ let url = "";
 let callURL = "https://webcrawler-wcc.herokuapp.com/api/"
 
 let homeForm = document.getElementById("home-search-compliance");
+var sslRequested, adaRequested, cookieRequested
 
 homeForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -18,9 +19,9 @@ homeForm.addEventListener("submit", (event) => {
 
         document.getElementById("home-search").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`
 
-        var sslRequested = document.getElementById("sslRequested").checked
-        var adaRequested =  document.getElementById("adaRequested").checked
-        var cookieRequested =  document.getElementById("cookieRequested").checked
+        sslRequested = document.getElementById("sslRequested").checked
+        adaRequested =  document.getElementById("adaRequested").checked
+        cookieRequested =  document.getElementById("cookieRequested").checked
 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", callURL + "compliance", true);
@@ -31,6 +32,10 @@ homeForm.addEventListener("submit", (event) => {
             cookie: cookieRequested,
             searchUrl: url
         }));
+        console.log({ssl: sslRequested,
+            ada: adaRequested,
+            cookie: cookieRequested,
+            searchUrl: url});
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let response = JSON.parse(xhr.responseText)
@@ -87,9 +92,19 @@ document.getElementById("report").addEventListener("click", (ev) => {
     xhr.open("POST", callURL + "report", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
+        ssl: sslRequested,
+        ada: adaRequested,
+        cookie: cookieRequested,
         jsondata: serverresponse,
         url
     }));
+    console.log({
+        ssl: sslRequested,
+        ada: adaRequested,
+        cookie: cookieRequested,
+        jsondata: serverresponse,
+        url
+    });
     xhr.responseType = "blob";
     xhr.onload = function (event) {
         var blob = xhr.response;
