@@ -32,7 +32,7 @@ app.post('/api/compliance',async (req,res)=>{
 app.post('/api/report',async(req,res)=>{
     try{
         let data = req.body.jsondata;
-        let val = generateDefinition(data.data,req.body.url);
+        let val = generateDefinition(data.data,req.body.url, req.body.ssl, req.body.ada, req.body.cookie);
         let pdf = await createPdf(val)
         res.contentType('application/pdf').send(pdf)
     }catch(error){

@@ -3,7 +3,7 @@ sanitizer()
 
 let serverresponse;
 let url = "";
-let callURL = "https://webcrawler-wcc.herokuapp.com/api/"
+let callURL = "http://localhost:3333/api/"
 
 let homeForm = document.getElementById("home-search-compliance");
 var sslRequested, adaRequested, cookieRequested

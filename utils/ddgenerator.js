@@ -429,10 +429,10 @@ function parseSSL(data) {
     return content
 }
 
-function generateDefinition(data,url) {
-    let sc = (data.securityDetails) ? (parseSSL(data.securityDetails)) : []
-    let ac = (data.adaCompliance) ? (parseADA(data.adaCompliance)) : []
-    let cc = (data.cookieDetails) ? (parseCookies(data.cookieDetails)) : []
+function generateDefinition(data,url,ssl,ada,cookie) {
+    let sc = (ssl) ? (parseSSL(data.securityDetails)) : []
+    let ac = (ada) ? (parseADA(data.adaCompliance)) : []
+    let cc = (cookie) ? (parseCookies(data.cookieDetails)) : []
     let totalContent = []
     totalContent = [{
         text: `Compliance Report for ${url}\n\n`,
